@@ -1,10 +1,10 @@
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
-require 'nitro_sg/version'
+require 'nitro-styleguide/version'
 
 Gem::Specification.new do |s|
   s.name        = "nitro-styleguide"
-  s.version     = NitroSg::VERSION
+  s.version     = NitroStyleguide::VERSION
   s.authors     = ["Nitro Developers"]
   s.email       = ["dev@powerhrg.com"]
   s.homepage    = "http://nitro.powerhrg.com"

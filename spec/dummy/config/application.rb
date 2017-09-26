@@ -8,7 +8,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "nitro_sg"
+require "nitro-styleguide"
 
 module Dummy
   class Application < Rails::Application
