@@ -6,11 +6,11 @@ require "simple_form"
 require "will_paginate"
 require "will_paginate/bootstrap"
 
-require "nitro_sg/engine"
+require "nitro-styleguide/engine"
 
 
 
-module NitroSg
+module NitroStyleguide
   # @return [Boolean] indication of whether the request is a web view within Nitro Mobile
   def self.web_page_within_mobile_app?(request)
     # Nitro {

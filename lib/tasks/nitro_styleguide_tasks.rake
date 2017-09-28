@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :nitro_sg do
+# task :nitro-styleguide do
 #   # Task goes here
 # end
