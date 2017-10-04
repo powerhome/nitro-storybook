@@ -1,6 +1,7 @@
 export Avatar from './Avatar/Avatar.jsx'
 export Badge from './Badge/Badge.jsx'
 export Icon from './Icon/Icon.jsx'
+export Tab from './Tab/Tab.jsx'
 export Text from './Text/Text.jsx'
 export TextInput from './TextInput/TextInput.jsx'
 export Button from './Button/Button.jsx'
