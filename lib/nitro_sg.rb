@@ -7,14 +7,6 @@ require "nitro_sg/engine"
 module NitroSg
   # @return [Boolean] indication of whether the request is a web view within Nitro Mobile
   def self.web_page_within_mobile_app?(request)
-    # Nitro {
-    #  "os_version":"8.3.0",
-    #  "os":"iOS",
-    #  "device":"iPhone6,1",
-    #  "app_id":"com.powerhrg.nitro.dev",
-    #  "build_number":"1098",
-    #  "version_number":"3.2.0"
-    # }
     request.user_agent.try(:downcase) =~ /^nitro/
   end
 
