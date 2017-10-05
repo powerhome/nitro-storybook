@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "4.2.9"
   s.add_dependency "sassc-rails", "1.3.0"
   s.add_dependency "sprockets-rails", "2.3.3"
-  # s.add_dependency "naughty"
 
   s.add_development_dependency "test-unit", "3.1.5"
   s.add_development_dependency "rspec-rails"
