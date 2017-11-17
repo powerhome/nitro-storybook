@@ -79,10 +79,10 @@ export default class TextInput extends React.Component<Props> {
         <ControlLabel className={labelClassName}>
           {label} <span>{isRequired(requiredField)}</span>
         </ControlLabel>
-        {' '}
+        {' '}{' LOLOL '}
         <FormControl
             className={inputClassName}
-            defaultValue={value}
+            value={value}
             name={name}
             onChange={onChange}
             placeholder={placeholder}
