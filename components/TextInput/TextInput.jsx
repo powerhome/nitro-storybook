@@ -79,7 +79,7 @@ export default class TextInput extends React.Component<Props> {
         <ControlLabel className={labelClassName}>
           {label} <span>{isRequired(requiredField)}</span>
         </ControlLabel>
-        {' '}
+        {' '}{' LOLOL '}
         <FormControl
             className={inputClassName}
             value={value}
