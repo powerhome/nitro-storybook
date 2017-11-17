@@ -82,7 +82,7 @@ export default class TextInput extends React.Component<Props> {
         {' '}
         <FormControl
             className={inputClassName}
-            defaultValue={value}
+            value={value}
             name={name}
             onChange={onChange}
             placeholder={placeholder}
