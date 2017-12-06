@@ -17,3 +17,13 @@
     background-color: $power-royal !important;
   }
 }
+
+.InputListUncontrolled {
+  display: flex;
+
+  & > * {
+    margin: 20px;
+    flex-grow: 1;
+    flex-basis: 80%;
+  }
+}
