@@ -24,7 +24,7 @@ const EmailInput = ({ address = "", onChange }) => (
   </div>
 )
 
-const dropdownTemplate = (iconName) => (index, onAdd, onRemove) => {
+const dropdownTemplate = (iconName) => function dropdownTemplate(index, onAdd, onRemove) {
   const dropdownIcon = (
     <span>
       <Icon name={iconName} />
