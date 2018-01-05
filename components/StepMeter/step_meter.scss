@@ -83,14 +83,14 @@ $step-size-sm: 10px;
       &::before {
         height: 2px;
         top: calc(50% - 1px);
-        left: calc(-50% + 5px);
+        left: calc(-100% + 15px);
         width: calc(100% - 10px);
       }
       &::after {
         content: '';
         position: absolute;
         top: 0;
-        left: calc(50% - 5px);
+        left: 5px;
         width: $step-size-sm;
         height: $step-size-sm;
         border-radius: $step-size-sm/2;
