@@ -1,0 +1,29 @@
+@import "base-mixins/color";
+@import "base-variables/colors";
+
+.DropdownButton {
+  margin: 0 !important;
+  border: 0;
+  padding-bottom: 3px;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  background-color: #f2f2f2;
+
+  &[aria-expanded="true"] {
+    color: #fff !important;
+    background-color: $power-royal !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+}
+
+.InputListUncontrolled {
+  display: flex;
+
+  & > * {
+    margin: 20px;
+    flex-grow: 1;
+    flex-basis: 80%;
+  }
+}

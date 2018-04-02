@@ -1,0 +1,32 @@
+@import "base-mixins/color";
+@import "base-variables/colors";
+
+.InputList {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: 10px;
+  }
+
+  :global(.fa.fa-trash-o) {
+    color: red;
+  }
+
+  :global(.input-group-addon) {
+    padding: 0;
+
+    :global(.btn) {
+      padding: 10px;
+      padding-top: 5px;
+      padding-bottom: 4px;
+
+      border: none;
+      border-radius: 0;
+    }
+
+    :global(.btn):not(:hover) {
+      background-color: inherit;
+    }
+  }
+}
