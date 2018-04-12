@@ -44,6 +44,24 @@
   }
 }
 
+@mixin form-control-validation-corner($color: #555) {
+  &:before {
+    background: transparent;
+    border-top: 7px solid transparent;
+    border-left: 7px solid $color;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid $color;
+    content: " ";
+    display: block;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+  }
+}
+
 // Feedback states
 .has-success {
   @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
@@ -53,4 +71,7 @@
 }
 .has-error {
   @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+  &-corner {
+    @include form-control-validation-corner($state-danger-text);
+  }
 }
