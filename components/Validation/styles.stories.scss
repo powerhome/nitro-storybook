@@ -1,0 +1,17 @@
+:global {
+  .validation-valid {
+    border: 2px solid lightgreen;
+  }
+
+  .validation-invalid {
+    border: 2px dashed red;
+  }
+
+  input {
+    outline: none;
+  }
+
+  div {
+    margin: 10px;
+  }
+}
