@@ -124,6 +124,7 @@ export default class DatePicker extends React.Component<Props> {
       className: classnames(
         className,
         "react-datetime",
+        "multi-input-group-item",
         {
           [errorClass]: !this.state.valid,
           "multi-input-group-item": multiInput,
