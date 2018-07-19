@@ -1,0 +1,17 @@
+@import "base-mixins/_general.scss";
+
+.icon {
+    @include transition(all .2s ease-in-out);
+}
+
+.rotate {
+    &-90 {
+        @include rotate(90deg);
+    }
+    &-180 {
+        @include rotate(180deg);
+    }
+    &-270 {
+        @include rotate(270deg);
+    }
+}

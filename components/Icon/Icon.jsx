@@ -1,6 +1,9 @@
 import React from "react"
 import FontAwesome from "react-fontawesome"
+import classnames from "classnames"
 import { IconType } from "../types"
+
+import styles from "./styles.scss"
 
 /**
  * Icon renders a FontAwesome icon followed by a label.
@@ -18,6 +21,7 @@ import { IconType } from "../types"
 export default class Icon extends React.Component<Props> {
   static defaultProps = {
     label: "",
+    rotate: null,
     spin: false,
   }
   props: IconType
@@ -25,6 +29,7 @@ export default class Icon extends React.Component<Props> {
     const {
       name,
       label,
+      rotate,
       size,
       spin,
       onClick,
@@ -33,7 +38,7 @@ export default class Icon extends React.Component<Props> {
     } = this.props
     return (
       <span
-          className="icon"
+          className={classnames("icon", styles.icon, rotate ? styles[`rotate-${rotate}`] : "")}
           onClick={onClick}
           title={title}
       >

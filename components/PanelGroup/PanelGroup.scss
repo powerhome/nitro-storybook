@@ -11,7 +11,9 @@
 
       .panel-heading {
         background-color: $white;
-
+        &-notification {
+          margin-right: $space-large;
+        }
       }
 
       .panel-body{
@@ -61,7 +63,6 @@
           flex-direction: column;
           flex-grow: 1;
           line-height: $space-large;
-
         }
 
         .heading-icon, .title, .subtitle {
@@ -90,7 +91,6 @@
     .icon-toggle {
       color: $ink-lightest;
       transition: all 0.5s ease;
-      margin-left: $space-large;
     }
   }
 }

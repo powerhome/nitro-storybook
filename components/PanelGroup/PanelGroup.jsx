@@ -49,7 +49,9 @@ const Panel = ({ children, icon, name = Math.random(), subtitle, title, notifica
           </BootstrapPanel.Title>
 
           <If condition={notification}>
-            {notification}
+            <span className="panel-heading-notification">
+              {notification}
+            </span>
           </If>
 
           <Icon className="icon-toggle" size="lg" {...rotateProps} name={context.toggleIconName} />
