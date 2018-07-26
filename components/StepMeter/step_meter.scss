@@ -51,9 +51,14 @@ $step-size-sm: 10px;
     &.started::before {
       background: $power-blue;
     }
+    &.error,
+    &.error::before {
+      background: $power-red;
+    }
 
     &.done,
-    &.started {
+    &.started,
+    &.error {
       color: white;
     }
 
@@ -101,6 +106,10 @@ $step-size-sm: 10px;
       &.done::after, &.done::before {
         background: $online-green;
         border-color: $online-green;
+      }
+      &.error::after, &.error::before {
+        background: $power-red;
+        border-color: $power-red;
       }
       &.started::after {
         background: transparent;
