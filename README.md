@@ -20,8 +20,8 @@ The intent of this repo is to provide a base on which other UIs can be built suc
 From the current project directory, run:
 
 1. ensure you are running proper node version (see `package.json` => `engines`)
-2. `npm install`
-3. `npm run storybook`
+2. `yarn install`
+3. `yarn run storybook`
 4. navigate to [localhost:9001](http://localhost:9001)
 
 ---
