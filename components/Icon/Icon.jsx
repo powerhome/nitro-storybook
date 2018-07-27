@@ -1,6 +1,6 @@
 import React from "react"
 import FontAwesome from "react-fontawesome"
-import { IconType } from "../types"
+import Text from '../Text/Text'
 
 /**
  * Icon renders a FontAwesome icon followed by a label.
@@ -38,12 +38,16 @@ export default class Icon extends React.Component<Props> {
           title={title}
       >
         <FontAwesome
-            className={`far fa-fw ${className}`}
+            className={`far ${className}`}
             name={name}
             size={size}
             spin={spin}
         />
-        <If condition={label}>{label}</If>
+        <If condition={label}>
+          <span className="ml-2" >
+            {label}
+          </span>
+        </If>
       </span>
     )
   }

@@ -70,9 +70,14 @@ lib/nitro_sg/version.rb
 package.json
 ```
 
+Be sure and run the following anytime you version up:
+
+`npm install && bundle install`
+
+
 ### 2. Prep a Storybook PR
 
-Get your `nitro-storybook` PR approved and merged into the `nitro-storybook`'s `master` branch. 
+Get your `nitro-storybook` PR approved and merged into the `nitro-storybook`'s `master` branch.
 
 ### 3. Create a Tag & Release
 
@@ -100,7 +105,7 @@ git push --delete origin v1.0.1
 gem "nitro_sg", git: "git@github.com:powerhome/nitro-storybook.git", tag: "v1.9.2"
 ```
 
-If your updated styling doesn’t show up, you may have old assets you need to remove. 
+If your updated styling doesn’t show up, you may have old assets you need to remove.
 `bundle exec rake assets:clobber`
 
 ---
@@ -119,7 +124,7 @@ Creation of new components requires a bit of forethought. Ask yourself these que
     - CSSModules
     - Composing complex React components/organisms (so that you don't create them here!)
     - [Storybook]()
-    
+
 ### New React Component
 
 Here are the steps to creating a new `Foo` component (in order):
@@ -219,12 +224,3 @@ Conversion of existing components in `nitro_react` is a little different since w
     ```
 1. Lint your code `npm run lint`
 1. For some lint warning you can `npm run lint-fix` which will automagically fix things like indentation.
-
-
-
-
-
-
-
-
-

@@ -9,7 +9,7 @@ export default function IconStory(stories) {
       let props = {
         className: text("className", ""),
         name: text("name", "battery-half"),
-        label: text("label", " 50%"),
+        label: text("label", "50%"),
         size: text("size", "lg"),
         spin: boolean("spin", false),
         onClick: () => {
