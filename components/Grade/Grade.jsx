@@ -15,10 +15,10 @@ type Props = {
 }
 
 const gradeToStarIconName = (grade: number, starFullAt: number, starEmptyAt: number): string => {
-  if (grade >= starFullAt) { return 'star' }
-  if (grade <= starEmptyAt) { return 'star-o' }
+  if (grade >= starFullAt) { return 'trophy-alt' }
+  if (grade <= starEmptyAt) { return 'star' }
 
-  return 'star-half-full'
+  return 'star-half'
 }
 
 class Grade extends React.Component<Props> {

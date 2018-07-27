@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import FontAwesome from 'react-fontawesome'
+import Icon from '../Icon/Icon'
 import {
   FormControl,
 } from 'react-bootstrap'
@@ -93,7 +93,7 @@ export default class DatePicker extends React.Component<Props> {
             className="input-group-addon"
             onClick={openCalendar}
         >
-          <FontAwesome name="calendar"/>
+          <Icon name="calendar"/>
         </span>
       </div>
     )

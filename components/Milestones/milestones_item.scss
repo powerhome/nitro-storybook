@@ -9,7 +9,8 @@
   height: $step-progress-li-height;
   line-height: $step-progress-bubble-height;
 
-  span {
+
+  .milestone-item-label {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -20,6 +21,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  .icon {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    font-size: $font-small;
+  }
+
 
   &::before {
     content: '';
@@ -59,25 +69,27 @@
   &.status-{
     &done {
       &::before {
-        content: '\f00c';
         border-color: $power-green !important;
+      }
+      .icon {
         color: $power-green !important;
       }
     }
     &started {
-      span {
+      .milestone-item-label {
         opacity: 1;
       }
       &::before {
-        content: '\f111';
-        color: $power-blue !important;
         border-color: $power-blue !important;
+      }
+      .icon {
+        color: $power-blue !important;
       }
     }
   }
 
   &.background-dark {
-    span {
+    .milestone-item-label {
       color: $bg-dark-text;
     }
 
@@ -110,7 +122,7 @@
   }
 
   &.background-light {
-    span {
+    .milestone-item-label {
       color: $bg-light-text;
     }
 

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import classnames from 'classnames'
+import Icon from '../Icon/Icon'
 
 import styles from './milestones_item.scss'
 
@@ -10,6 +11,13 @@ type Props = {
   name: string,
   status: string,
   background: string,
+}
+
+
+const statusToIconName = (status: string): string => {
+  if (status == 'done') { return 'check' }
+  if (status == 'started') { return 'dot-circle' }
+  return 'dot-circle'
 }
 
 export default class MilestoneItem extends React.Component<Props> {
@@ -31,6 +39,9 @@ export default class MilestoneItem extends React.Component<Props> {
       styles[`background-${background}`],
       styles[`status-${status}`],
     ]
-    return <li className={classnames(css)}><span>{name}</span></li>
+    return <li className={classnames(css)}>
+      <Icon name={statusToIconName(status)} className={styles[`icon`]}/>
+      <span className={styles[`milestone-item-label`]}>{name}</span>
+      </li>
   }
 }
