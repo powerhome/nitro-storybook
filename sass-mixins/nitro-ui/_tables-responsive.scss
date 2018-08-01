@@ -97,7 +97,7 @@
         }
         /* to catch columns with floated elements in it for a clearfix. */
         /* NOTE: it's possible this could be an issue for some columns with lots of content */
-        td { overflow: auto; }
+        // td { overflow: auto; }
       }
 
       /* twist table view into a column view */
