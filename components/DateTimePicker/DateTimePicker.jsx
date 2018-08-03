@@ -50,7 +50,7 @@ export default class DateTimePicker extends React.Component<Props> {
   props: Props
 
   formatDateTime = (date, time) => (
-    `${date.format(datePickerProps.dateFormat || "MM/DD/YYYY")} ${time}`
+    `${date.format(this.props.datePickerProps.dateFormat || "MM/DD/YYYY")} ${time}`
   )
 
   handleOnDateChanged = (date) => {
