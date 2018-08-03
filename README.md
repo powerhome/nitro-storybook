@@ -72,7 +72,7 @@ package.json
 
 Be sure and run the following anytime you version up:
 
-`npm install && bundle install`
+`yarn install && bundle install`
 
 
 ### 2. Prep a Storybook PR
@@ -222,5 +222,5 @@ Conversion of existing components in `nitro_react` is a little different since w
     ```javascript
     const {bar} = this.props
     ```
-1. Lint your code `npm run lint`
-1. For some lint warning you can `npm run lint-fix` which will automagically fix things like indentation.
+1. Lint your code `yarn run lint`
+1. For some lint warning you can `yarn run lint-fix` which will automagically fix things like indentation.

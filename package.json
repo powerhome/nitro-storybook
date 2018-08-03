@@ -4,7 +4,7 @@
   "description": "Nitro UI Styleguide + React component dev env",
   "main": "components/index.js",
   "scripts": {
-    "storybook": "npm run applicationcss && start-storybook -p 9001 -c .storybook -s ./public",
+    "storybook": "yarn run applicationcss && start-storybook -p 9001 -c .storybook -s ./public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow",
     "deploy": "storybook-to-ghpages",
