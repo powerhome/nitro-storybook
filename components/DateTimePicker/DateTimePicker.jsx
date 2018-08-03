@@ -33,6 +33,7 @@ export default class DateTimePicker extends React.Component<Props> {
       dateFormat: "MM/DD/YYYY",
       timeFormat: "",
     },
+    defaultValue: null,
     timePickerProps: {
       clock: 12,
       disabled: false,
@@ -47,7 +48,7 @@ export default class DateTimePicker extends React.Component<Props> {
   }
 
   props: Props
-  
+
   formatDateTime = (date, time) => (
     `${date.format(datePickerProps.dateFormat || "MM/DD/YYYY")} ${time}`
   )
@@ -75,7 +76,10 @@ export default class DateTimePicker extends React.Component<Props> {
     } = this.props
 
     const defaultDate = moment(defaultValue)
-    const defaultDateValue = defaultDate.isValid() ? defaultDate.format(datePickerProps.dateFormat || "MM/DD/YYYY") : null
+    let defaultDateValue
+    if (defaultValue) {
+      defaultDateValue = defaultDate.isValid() ? defaultDate.format(datePickerProps.dateFormat || "MM/DD/YYYY") : null
+    }
 
     const css = [
       className,
