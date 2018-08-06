@@ -9,6 +9,7 @@ import Text from '../Text/Text'
  * example, its name would be 'paperclip'.
  * @param {string} label the text to use as a label.
  * @param {string} size an optional FontAwesome icon size ('lg', '2x', '3x', etc).
+ * @param {number} rotate degree to rotate the icon.
  * @param {func} onClick the function to be called when the React onClick event is triggered.
  * @param {string} className class name is an option on the FontAwesome package that adds a class to the FontAwesome span.
  * @param {string} title an optional title as a tooltip on mouse hover.
@@ -27,6 +28,7 @@ export default class Icon extends React.Component<Props> {
       label,
       size,
       spin,
+      rotate,
       onClick,
       className,
       title
@@ -42,6 +44,7 @@ export default class Icon extends React.Component<Props> {
             name={name}
             size={size}
             spin={spin}
+            rotate={rotate}
         />
         <If condition={label}>
           <span className="ml-2" >
