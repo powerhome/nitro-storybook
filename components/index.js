@@ -1,5 +1,6 @@
 export Avatar from './Avatar/Avatar'
 export Badge from './Badge/Badge'
+export Banner from './Banner/Banner'
 export Button from './Button/Button'
 export DatePicker from './DatePicker/DatePicker'
 export DateTimePicker from './DateTimePicker/DateTimePicker'
