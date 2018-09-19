@@ -31,7 +31,8 @@ legend {
 // address browser inconsistencies.
 
 // Override content-box in Normalize (* isn't specific enough)
-input[type="search"] {
+input[type="search"],
+input[type="search"].form-control {
   @include box-sizing(border-box);
 }
 
