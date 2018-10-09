@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import Icon from '../Icon/Icon'
 import {
   FormControl,
+  HelpBlock,
 } from 'react-bootstrap'
 
 import moment from 'moment'
@@ -13,6 +14,7 @@ import Datetime from 'react-datetime'
 export type Props = {
   className: string,
   errorClass?: string,
+  errorMessage?: ?string,
   inputProps: Object<{
     type: "text"
   }>,
@@ -34,6 +36,7 @@ export default class DatePicker extends React.Component<Props> {
   static defaultProps = {
     className: "",
     errorClass: "has-error",
+    errorMessage: null,
     inputProps: {
       type: "text",
     },
@@ -72,6 +75,7 @@ export default class DatePicker extends React.Component<Props> {
       labelText,
       required,
       labelInside,
+      errorMessage,
     } = this.props
 
     const wrapperClass = classnames(
@@ -95,6 +99,9 @@ export default class DatePicker extends React.Component<Props> {
         >
           <Icon name="calendar"/>
         </span>
+        <If condition={errorMessage}>
+          <HelpBlock>{errorMessage}</HelpBlock>
+        </If>
       </div>
     )
   }
@@ -109,6 +116,7 @@ export default class DatePicker extends React.Component<Props> {
       timeZone,
       required,
       multiInput,
+      errorMessage,
       ...props
     } = this.props
 
@@ -120,7 +128,7 @@ export default class DatePicker extends React.Component<Props> {
         className,
         "react-datetime",
         {
-          [errorClass]: !this.state.valid,
+          [errorClass]: !this.state.valid || errorMessage,
           "multi-input-group-item": multiInput,
         },
       ),
