@@ -3,6 +3,9 @@ import classnames from 'classnames'
 import Icon from '../Icon/Icon'
 import {
   FormControl,
+  ControlLabel,
+  FormGroup,
+  InputGroup,
   HelpBlock,
 } from 'react-bootstrap'
 
@@ -13,11 +16,8 @@ import Datetime from 'react-datetime'
 
 export type Props = {
   className: string,
-  errorClass?: string,
   errorMessage?: ?string,
-  inputProps: Object<{
-    type: "text"
-  }>,
+  inputProps: Object<{ type: "text" }>,
   isValidDate: () => boolean,
   labelInside: boolean,
   labelText: string,
@@ -35,7 +35,6 @@ export default class DatePicker extends React.Component<Props> {
 
   static defaultProps = {
     className: "",
-    errorClass: "has-error",
     errorMessage: null,
     inputProps: {
       type: "text",
@@ -51,6 +50,7 @@ export default class DatePicker extends React.Component<Props> {
   state = {
     valid: true,
   }
+  props: Props
 
   fieldFormat = () => {
     const { timeFormat, dateFormat } = this.props
@@ -76,33 +76,34 @@ export default class DatePicker extends React.Component<Props> {
       required,
       labelInside,
       errorMessage,
+      className,
+      multiInput,
     } = this.props
 
-    const wrapperClass = classnames(
-      "d-flex",
-      "input-group",
-      { "label-inside": labelInside },
-    )
+    const classNames = classnames(className, { 'label-inside': labelInside })
 
     return (
-      <div className={wrapperClass}>
-        <If condition={labelText}>
-          <label>
-            <If condition={required}>{`* `}</If>
-            {labelText}
-          </label>
-        </If>
-        <FormControl {...inputProps}/>
-        <span
-            className="input-group-addon"
-            onClick={openCalendar}
-        >
-          <Icon name="calendar"/>
-        </span>
+      <FormGroup
+          className={classNames}
+          validationState={!this.state.valid || errorMessage ? 'error' : undefined}
+      >
+        <ControlLabel>
+          <If condition={required}>{`* `}</If>
+          {labelText}
+        </ControlLabel>
+        <InputGroup>
+          <FormControl {...inputProps}/>
+          <span
+              className={classnames('input-group-addon', { multi: multiInput })}
+              onClick={openCalendar}
+          >
+            <Icon name="calendar"/>
+          </span>
+        </InputGroup>
         <If condition={errorMessage}>
           <HelpBlock>{errorMessage}</HelpBlock>
         </If>
-      </div>
+      </FormGroup>
     )
   }
 
@@ -110,13 +111,11 @@ export default class DatePicker extends React.Component<Props> {
     const {
       className,
       dateFormat,
-      errorClass,
       timeFormat,
       closeOnSelect,
       timeZone,
       required,
       multiInput,
-      errorMessage,
       ...props
     } = this.props
 
@@ -125,12 +124,8 @@ export default class DatePicker extends React.Component<Props> {
 
     return {
       className: classnames(
-        className,
-        "react-datetime",
-        {
-          [errorClass]: !this.state.valid || errorMessage,
-          "multi-input-group-item": multiInput,
-        },
+        className, "react-datetime",
+         { 'multi-input-group-item': multiInput}
       ),
       closeOnSelect,
       dateFormat,
