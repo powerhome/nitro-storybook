@@ -76,15 +76,12 @@ export default class DatePicker extends React.Component<Props> {
       required,
       labelInside,
       errorMessage,
-      className,
       multiInput,
     } = this.props
 
-    const classNames = classnames(className, { 'label-inside': labelInside })
-
     return (
       <FormGroup
-          className={classNames}
+          className={classnames({ 'label-inside': labelInside })}
           validationState={!this.state.valid || errorMessage ? 'error' : undefined}
       >
         <ControlLabel>
