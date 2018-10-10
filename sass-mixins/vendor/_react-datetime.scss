@@ -1,4 +1,6 @@
 .react-datetime {
+  position: relative;
+
   &.rdt {
     .rdtPicker {
       visibility: hidden;
@@ -15,6 +17,7 @@
     background: $white;
     box-shadow: 0 6px 14px rgba($black, .5);
     padding: $space-smaller;
+    top: $input-height-base;
     @include tablet-and-below {
       tfoot {
         td {
