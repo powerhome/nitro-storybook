@@ -65,6 +65,7 @@
 // Addon and addon wrapper for buttons
 .input-group-addon,
 .input-group-btn {
+  width: 1%;
   white-space: nowrap;
   vertical-align: middle; // Match the inputs
 }
@@ -72,7 +73,6 @@
 // Text input groups
 // -------------------------
 .input-group-addon {
-  width: auto;
   padding: $padding-base-vertical ($padding-base-horizontal/2);
   font-size: $font-size-base;
   font-weight: normal;
@@ -131,7 +131,6 @@
 // Button input groups
 // -------------------------
 .input-group-btn {
-  width: 1%;
   position: relative;
   // Jankily prevent input button groups from wrapping with `white-space` and
   // `font-size` in combination with `inline-block` on buttons.
