@@ -1,4 +1,5 @@
 export ColorPickerInputStory from "../components/ColorPickerInput/ColorPickerInputStory"
+export DatePickerStory from "../components/DatePicker/DatePickerStory"
 export DateTimePickerStory from "../components/DateTimePicker/DateTimePickerStory"
 export TimePickerStory from '../components/TimePicker/TimePickerStory'
 export SearchCollectionSelectStory from "../components/SearchCollectionSelect/SearchCollectionSelectStory"

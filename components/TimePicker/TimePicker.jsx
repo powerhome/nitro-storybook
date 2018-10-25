@@ -172,7 +172,6 @@ export default class TimePicker extends React.Component<Props> {
 
     const itemCSS = [
       "multi-input-group-item",
-      "input-group",
       labelInside ? "label-inside" : null
     ]
 
