@@ -33,7 +33,9 @@ const Panel = ({ children, icon, name = Math.random(), subtitle, title, notifica
   const css = collapsed ? "panel-collapsed" : ""
 
   return (
-    <BootstrapPanel eventKey={name} className={css}>
+    <BootstrapPanel className={css}
+        eventKey={name}
+    >
       <BootstrapPanel.Heading bsStyle="default">
         <BootstrapPanel.Toggle className="panel-toggle">
           <If condition={icon}>
@@ -41,10 +43,14 @@ const Panel = ({ children, icon, name = Math.random(), subtitle, title, notifica
           </If>
 
           <BootstrapPanel.Title>
-            <Text className="title" bold>{title}</Text>
+            <Text bold
+                className="title"
+            >{title}</Text>
 
             <If condition={subtitle}>
-              <Text color="ink-lightest" className="subtitle">{subtitle}</Text>
+              <Text className="subtitle"
+                  color="ink-lightest"
+              >{subtitle}</Text>
             </If>
           </BootstrapPanel.Title>
 
@@ -52,7 +58,11 @@ const Panel = ({ children, icon, name = Math.random(), subtitle, title, notifica
             {notification}
           </If>
 
-          <Icon className="icon-toggle" size="lg" {...rotateProps} name={context.toggleIconName} />
+          <Icon className="icon-toggle"
+              size="lg"
+              {...rotateProps}
+              name={context.toggleIconName}
+          />
         </BootstrapPanel.Toggle>
       </BootstrapPanel.Heading>
 
@@ -109,10 +119,11 @@ export default class PanelGroup extends React.Component<PanelGroupProps> {
   render() {
     const { children, id, inner, className } = this.props
     return (
-      <BootstrapPanelGroup id={id} accordion
-        activeKey={this.state.activePanel}
-        className={`nitro-panel-group ${className} ${inner ? "inner-panel-group": ""}`}
-        onSelect={this.handleSelect}
+      <BootstrapPanelGroup accordion
+          activeKey={this.state.activePanel}
+          className={`nitro-panel-group ${className} ${inner ? "inner-panel-group": ""}`}
+          id={id}
+          onSelect={this.handleSelect}
       >
         {children}
       </BootstrapPanelGroup>

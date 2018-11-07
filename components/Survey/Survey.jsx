@@ -107,9 +107,9 @@ export default class Survey extends React.Component<Props> {
                       >
                         <label>
                             <input
+                                defaultValue={answer.value}
                                 name={`question-${i}-answer`}
                                 type="radio"
-                                defaultValue={answer.value}
                                 {...otherProps}
                             />
                             <span>

@@ -1,0 +1,20 @@
+//Capping
+$bend:4px;
+
+//Cap Options
+$cap-bottom: $bend $bend 0 0 ;
+$cap-left: 0 $bend $bend 0;
+$cap-top: 0 0 $bend $bend;
+$cap-right: $bend 0 0 $bend;
+
+$cap-options:
+  "top" $cap-top,
+  "right" $cap-right,
+  "bottom" $cap-bottom,
+  "left" $cap-left;
+
+@each $tuple in $cap-options {
+    .cap-#{nth($tuple, 1)} {
+        border-radius: #{nth($tuple, 2)} !important;
+    }
+}

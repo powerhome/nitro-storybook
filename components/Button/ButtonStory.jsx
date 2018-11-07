@@ -18,16 +18,28 @@ export default function ButtonStory(stories) {
               <Button {...props}/>
             </div>
             <div className="col-sm-2">
-              <Button className="btn-primary" text="Power Royal" type="button" />
+              <Button className="btn-primary"
+                  text="Power Royal"
+                  type="button"
+              />
             </div>
             <div className="col-sm-2">
-              <Button className="btn-success" text="Power Green" type="button" />
+              <Button className="btn-success"
+                  text="Power Green"
+                  type="button"
+              />
             </div>
             <div className="col-sm-2">
-              <Button className="btn-danger" text="Power Red" type="button" />
+              <Button className="btn-danger"
+                  text="Power Red"
+                  type="button"
+              />
             </div>
             <div className="col-sm-2">
-              <Button className="btn-link" text="Link Button" type="button" />
+              <Button className="btn-link"
+                  text="Link Button"
+                  type="button"
+              />
             </div>
           </div>
         </div>
@@ -49,10 +61,16 @@ export default function ButtonStory(stories) {
             <Button {...props}/>
           </div>
           <div className="col-sm-2">
-            <Button className="btn-ghost-power-green" text="Power Green" type="button" />
+            <Button className="btn-ghost-power-green"
+                text="Power Green"
+                type="button"
+            />
           </div>
           <div className="col-sm-2">
-            <Button className="btn-ghost-power-red" text="Power Red" type="button" />
+            <Button className="btn-ghost-power-red"
+                text="Power Red"
+                type="button"
+            />
           </div>
         </div>
       )

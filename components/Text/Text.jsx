@@ -14,7 +14,6 @@ type Props = {
   italic: boolean,
   className: string,
 }
-
 export default class Text extends React.Component<Props> {
   static defaultProps = {
     children: <span/>,

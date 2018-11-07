@@ -34,10 +34,18 @@ export default class Color extends React.Component<Props> {
     let colorList = []
     colorMap.forEach(function(value, key, map) {
       colorList.push(
-        <div className="col-sm-2 text-center mb-5" key={value}>
-          <div className={classnames(css)} style={{backgroundColor: value }}></div>
-          <div className="color-name"><Text color="ink-lighter" size="small">{key}</Text></div>
-          <div className="color-value"><Text color="sky-dark" size="smaller">{value}</Text></div>
+        <div className="col-sm-2 text-center mb-5"
+            key={value}
+        >
+          <div className={classnames(css)}
+              style={{backgroundColor: value }}
+          />
+          <div className="color-name"><Text color="ink-lighter"
+              size="small"
+                                      >{key}</Text></div>
+          <div className="color-value"><Text color="sky-dark"
+              size="smaller"
+                                       >{value}</Text></div>
 
         </div>
       )
