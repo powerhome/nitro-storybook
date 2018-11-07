@@ -2,7 +2,7 @@
 
 import React,{Component} from 'react'
 import {Modal} from 'react-bootstrap'
-
+import classnames from 'classnames'
 
 type Props = {
   backdrop:boolean,
@@ -10,7 +10,9 @@ type Props = {
   className:string,
   side: string,
   bsClass:string,
-  children?:Array<React.Node>
+  children?:Array<React.Node>,
+  sizeOption?:string,
+  collapseSize?:string
 }
 
 export default class SideModal extends Component {
@@ -18,6 +20,8 @@ export default class SideModal extends Component {
   static defaultProps = {
     side:'left',
     show:'true',
+    sizeOption:'xs',
+    collapseSize:'xs',
 
     }
 
@@ -28,14 +32,21 @@ export default class SideModal extends Component {
     const {
       side,
       show,
+      sizeOption,
+      collapseSize,
       children
     } = this.props
 
+    const css =[
+      [`${side}Modal`],
+      [`${side}Modal-${sizeOption}`],
+      [`${side}Modal-collapse-${collapseSize}`],
+    ]
     return (
       <div>
         <Modal
             backdrop
-            className={side+"Modal"}
+            className={classnames(css)}
             show={show}
         >
           {children}

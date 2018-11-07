@@ -9,6 +9,8 @@ export default function SideModalStory(stories) {
       let props = {
         side: select("side",['left','right'], 'left'),
         show: boolean("show", true),
+        sizeOption: select("sizeOption",['xxs','xs','sm','md','lg','xl','full','600','1000'],'xs'),
+        collapseSize: select("collapseSize",['xs','sm','md','lg'],'xs')
       }
 
       return (

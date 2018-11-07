@@ -19,7 +19,7 @@ $borderWidth: 4px;
 
   .highlight-#{$side} {
     border:0;
-    border-#{$side}: #{$borderStyle};
-    border-width: $borderWidth;
+    border-#{$side}-style: #{$borderStyle};
+    border-#{$side}-width: $borderWidth;
   }
 }
