@@ -1,6 +1,6 @@
 {
   "name": "nitro-storybook",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Nitro UI Styleguide + React component dev env",
   "main": "components/index.js",
   "scripts": {
