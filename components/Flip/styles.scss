@@ -1,19 +1,22 @@
+@import "base-mixins/_all.scss";
+@import "base-variables/_all.scss";
+
 .flip-container {
   perspective: 1000px;
   height: 100%;
 }
 
 .flip {
-  transform: rotateY(180deg);
-  transition: 0.6s;
+  @include rotateY(180deg);
+  @include transition(0.6s);
   transform-style: preserve-3d;
 
   position: relative;
 }
 
 .flap {
-  transform: rotateY(0deg);
-  transition: 0.6s;
+  @include rotateY(0deg);
+  @include transition(0.6s);
   transform-style: preserve-3d;
 
   position: relative;
@@ -21,17 +24,17 @@
 }
 
 .front, .back {
-  backface-visibility: hidden;
+  @include backface-visibility(hidden);
   height: 100%;
 }
 
 .front {
   z-index: 2;
-  transform: rotateY(0deg);
+  @include rotateY(0deg);
 }
 
 .back {
-  transform: rotateY(180deg);
+  @include rotateY(180deg);
   position: absolute;
   top: 0;
   left: 0;
