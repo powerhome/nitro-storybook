@@ -125,7 +125,7 @@ $nav-caret-color: #fff;
       margin-right: $space-base / 2;
 
       .head-nav-link-caret {
-        right: 3px;
+        right: $space-smallest + 1;
       }
     }
   }
@@ -154,7 +154,7 @@ $nav-caret-color: #fff;
     right: 1em;
     width: 10px;
     height: 10px;
-    border-radius: 10px;
+    border-radius: $border-rad-heaviest + 3;
   }
 
   .profile {
