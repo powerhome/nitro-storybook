@@ -28,9 +28,12 @@ $nav-caret-color: #fff;
   .logo {
     display: block;
     float: left;
-    margin-top: 12px;
-    margin-left: 15px;
     text-decoration: none;
+    height: $header-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     @include media-max-width(380px) {
       display: none;
     }
@@ -61,21 +64,27 @@ $nav-caret-color: #fff;
     background-size: 14px 7px;
     height: 7px;
     margin-top: -7px;
-    margin-left: 70%;
+    margin-left: 80%;
     width: 14px;
   }
   .fa-2x {
-    font-size: 2.2em;
+    font-size: $font-larger;
   }
 
   .head-nav-link {
     color: $header-icon-color;
     display: block;
     float: left;
-    margin-top: 3px;
-    margin-right: 15px;
-    padding-right: 15px;
     position: relative;
+    font-size: $font-small;
+    height: $header-height;
+    width: $header-height;
+    line-height: $header-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 
     &.microphone {
       margin-top: -1px;
@@ -100,7 +109,7 @@ $nav-caret-color: #fff;
 
     /* Power P fill color since it's svg */
     img, svg.powergon-logo {
-      margin-top: 6px;
+      width: 26px;
     }
     path {
       &.bg { fill: $header-icon-color; }
@@ -109,7 +118,7 @@ $nav-caret-color: #fff;
 
     .head-nav-link-caret {
       position: absolute;
-      top: 10px;
+      top: 0;
       right: 0;
     }
     .head-nav-link-caret span.caret {
@@ -117,12 +126,12 @@ $nav-caret-color: #fff;
     }
 
     &.phone {
-      .fa-phone-square { margin-top: 8px; }
-      .head-nav-link-caret { right: 5px; }
-    }
+      margin-right: 5px;
 
-    &.search {
-      .fa-search { margin-top: 6px; }
+      .head-nav-link-caret { right: 3px; }
+    }
+    &#menu-link {
+      margin-right: $space-small;
     }
   }
   .head-nav-link:hover, .head-nav-link:focus, .head-nav-link:active  {
@@ -151,24 +160,32 @@ $nav-caret-color: #fff;
     border-radius: 10px;
   }
 
-  #menu-link {
-    margin: 12px 0 0 15px;
-  }
-
   .profile {
-    margin-top: 5px;
-    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: $space-base;
+    margin-right: $space-base/2;
+    height: $header-height;
+
+    .dropdown-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: $space-base;
+      height: $header-height;
+    }
 
     .profile-avatar {
       float: left;
-      height: $header-height - 10px;
-      margin-left: 10px;
-      width: $header-height - 10px;
+      height: $header-height - 17px;
+      margin-left: $space-base;
+      width: $header-height - 17px;
     }
     .profile-avatar img {
       border-radius: $border-rad-light;
-      height: $header-height - 10px;
-      width: $header-height - 10px;
+      height: $header-height - 17px;
+      width: $header-height - 17px;
     }
 
     .profile-username {
@@ -181,7 +198,6 @@ $nav-caret-color: #fff;
 
     .profile-caret {
       float: left;
-      margin-top: 8px;
       margin-right: 8px;
       padding-left: 5px;
 
@@ -306,7 +322,7 @@ body.training {
   overflow: hidden;
   padding: 0;
   position: relative;
-  top: 5px;
+  top: 0;
   -webkit-transition: all .4s ease-out;
   -moz-transition: all .4s ease-out;
   transition: all .4s ease-out;
