@@ -233,6 +233,46 @@ table {
 .table-responsive {
   overflow-x: auto;
   min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  padding: $space-base 0 0;
+  background: $white;
+  border: 1px solid $sky;
+  border-radius: $border-rad-light;
+
+  table {
+    thead {
+      tr {
+        th {
+          color: $ink-light;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-size: $font-smallest;
+          background: $white;
+          padding-bottom: $space-base*1.5;
+
+          &:first-child {
+            padding-left: $space-base*2;
+          }
+          &:last-child {
+            padding-right: $space-base*2;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          vertical-align: middle;
+
+          &:first-child {
+            padding-left: $space-base*2;
+          }
+          &:last-child {
+            padding-right: $space-base*2;
+          }
+        }
+      }
+    }
+  }
 
   @media screen and (max-width: $screen-xs-max) {
     width: 100%;
