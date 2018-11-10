@@ -5,7 +5,7 @@
   color: $ink-light;
   border-radius: $border-rad-light;
   margin-bottom: $space-base;
-  @include box-shadow($shadow-lt-shallow);
+  @include box-shadow($shadow-lt-default);
   @include flexbox();
   @include justify-content(flex-start);
   @include align-items(center);
