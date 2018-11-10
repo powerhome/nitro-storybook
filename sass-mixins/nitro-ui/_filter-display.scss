@@ -36,9 +36,9 @@
       margin-bottom: 0;
 
       svg {
-        vertical-align: -4px;
-        color: #8f9aa4;
-        margin-right: 2px;
+        vertical-align: -#{$space-smallest*2};
+        color: $ink-lightest;
+        margin-right: $space-smallest;
       }
     }
 
