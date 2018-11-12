@@ -9,7 +9,8 @@ export default function ButtonStory(stories) {
       let props = {
         className: text("className", "btn-default"),
         text: text("text", "Click Me"),
-        type: select("type", ["anchor", "button", "submit", ""], "button")
+        type: select("type", ["anchor", "button", "submit", ""], "button"),
+        cap: select("cap",["left", "right", "top", "bottom","none"],"none"),
       }
       return (
         <div className="container my-5">
@@ -52,7 +53,8 @@ export default function ButtonStory(stories) {
       const props = {
         className: text("className", "btn-ghost-power-royal"),
         text: text("text", "Power Royal"),
-        type: select("type", ["anchor", "button", "submit", ""], "button")
+        type: select("type", ["anchor", "button", "submit", ""], "button"),
+        cap: select("cap",["left", "right", "top", "bottom","none"],"none"),
       }
 
       return (
@@ -76,4 +78,8 @@ export default function ButtonStory(stories) {
       )
     }
   )
+
+
+    
+
 }

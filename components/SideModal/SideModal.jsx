@@ -1,8 +1,9 @@
 /* @flow */
 
-import React,{Component} from 'react'
+import React,{ Component } from 'react'
 import {Modal} from 'react-bootstrap'
 import classnames from 'classnames'
+
 
 type Props = {
   backdrop:boolean,
@@ -13,6 +14,7 @@ type Props = {
   children?:Array<React.Node>,
   sizeOption?:string,
   collapseSize?:string
+
 }
 
 export default class SideModal extends Component {
@@ -22,19 +24,18 @@ export default class SideModal extends Component {
     show:'true',
     sizeOption:'xs',
     collapseSize:'xs',
-
-    }
+  }
 
   props: Props
 
   render() {
-
     const {
       side,
       show,
       sizeOption,
       collapseSize,
-      children
+      children,
+      ...props
     } = this.props
 
     const css =[
@@ -43,15 +44,14 @@ export default class SideModal extends Component {
       [`${side}Modal-collapse-${collapseSize}`],
     ]
     return (
-      <div>
         <Modal
             backdrop
             className={classnames(css)}
             show={show}
+            {...props}
         >
           {children}
         </Modal>
-      </div>
       )
   }
 }

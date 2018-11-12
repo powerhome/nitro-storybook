@@ -1,23 +1,28 @@
 import React from "react"
-import SideModal from "./SideModal"
+import classnames from 'classnames'
 import {select,boolean} from "@storybook/addon-knobs"
+import { Modal } from "react-bootstrap"
 
 
 export default function SideModalStory(stories) {
   stories.add("SideModal",
     () => {
+
       let props = {
+
         side: select("side",['left','right'], 'left'),
-        show: boolean("show", true),
         sizeOption: select("sizeOption",['xxs','xs','sm','md','lg','xl','full','600','1000'],'xs'),
-        collapseSize: select("collapseSize",['xs','sm','md','lg'],'xs')
+        collapseSize: select("collapseSize",['xs','sm','md','lg'],'xs'),
+        show: boolean("show", false)
       }
 
-      return (
-        <div>
-        <SideModal {...props} />
-        </div>
-      )
+      const css =[
+        [`${side}Modal`],
+        [`${side}Modal-${sizeOption}`],
+        [`${side}Modal-collapse-${collapseSize}`],
+      ]
+      return   <Modal displayClassName={classnames(css)} show />
+
     }
   )
 }

@@ -10,13 +10,8 @@ export default function HighlightStory(stories) {
         side: select("side",['left','right','top','bottom'], 'left'),
         color: select('color',['power-navy','power-red','power-blue','power-gold','power-green','power-navy-darker','power-royal'],'power-blue'),
       }
-      return (
-
-          <div>
-              <Highlight {...props}/>
-          </div>
-
-      )
+      return <Highlight {...props}/>
+    
     }
   )
 }

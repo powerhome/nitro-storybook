@@ -3,7 +3,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { IconType } from "../types"
-import styles from './styles.scss'
+
 
 
 type Props = {
@@ -13,6 +13,7 @@ type Props = {
   onClick: () => mixed,
   text: string,
   type: "anchor" | "button" | "submit" | "",
+  cap: "top" | "bottom" | "left" | "right"| null,
 }
 
 export default class Button extends React.Component<Props> {
@@ -26,6 +27,7 @@ export default class Button extends React.Component<Props> {
       disabled,
       icon,
       onClick,
+      cap,
       text,
       type
     } = this.props
@@ -52,7 +54,7 @@ export default class Button extends React.Component<Props> {
     const css = [
       "btn",
       className,
-      styles.btn,
+      [`cap-${cap}`],
     ]
     props.onClick = onClick
     props.className = classnames(css)
