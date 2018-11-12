@@ -9,14 +9,14 @@ export default function TabListStory(stories) {
         <div className="container my-5">
           <TabList>
             <Tab
-                active
+                active={true}
                 text="Normal Tab"
             />
             <Tab
                 active={false}
-                href="https://www.github.com"
                 target="_blank"
                 text="GitHub"
+                href="https://www.github.com"
             />
             <Tab
                 active={false}

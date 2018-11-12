@@ -23,9 +23,7 @@ const DOBInput = ({ className, preventMinor, isValidDate, viewDate, ...props }) 
   }
 
   return (
-    <DatePicker {...props}
-        className={className}
-    />
+    <DatePicker {...props} className={className} />
   )
 }
 

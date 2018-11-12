@@ -14,9 +14,7 @@ export default function AvatarStory(stories) {
         show: boolean("show", true),
       }
       return (
-        <Modal dialogClassName="full"
-            show
-        >
+        <Modal dialogClassName="full" show={true}>
           <FlyoutPanel {...props}>
             <h1>Content</h1>
             <input />

@@ -39,11 +39,9 @@ export default class MilestoneItem extends React.Component<Props> {
       styles[`background-${background}`],
       styles[`status-${status}`],
     ]
-    return (<li className={classnames(css)}>
-      <Icon className={styles[`icon`]}
-          name={statusToIconName(status)}
-      />
+    return <li className={classnames(css)}>
+      <Icon name={statusToIconName(status)} className={styles[`icon`]}/>
       <span className={styles[`milestone-item-label`]}>{name}</span>
-      </li>)
+      </li>
   }
 }
