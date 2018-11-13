@@ -163,7 +163,7 @@ Here are the steps to creating a new `Foo` component (in order):
     ```
 1. Add `Foo.jsx` to the component index in `components/index.js`
     ```javascript
-    export Foo from '../Foo/Foo.jsx'
+    export Foo from './Foo/Foo.jsx'
     ```
 
 #### Create the Story
@@ -171,11 +171,11 @@ Here are the steps to creating a new `Foo` component (in order):
 1. Within the same directory, create a `FooStory.jsx` with the contents:
     ```javascript
     import React from "react"
-    import Text from "./Foo"
+    import Foo from "./Foo"
 
     import { text, select, boolean } from "@storybook/addon-knobs"
 
-    export default function TextStory(stories) {
+    export default function FooStory(stories) {
       stories.add("Foo",
         () => {
           let props = {}
