@@ -10,3 +10,5 @@ export PanelStory from "../components/Panel/PanelStory"
 export PanelGroupStory from "../components/PanelGroup/PanelGroupStory"
 export TabListStory from "../components/TabList/TabListStory"
 export TextStory from "../components/Text/TextStory"
+export CappingStory from '../components/Capping/CappingStory'
+export HighlightStory from '../components/Highlight/HighlightStory'
