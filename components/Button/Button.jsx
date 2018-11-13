@@ -3,7 +3,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { IconType } from "../types"
-
+import styles from './styles.scss'
 
 
 type Props = {
@@ -27,7 +27,6 @@ export default class Button extends React.Component<Props> {
       disabled,
       icon,
       onClick,
-      cap,
       text,
       type
     } = this.props
@@ -54,7 +53,7 @@ export default class Button extends React.Component<Props> {
     const css = [
       "btn",
       className,
-      [`cap-${cap}`],
+      styles.btn,
     ]
     props.onClick = onClick
     props.className = classnames(css)
