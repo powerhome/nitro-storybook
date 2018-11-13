@@ -8,20 +8,24 @@ export default function SideModalStory(stories) {
   stories.add("SideModal",
     () => {
 
-      let props = {
+      const props = {
 
         side: select("side",['left','right'], 'left'),
         sizeOption: select("sizeOption",['xxs','xs','sm','md','lg','xl','full','600','1000'],'xs'),
         collapseSize: select("collapseSize",['xs','sm','md','lg'],'xs'),
-        show: boolean("show", false)
+        show: boolean("show", true),
+
       }
 
-      const css =[
-        [`${side}Modal`],
-        [`${side}Modal-${sizeOption}`],
-        [`${side}Modal-collapse-${collapseSize}`],
-      ]
-      return   <Modal displayClassName={classnames(css)} show />
+      const side = props.side + 'Modal'
+      const sizeOption = side +'-'+ props.sizeOption
+      const collapseSize = side +'-collapse-'+props.collapseSize
+
+
+      return   (<Modal {...props}
+          className={classnames(side, sizeOption, collapseSize)}
+
+                />)
 
     }
   )
