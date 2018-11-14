@@ -6,4 +6,6 @@ declare module.exports: {|
   +'flip': string;
   +'flip-container': string;
   +'front': string;
+  +'hidden-xxs': string;
+  +'visible-xxs': string;
 |};
