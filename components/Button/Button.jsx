@@ -4,8 +4,6 @@ import React from 'react'
 import classnames from 'classnames'
 import { IconType } from "../types"
 
-
-
 type Props = {
   className: string,
   disabled: boolean,
