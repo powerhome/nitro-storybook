@@ -9,6 +9,7 @@ export default function DatePickerStory(stories) {
       const props = {
         labelText: text("Label", "Date"),
         disabled: boolean("Disabled", false),
+        floatAbove: boolean("Float Above", false),
         timeFormat: text("Time Format", undefined),
         errorMessage: text("Error Message", undefined),
         onChange: () => {},

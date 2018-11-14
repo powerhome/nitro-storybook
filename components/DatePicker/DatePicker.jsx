@@ -14,6 +14,8 @@ require('moment-timezone')
 
 import Datetime from 'react-datetime'
 
+import style from './styles.scss'
+
 export type Props = {
   className: string,
   errorMessage?: ?string,
@@ -28,6 +30,7 @@ export type Props = {
   closeOnSelect: boolean,
   timeZone: string,
   required: boolean,
+  floatAbove: boolean,
   value: string,
 };
 
@@ -113,6 +116,7 @@ export default class DatePicker extends React.Component<Props> {
       timeZone,
       required,
       multiInput,
+      floatAbove,
       ...props
     } = this.props
 
@@ -122,7 +126,7 @@ export default class DatePicker extends React.Component<Props> {
     return {
       className: classnames(
         className, "react-datetime",
-         { 'multi-input-group-item': multiInput}
+         { 'multi-input-group-item': multiInput, [style.above]: floatAbove }
       ),
       closeOnSelect,
       dateFormat,
