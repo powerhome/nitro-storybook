@@ -21,7 +21,6 @@ export default function SideModalStory(stories) {
       const sizeOption = side +'-'+ props.sizeOption
       const collapseSize = side +'-collapse-'+props.collapseSize
 
-
       return   (<Modal {...props}
           className={classnames(side, sizeOption, collapseSize)}
 

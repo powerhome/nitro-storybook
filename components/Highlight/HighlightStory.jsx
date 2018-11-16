@@ -1,7 +1,7 @@
 import React from "react"
 import Highlight from "./Highlight"
-
-import { select } from "@storybook/addon-knobs"
+import { select, } from "@storybook/addon-knobs"
+import classnames from 'classnames'
 
 export default function HighlightStory(stories) {
   stories.add("Highlight",
@@ -10,8 +10,13 @@ export default function HighlightStory(stories) {
         side: select("side",['left','right','top','bottom'], 'left'),
         color: select('color',['power-navy','power-red','power-blue','power-gold','power-green','power-navy-darker','power-royal'],'power-blue'),
       }
-      return <Highlight {...props}/>
-    
+
+        const highlightSide = `highlight-${props.side}`
+        const highlightColor = `highlight-${props.color}`
+
+
+      return <Highlight {...props} className={classnames(highlightSide,highlightColor)}/>
+
     }
   )
 }

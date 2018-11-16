@@ -4,12 +4,17 @@ import React from 'react'
 import classnames from 'classnames'
 
 type Props = {
+
   side: "top" | "bottom" | "left" | "right"| null,
   color: "power-navy" | "power-navy-darker" | "power-red" | "power-gold" | "power-blue" | "power-green" | "power-royal",
+
 }
 
 export default class Highlight extends React.Component<Props> {
-  static defaultProps = {}
+  static defaultProps = {
+    side: "",
+    color: "",
+  }
   props: Props
   render() {
     const {

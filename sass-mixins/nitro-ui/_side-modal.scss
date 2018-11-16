@@ -19,7 +19,7 @@ $modalSides:
         display: none;
       }
       @include media-max-width($screen-sm-min) {
-        max-width: 400px;
+        max-width: 100%;
 
         .mobile_close {
           display: block;
@@ -53,10 +53,10 @@ $modalSides:
       "-1000" 1000px;
 
     $collapsedSizes:
-      "-xs" 250px,
-      "-sm" 400px,
-      "-md" 60vw,
-      "-lg" 75vw;
+      "-xs",
+      "-sm",
+      "-md",
+      "-lg";
 
      @each $size in $screenSizes{
        &#{nth($size,1)} {
@@ -67,11 +67,11 @@ $modalSides:
      }
 
      @each $size in $collapsedSizes{
-       $collapseAt:"-collapse#{nth($size,1)}" "$screen#{nth($size,1)}-min" #{nth($size,2)};
+       $collapseAt:"-collapse#{$size}" "$screen#{$size}-min" ;
        &#{nth($collapseAt,1)}{
-         @include media-max-width("$screen#{nth($size,1)}-min") {
+         @include media-max-width(#{nth($collapseAt,2)}) {
            .modal-dialog {
-             max-width: #{nth($size,2)} !important;
+             max-width: 100% !important ;
 
              .mobile_close {
                display: block;

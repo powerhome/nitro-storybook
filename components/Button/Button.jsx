@@ -11,7 +11,6 @@ type Props = {
   onClick: () => mixed,
   text: string,
   type: "anchor" | "button" | "submit" | "",
-  cap: "top" | "bottom" | "left" | "right"| null,
 }
 
 export default class Button extends React.Component<Props> {
@@ -51,6 +50,7 @@ export default class Button extends React.Component<Props> {
     const css = [
       "btn",
       className,
+
     ]
     props.onClick = onClick
     props.className = classnames(css)

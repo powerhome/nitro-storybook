@@ -1,6 +1,6 @@
 import React from "react"
 import Button from "./Button"
-
+import classnames from 'classnames'
 import { text, select } from "@storybook/addon-knobs"
 
 export default function ButtonStory(stories) {
@@ -12,11 +12,15 @@ export default function ButtonStory(stories) {
         type: select("type", ["anchor", "button", "submit", ""], "button"),
         cap: select("cap",["left", "right", "top", "bottom","none"],"none"),
       }
+
+      const cap = `cap-${props.cap}`
+
+
       return (
         <div className="container my-5">
           <div className="row">
             <div className="col-sm-2">
-              <Button {...props}/>
+              <Button {...props} className={classnames(cap,props.className)}/>
             </div>
             <div className="col-sm-2">
               <Button className="btn-primary" text="Power Royal" type="button" />
@@ -45,10 +49,12 @@ export default function ButtonStory(stories) {
         cap: select("cap",["left", "right", "top", "bottom","none"],"none"),
       }
 
+      const cap = `cap-${props.cap}`
+
       return (
         <div className="row">
           <div className="col-sm-2">
-            <Button {...props}/>
+            <Button {...props} className={classnames(cap,props.className)}/>
           </div>
           <div className="col-sm-2">
             <Button className="btn-ghost-power-green" text="Power Green" type="button" />
