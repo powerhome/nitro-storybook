@@ -1,6 +1,5 @@
-@import "../sass-mixins/base-mixins/all";
-@import "../sass-mixins/base-variables/all";
-
+@import '../../sass-mixins/base-variables/colors';
+@import '../../sass-mixins/base-mixins/all';
 //highlight
 $borderStyle: "solid";
 $sides: "top" "right" "bottom" "left" ;
