@@ -66,4 +66,23 @@ export default function ButtonStory(stories) {
       )
     }
   )
+
+
+  stories.add("YO TEST THIS OUT",
+    () => {
+      const props = {
+        className: text("className", "btn-ghost-power-royal"),
+      }
+      return (
+        <div className="card p-5">
+          <div className="form-group">
+            <label for="formGridState" className="form-label">State</label>
+            <select id="formGridState" className="form-control">
+              <option>Choose...</option><option>...</option>
+            </select>
+          </div>
+        </div>
+      )
+    }
+  )
 }
