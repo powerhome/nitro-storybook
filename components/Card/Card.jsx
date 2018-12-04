@@ -33,7 +33,7 @@ export default class Card extends React.Component<Props> {
     } = this.props
     const css = classnames([
       "card",
-      className
+      className,
     ])
     return (
       <div className={css}>
