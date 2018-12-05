@@ -77,12 +77,15 @@ $label-offset: 27px;
       font-weight: $bold;
     }
     &:after {
-      content: "\f00c";
+      content: "";
+      display: block;
+      width: 15px;
+      height: 11px;
+      background-image: image-url('#{$asset-path}/check.svg');
+      background-repeat: no-repeat;
       position: absolute;
       top: 1px;
       @include center;
-      color: $white;
-      font-family: $icon-font;
     }
   }
 }
