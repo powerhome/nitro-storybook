@@ -16,14 +16,13 @@ $grid-breakpoints: (
   xl: 1200px
 ) !default;
 
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints);
-
 
 
 //== Grid system
 //
 //## Define your custom responsive grid.
+
+$screen-sm-min: 768px;
 
 //** Number of columns in the grid.
 $grid-columns:              12 !default;

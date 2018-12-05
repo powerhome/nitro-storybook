@@ -26,8 +26,8 @@
 // Custom Select
 @mixin select($select-color: (linear-gradient(to bottom, $white 10%, $gray-1 100%)), $arrow-color: $gray-5) {
 	background: $select-color;
-  background-image: image-url('nitro_theme/caret.svg'); /* fallback */
-  background-image: image-url('nitro_theme/caret.svg'), $select-color; /* W3C */
+  background-image: image-url('#{$asset-path}/caret.svg'); /* fallback */
+  background-image: image-url('#{$asset-path}/caret.svg'), $select-color; /* W3C */
   @include select-arrow-image-settings;
 	padding-right: 3em;
 }
