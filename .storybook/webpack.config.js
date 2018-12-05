@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const entries = [
   path.resolve(__dirname, '../fonts/regular.js'),
@@ -12,12 +11,6 @@ module.exports = (storybookBaseConfig, configType) => {
     storybookBaseConfig.entry.manager.push(entries[e])
     storybookBaseConfig.entry.preview.push(entries[e])
   }
-
-  storybookBaseConfig.plugins.push(
-     new CopyWebpackPlugin([
-       {from: path.resolve(__dirname, '../images') ,to:path.resolve(__dirname, '../public/images') }
-     ]),
-   );
 
   storybookBaseConfig.module.rules.push({
     test: /\.(s?css|sass)$/,
