@@ -84,7 +84,7 @@ $label-offset: 27px;
       background-image: image-url('#{$asset-path}/check.svg');
       background-repeat: no-repeat;
       position: absolute;
-      top: 1px;
+      top: 2px;
       @include center;
     }
   }
