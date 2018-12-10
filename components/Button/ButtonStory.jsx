@@ -1,6 +1,7 @@
 import React from "react"
-import Button from "./Button"
 import classnames from 'classnames'
+import { Button } from "react-bootstrap"
+import Icon from "../Icon/Icon"
 import { text, select } from "@storybook/addon-knobs"
 
 export default function ButtonStory(stories) {
@@ -20,19 +21,19 @@ export default function ButtonStory(stories) {
         <div className="container my-5">
           <div className="row">
             <div className="col-sm-2">
-              <Button {...props} className={classnames(cap,props.className)}/>
+              <Button {...props} className={classnames(cap,props.className)}>Default</Button>
             </div>
             <div className="col-sm-2">
-              <Button className="btn-primary" text="Power Royal" type="button" />
+              <Button className="btn-primary" type="button">Power Royal</Button>
             </div>
             <div className="col-sm-2">
-              <Button className="btn-success" text="Power Green" type="button" />
+              <Button className="btn-success" type="button">Power Green</Button>
             </div>
             <div className="col-sm-2">
-              <Button className="btn-danger" text="Power Red" type="button" />
+              <Button className="btn-danger" type="button">Power Red</Button>
             </div>
             <div className="col-sm-2">
-              <Button className="btn-link" text="Link Button" type="button" />
+              <Button className="btn-link" type="button">Link Button</Button>
             </div>
           </div>
         </div>
@@ -44,27 +45,46 @@ export default function ButtonStory(stories) {
     () => {
       const props = {
         className: text("className", "btn-ghost-power-royal"),
-        text: text("text", "Power Royal"),
-        type: select("type", ["anchor", "button", "submit", ""], "button"),
-        cap: select("cap",["left", "right", "top", "bottom","none"],"none"),
       }
 
       const cap = `cap-${props.cap}`
 
       return (
         <div className="row">
-          <div className="col-sm-2">
-            <Button {...props} className={classnames(cap,props.className)}/>
+          <div className="col-sm-3">
+            <Button {...props}>
+            Power Royal
+            </Button>
           </div>
-          <div className="col-sm-2">
-            <Button className="btn-ghost-power-green" text="Power Green" type="button" />
+          <div className="col-sm-3">
+            <Button className="btn-ghost-power-green">
+              Power Green
+            </Button>
           </div>
-          <div className="col-sm-2">
-            <Button className="btn-ghost-power-red" text="Power Red" type="button" />
+          <div className="col-sm-3">
+            <Button className="btn-ghost-power-red">
+            Power Red
+            </Button>
           </div>
         </div>
       )
     }
   )
 
+
+
+  stories.add("Card Toggle Buttons",
+    () => {
+      const props = {
+        className: text("className", "btn-card-toggle"),
+        type: select("type", ["anchor", "button", "submit", ""], "button")
+      }
+
+      return (
+          <Button {...props}>
+            <Icon name="chevron-down" />
+          </Button>
+      )
+    }
+  )
 }
