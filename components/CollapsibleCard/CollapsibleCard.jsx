@@ -40,9 +40,6 @@ class CollapsibleCard extends React.Component<Props> {
     })
   }
 
-  componentDidMount() {
-  }
-
   renderTop() {
     const { children } = this.props;
     const content = React.Children.map(children, child => {
