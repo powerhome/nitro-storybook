@@ -78,10 +78,10 @@ $label-offset: 27px;
     }
     &:after {
       content: "";
-      display: block;
+      display: block;image_path(
       width: 15px;
       height: 11px;
-      background-image: image-url('#{$asset-path}/check.svg');
+      background-image: url('#{$asset-path}/check.svg');
       background-repeat: no-repeat;
       position: absolute;
       top: 2px;
