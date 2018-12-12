@@ -78,7 +78,7 @@ $label-offset: 27px;
     }
     &:after {
       content: "";
-      display: block;image_path(
+      display: block;
       width: 15px;
       height: 11px;
       background-image: url('#{$asset-path}/check.svg');
