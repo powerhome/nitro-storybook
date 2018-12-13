@@ -9,13 +9,13 @@
   &.btn-block + .btn-block {
     margin-top: 5px;
   }
-  &.large, &.btn-lg {
+  &.large, &.btn-lg, .btn-group > .btn {
     @include button-size($padding-large-vertical, $padding-large-horizontal, $font-large - 2px, $line-height-large, $border-rad-heavy);
   }
-  &.small, &.btn-sm {
+  &.small, &.btn-sm, .btn-group > .btn {
     @include button-size($padding-small-vertical, $padding-small-horizontal, $font-small, $line-height-small, $border-rad-light);
   }
-  &.micro, &.btn-xs {
+  &.micro, &.btn-xs, .btn-group > .btn {
     @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-smaller, $line-height-small, $border-rad-lighter);
     .fa {
       font-size: $font-smaller;
