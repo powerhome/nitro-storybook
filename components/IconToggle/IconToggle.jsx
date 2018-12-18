@@ -26,7 +26,6 @@ export default class IconToggle extends React.Component<Props> {
     iconOption1:"minus-circle",
     iconOption2:"plus-circle",
     size:"text-larger",
-    active: false,
     onToggle: () => {},
   }
 
@@ -44,17 +43,16 @@ export default class IconToggle extends React.Component<Props> {
       iconOption2,
       color,
       size,
-      active
+
 
     } = this.props
-    const css = [
-      styles[`icon-toggle`],
-      active ? styles[`icon-toggle-active`] : null
-    ]
 
+    const css =[
+      styles[`icon-toggle`]
+    ]
     return (
       <div>
-          <div className={`${classnames(css,size)}`}
+          <div className={classnames(css),size}
               onClick={this.handleToggle}
           >
           <label>
