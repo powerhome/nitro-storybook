@@ -1,9 +1,8 @@
 /* @flow */
 
 import React from 'react'
-import styles from './styles.scss'
 import Icon from '../Icon/Icon'
-import classnames from 'classnames'
+
 
 type Props = {
     children?: Array<React.Node>,
@@ -12,29 +11,19 @@ type Props = {
     iconOption2?:string,
     size:string,
     color:string,
-    active:boolean,
-    onToggle: () => mixed,
-
-
 }
 
 export default class IconToggle extends React.Component<Props> {
 
   static defaultProps = {
     color: "text-sky",
-    className: "",
+    className: "icon-toggle",
     iconOption1:"minus-circle",
     iconOption2:"plus-circle",
     size:"text-larger",
-    onToggle: () => {},
   }
 
   props: Props
-
-  handleToggle = () => {
-    this.props.onToggle(!this.props.active)
-
-  }
 
   render() {
     const{
@@ -43,19 +32,12 @@ export default class IconToggle extends React.Component<Props> {
       iconOption2,
       color,
       size,
-
-
     } = this.props
 
-    const css =[
-      styles[`icon-toggle`]
-    ]
+
     return (
       <div>
-          <div className={classnames(css),size}
-              onClick={this.handleToggle}
-          >
-          <label>
+          <label className={`icon-toggle ${size} m-0`}>
           <input className=""
               type="checkbox"
           />
@@ -68,7 +50,6 @@ export default class IconToggle extends React.Component<Props> {
               title={`icon-2`}
           />
         </label>
-      </div>
     </div>
    )
   }
