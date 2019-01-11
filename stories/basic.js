@@ -12,3 +12,6 @@ export TabListStory from "../components/TabList/TabListStory"
 export TextStory from "../components/Text/TextStory"
 export CappingStory from '../components/Capping/CappingStory'
 export HighlightStory from '../components/Highlight/HighlightStory'
+export CardStory from "../components/Card/CardStory"
+export CollapsibleCardStory from "../components/CollapsibleCard/CollapsibleCardStory"
+export IconToggle from '../components/IconToggle/IconToggleStory'

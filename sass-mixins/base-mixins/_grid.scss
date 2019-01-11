@@ -2,6 +2,10 @@
 //
 // Generate semantic grid columns with these mixins.
 
+// Tests for breakpoints
+// @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+// @include _assert-starts-at-zero($grid-breakpoints);
+
 // Centered container element
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-right: auto;
