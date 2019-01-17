@@ -5,35 +5,27 @@
     width: 100%;
     background: none !important;
 
-    tbody {
-      tr {
-        td {
-          border-left-width: 1px !important;
-          border-right-width: 1px !important;
-        }
-      }
-    }
-
-    tr {
-      td, th {
-        display: block;
-        visibility: visible;
-      }
-    }
-
     thead {
       tr {
         left: -9999px;
         position: absolute;
         top: -9999px;
+
+        th {
+          display: block;
+          visibility: visible;
+        }
       }
     }
-
     tbody {
       tr {
         td {
-          border: none;
-          border-bottom: 1px solid $sky;
+          display: block;
+          visibility: visible;
+          border-left-width: 1px !important;
+          border-right-width: 1px !important;
+          border-bottom-width: 0 !important;
+          border-color: $sky !important;
           min-height: 2.2em;
           padding-left: 34%;
           position: relative;
@@ -59,11 +51,13 @@
           &:first-child {
             margin-top: $space-larger !important;
             border-top-width: 1px !important;
+            border-top-color: $sky !important;
             border-radius: $border-rad-light $border-rad-light 0 0;
           }
 
           &:last-child {
             border-radius: 0 0 $border-rad-light $border-rad-light;
+            border-bottom-width: 1px !important;
           }
         }
 
