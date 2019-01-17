@@ -37,6 +37,23 @@ table {
           }
         }
       }
+      &.as-cards {
+        tbody {
+          tr {
+            td {
+              border-top-color: $sky;
+              border-top-width: 1px;
+            }
+
+            &:hover {
+              td {
+                border-top-width: 1px;
+                border-top-color: $sky;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
