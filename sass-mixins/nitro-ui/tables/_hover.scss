@@ -23,8 +23,9 @@ table {
 
             td {
               background: $white;
-              border-color: $power-blue;
+              border-color: $sky-dark;
               border-top-width: 1px;
+              border-top-color: transparent;
 
               &:first-child {
                 border-left-width: 1px;
