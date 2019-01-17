@@ -1,0 +1,70 @@
+$table-dark-card-bg: $ink;
+
+.table-sm,
+.table-md,
+.table-lg {
+  &.table-dark {
+    thead {
+      tr {
+        border-color: $ink-light !important;
+
+        th {
+          border-color: $ink-light !important;
+          color: $ink-lightest;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-color: $ink-light;
+        transition: none !important;
+
+        td {
+          border-color: $ink-light !important;
+          color: $white;
+
+          &:before {
+            color: $ink-lightest !important;
+          }
+        }
+      }
+    }
+
+    &:not(.no-hover) {
+      tbody {
+        tr {
+          &:hover {
+            td {
+              border-color: $ink-light !important;
+              background: $ink-light;
+            }
+          }
+        }
+      }
+    }
+
+    &.table-card {
+      background: $table-dark-card-bg !important;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-xs-max) {
+  .table-sm,
+  .table-md,
+  .table-lg {
+    &.table-card {
+      &.table-dark {
+        background: none !important;
+
+        tbody {
+          tr {
+            td {
+              background: $table-dark-card-bg !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
