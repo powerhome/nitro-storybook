@@ -23,7 +23,7 @@
   "license": "ISC",
   "private": true,
   "engines": {
-    "node": "8.9.0",
+    "node": "8.9.4",
     "npm": "5.5.1"
   },
   "bugs": {
