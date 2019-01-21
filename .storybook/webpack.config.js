@@ -4,8 +4,7 @@ const path = require('path');
 const entries = [
   path.resolve(__dirname, '../fonts/regular.js'),
   path.resolve(__dirname, '../fonts/fontawesome.js'),
-  path.resolve(__dirname, '../images/pb-caret.svg'),
-  path.resolve(__dirname, '../images/pb-check.svg'),
+
 ]
 
 module.exports = (storybookBaseConfig, configType) => {
