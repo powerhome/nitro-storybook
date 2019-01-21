@@ -14,7 +14,7 @@ table {
 
           td {
             border-top-color: transparent;
-            border-top-width: 1px;
+            border-top-width: 1px !important;
             transition: all $transition-speed ease;
           }
 
@@ -26,13 +26,6 @@ table {
               border-color: $sky-dark;
               border-top-width: 1px;
               border-top-color: transparent;
-
-              &:first-child {
-                border-left-width: 1px;
-              }
-              &:last-child {
-                border-right-width: 1px;
-              }
             }
           }
         }
@@ -49,6 +42,20 @@ table {
               td {
                 border-top-width: 1px;
                 border-top-color: $sky;
+              }
+            }
+          }
+        }
+      }
+      &.table-card {
+        tbody {
+          tr {
+            td {
+              &:first-child {
+                border-left-width: 1px;
+              }
+              &:last-child {
+                border-right-width: 1px;
               }
             }
           }

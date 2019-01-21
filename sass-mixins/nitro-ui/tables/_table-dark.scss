@@ -21,10 +21,16 @@ $table-dark-card-bg: $ink;
 
         td {
           border-color: $ink-light !important;
+          border-bottom-width: 0 !important;
           color: $white;
 
           &:before {
             color: $ink-lightest !important;
+          }
+        }
+        &:first-child {
+          td {
+            border-top-width: 0 !important;
           }
         }
       }
@@ -61,6 +67,22 @@ $table-dark-card-bg: $ink;
           tr {
             td {
               background: $table-dark-card-bg !important;
+            }
+          }
+        }
+      }
+    }
+    &.table-dark {
+      tbody {
+        tr {
+          td {
+            &:first-child {
+              border-top-color: $ink-light !important;
+            }
+          }
+          &:first-child {
+            td {
+              border-top-width: 1px !important;
             }
           }
         }

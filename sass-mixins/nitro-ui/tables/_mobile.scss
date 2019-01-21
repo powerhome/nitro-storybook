@@ -70,7 +70,6 @@
         }
       }
     }
-
     &.table-card {
       background: none !important;
 
@@ -80,11 +79,18 @@
             background: $white !important;
             border-left-width: 1px !important;
             border-right-width: 1px !important;
+            border-top-width: 1px !important;
+
+            &:first-child {
+              border-radius: $border-rad-light $border-rad-light 0 0 !important;
+            }
+            &:last-child {
+              border-radius: 0 0 $border-rad-light $border-rad-light !important;
+            }
           }
         }
       }
     }
-
     &:hover {
       tbody {
         tr {
