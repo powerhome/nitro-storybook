@@ -16,8 +16,17 @@ $circleButtonSizes:
 //
 // @include config-sizes("circleButton");
 
-    button > .circleButton-md  {
-      text-align: center !important;
+.circlebutton{
+  text-align: center !important;
+  height: 48px !important;
+  width: 148px !important;
+  border: none !important;
+  border-radius: 100% !important;
+  border: none;
+  appearance:none;
+
+    &-md {
+
       border-radius: 100% !important;
       height: 48px !important;
       width: 48px !important;
@@ -26,11 +35,11 @@ $circleButtonSizes:
       margin:0;
     }
 
-    .circleButton-lg > button{
-      text-align: center !important;
+    &-lg {
       border-radius: 100% !important;
       height: 56px !important;
       width: 56px !important;
       font-size: 20px !important;
       padding:0;
     }
+}

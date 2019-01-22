@@ -1,37 +1,24 @@
 import React from "react"
-import { Button } from "react-bootstrap"
-import Icon from "../Icon/Icon.jsx"
+import CircleButton from "./CircleButton"
 import { text, select,} from "@storybook/addon-knobs"
-import classnames from "classnames"
 
 
-export default function CircleButton(stories) {
-  stories.add("CircleButton",
+
+
+export default function CircleButtonStory(stories) {
+  stories.add("Circle Button",
     () => {
       const props = {
         className: text("className", ""),
         size: select("sizeOption",['md','lg',],'md'),
-        iconColor:select("iconColor",["text-power-red","text-power-blue","text-white"],"text-power-red"),
-        iconName: text("name", "plus"),
-        btnColor:text("btnColor","bg-white"),
+        iconColor:text("iconColor","text-white"),
+        iconName: text("iconName","plus"),
+        color:text("color","bg-power-green"),
       }
 
 
 
-      const iconName = props.name
-      const iconColor = props.iconColor
-      const size = `circleButton-`+ props.size
-      const btnColor= props.btnColor
-
-
-
-
-      return (
-        <Button className={classnames(size,btnColor)}>
-          <Icon className={classnames(iconColor)}
-              name={iconName}
-          />
-      </Button>
+      return (<CircleButton {...props}/>
       )
     }
   )
