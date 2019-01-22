@@ -14,4 +14,5 @@ export CappingStory from '../components/Capping/CappingStory'
 export HighlightStory from '../components/Highlight/HighlightStory'
 export CardStory from "../components/Card/CardStory"
 export CollapsibleCardStory from "../components/CollapsibleCard/CollapsibleCardStory"
-export IconToggle from '../components/IconToggle/IconToggleStory'
+export IconToggleStory from '../components/IconToggle/IconToggleStory'
+export CircleButtonStory from '../components/CircleButton/CircleButtonStory'
