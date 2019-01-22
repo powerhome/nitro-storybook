@@ -1,45 +1,30 @@
-$circleButtonSizes:
-  "md" 48px 16px,
-  "lg" 56px 20px;
 
-// @mixin config-sizes($prefix){
-//   @each $size in $circleButtonSizes($prefix) {
-//     .#{$prefix}-#{nth($size,1)} {
-//       text-align: center;
-//       border-radius: 100%;
-//       height: #{nth($size, 1)};
-//       width: #{nth($size, 1)};
-//       font-size: #{nth($size, 2)};
-//     }
-//   }
-// }
-//
-// @include config-sizes("circleButton");
+
 
 .circlebutton{
   text-align: center !important;
-  height: 48px !important;
-  width: 148px !important;
   border: none !important;
   border-radius: 100% !important;
   border: none;
-  appearance:none;
+  appearance: none;
 
-    &-md {
-
-      border-radius: 100% !important;
-      height: 48px !important;
-      width: 48px !important;
-      font-size: 16px !important;
-      padding:0;
-      margin:0;
-    }
-
-    &-lg {
-      border-radius: 100% !important;
-      height: 56px !important;
-      width: 56px !important;
-      font-size: 20px !important;
-      padding:0;
-    }
 }
+
+
+$circleButtonSizes:
+"md" 48px 16px,
+"lg" 56px 20px;
+
+@mixin config-sizes($prefix){
+  @each $size in $circleButtonSizes {
+    .#{$prefix}-#{nth($size,1)} {
+      text-align: center;
+      border-radius: 100%;
+      height: #{nth($size,2)} !important;
+      width: #{nth($size,2)}!important;
+      font-size: #{nth($size,3)} !important;
+    }
+  }
+}
+
+@include config-sizes("circlebutton");

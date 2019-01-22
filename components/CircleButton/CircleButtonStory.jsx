@@ -9,7 +9,7 @@ export default function CircleButtonStory(stories) {
   stories.add("Circle Button",
     () => {
       const props = {
-        className: text("className", ""),
+        className: text("className", "circlebutton"),
         size: select("sizeOption",['md','lg',],'md'),
         iconColor:text("iconColor","text-white"),
         iconName: text("iconName","plus"),

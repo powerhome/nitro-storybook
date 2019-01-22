@@ -20,6 +20,7 @@ export default class CircleButton extends React.Component<Props> {
     size:"",
     textColor:"",
     iconName:"",
+    className:"circlebutton",
 
 
   }
@@ -32,6 +33,7 @@ export default class CircleButton extends React.Component<Props> {
       color,
       iconName,
       iconColor,
+      className,
     } = this.props
 
 
@@ -39,7 +41,7 @@ export default class CircleButton extends React.Component<Props> {
     return (
 
         <div>
-          <button className={`${classnames(color,iconColor)} circlebutton-${size} border-0 shadow-default`}>
+          <button className={`${classnames(color,iconColor,className)} circlebutton-${size} border-0 shadow-default`}>
             <Icon name={iconName}/>
           </button>
         </div>
