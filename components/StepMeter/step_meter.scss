@@ -1,7 +1,7 @@
-@import "base-variables/_colors.scss";
-@import "base-variables/_spacing.sass";
-@import "base-variables/_border-radius.sass";
-@import "base-variables/_typography.sass";
+@import "~nitro-storybook/sass-mixins/base-variables/_colors.scss";
+@import "~nitro-storybook/sass-mixins/base-variables/_spacing.sass";
+@import "~nitro-storybook/sass-mixins/base-variables/_border-radius.sass";
+@import "~nitro-storybook/sass-mixins/base-variables/_typography.sass";
 
 $step-size-sm: 10px;
 
