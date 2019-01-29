@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 5.1.6", "< 6.0"
   s.add_dependency "sassc-rails", "1.3.0"
+  s.add_dependency "sass-rails", "5.0.6"
   s.add_dependency "sprockets-rails", "2.3.3"
 
   s.add_dependency "webpacker", ">= 4.0.0.rc.7"
@@ -25,4 +26,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rubocop", "0.49.1"
   s.add_development_dependency "yard"
   s.add_development_dependency "rainbow", "2.1.0" # locked due to a Rubygems bug exposed in Rainbow 2.2.0. see https://www.pivotaltracker.com/story/show/139302571
+  s.add_development_dependency "sqlite3"
 end
