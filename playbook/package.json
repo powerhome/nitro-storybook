@@ -1,0 +1,25 @@
+{
+  "name": "playbook",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "8.7.0",
+    "npm": "5.4.2"
+  },
+  "main": "app/index.js",
+  "scripts": {
+    "test": "NODE_PATH=app node_modules/mocha/bin/mocha",
+    "test:watch": "NODE_PATH=app node_modules/mocha/bin/mocha --watch",
+    "lint": "./node_modules/eslint/bin/eslint.js . --ext .js,.jsx"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "peerDependencies": {
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
+  },
+  "dependencies": {
+  }
+}
