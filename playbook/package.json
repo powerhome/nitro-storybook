@@ -9,6 +9,7 @@
   },
   "main": "app/index.js",
   "scripts": {
+    "postinstall": "echo \"Playbook Design System has been installed! Visit http://playbook.powerapp.cloud for documentation, or spin it up by following the readme.\""
     "test": "NODE_PATH=app node_modules/mocha/bin/mocha",
     "test:watch": "NODE_PATH=app node_modules/mocha/bin/mocha --watch",
     "lint": "./node_modules/eslint/bin/eslint.js . --ext .js,.jsx"

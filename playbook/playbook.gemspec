@@ -38,4 +38,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "0.49.1"
   spec.add_development_dependency "yard"
   spec.add_development_dependency "rainbow", "2.1.0"
+  spec.post_install_message = %q{
+    Playbook Design System has been installed!
+    Visit http://playbook.powerapp.cloud for documentation.
+    or spin it up by following the readme.
+  }
 end
