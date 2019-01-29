@@ -1,3 +1,5 @@
+require "webpacker"
+
 namespace :nitro_sg do
   namespace :webpacker do
     desc "Install deps with yarn"
@@ -9,8 +11,8 @@ namespace :nitro_sg do
 
     desc "Compile JavaScript packs using webpack for production with digests"
     task compile: [:yarn_install, :environment] do
-      Webpacker.with_node_env("production") do
-          if MyEngine.webpacker.commands.compile
+      ::Webpacker.with_node_env("production") do
+          if NitroSg.webpacker.commands.compile
             # Successful compilation!
           else
             # Failed compilation

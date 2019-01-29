@@ -13,3 +13,4 @@ spec/dummy/yarn-error.log
 spec/dummy/storage/
 spec/dummy/tmp/
 spec/dummy/log/
+tmp/

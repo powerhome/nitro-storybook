@@ -1,4 +1,4 @@
-require "webpacker/helper"
+require "webpacker"
 
 module NitroSg
   module ApplicationHelper
