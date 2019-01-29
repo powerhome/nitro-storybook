@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-
-# Build
-
-echo ">>> Building"
-time bin/rubocop --display-cop-names --extra-details --display-style-guide --config .rubocop.yml
