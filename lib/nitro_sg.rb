@@ -1,10 +1,9 @@
 require "sassc-rails"
-
 require "nitro_sg/engine"
 
-
-
 module NitroSg
+  ROOT_PATH = Pathname.new(File.join(__dir__, ".."))
+
   # @return [Boolean] indication of whether the request is a web view within Nitro Mobile
   def self.web_page_within_mobile_app?(request)
     request.user_agent.try(:downcase) =~ /^nitro/
@@ -18,6 +17,15 @@ module NitroSg
       elsif Rails.configuration.assets.digests.present? # Rails 3
         Digest::MD5.hexdigest(Rails.configuration.assets.digests.try(:values).sort.join)
       end
+    end
+  end
+
+  class << self
+    def webpacker
+      @webpacker ||= ::Webpacker::Instance.new(
+        root_path: ROOT_PATH,
+        config_path: ROOT_PATH.join("config/webpacker.yml")
+      )
     end
   end
 end
