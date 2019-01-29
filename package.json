@@ -1,6 +1,6 @@
 {
   "name": "nitro-storybook",
-  "version": "2.4.9",
+  "version": "2.5.0",
   "description": "Nitro UI Styleguide + React component dev env",
   "main": "components/index.js",
   "scripts": {
@@ -23,8 +23,8 @@
   "license": "ISC",
   "private": true,
   "engines": {
-    "node": "8.7.0",
-    "npm": "5.4.2"
+    "node": "8.9.4",
+    "npm": "5.5.1"
   },
   "bugs": {
     "url": "https://github.com/powerhome/nitro-storybook/issues"
