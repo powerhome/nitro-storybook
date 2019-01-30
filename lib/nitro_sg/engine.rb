@@ -1,3 +1,6 @@
+require 'action_mailer/railtie'
+require 'sass-rails'
+
 module NitroSg
   class Engine < ::Rails::Engine
     isolate_namespace NitroSg
