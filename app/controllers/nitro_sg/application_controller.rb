@@ -1,5 +1,8 @@
 module NitroSg
   class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
+
+    helper NitroSg::PbKitHelper
+    append_view_path NitroSg::Engine.root + "app/pb_kits"
   end
 end
