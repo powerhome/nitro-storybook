@@ -1,6 +1,7 @@
 node_modules
 webpack-bundle.js
 public
+!spec/dummy/public
 .DS_Store
 npm-debug.log
 .out
