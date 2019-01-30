@@ -1,3 +1,3 @@
-import '../pbCalendar/styles/pbCalendar.scss'
+import '../pbCalendar/pbCalendar.scss'
 
-export const calendar = (a, b) => a + b
+export const pbCalendar = (a, b) => a + b
