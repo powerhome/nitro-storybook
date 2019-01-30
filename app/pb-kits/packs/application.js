@@ -9,6 +9,6 @@
 // import { add } from "../components/math"
 
 
-import { pbCalendar } from "pbCalendar"
+import { pb_calendar } from "pb_calendar"
 
-console.log("xxxx", pbCalendar(3, 10))
+console.log("xxxx", pb_calendar(3, 10))
