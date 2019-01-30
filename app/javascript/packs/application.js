@@ -6,6 +6,9 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-import { add } from "../components/math"
+// import { add } from "../components/math"
 
-console.log(">>>>", add(3, 4))
+
+import { calendar } from "calendar"
+
+console.log("xxxx", calendar(3, 10))
