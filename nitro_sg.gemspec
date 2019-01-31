@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "webpacker", ">= 4.0.0.rc.7"
   s.add_dependency "webpacker-react", "~> 0.3.2"
+  s.add_dependency "redcarpet"
 
   s.add_development_dependency "test-unit", "3.1.5"
   s.add_development_dependency "rspec-rails"
@@ -28,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "yard"
   s.add_development_dependency "rainbow", "2.1.0" # locked due to a Rubygems bug exposed in Rainbow 2.2.0. see https://www.pivotaltracker.com/story/show/139302571
   s.add_development_dependency "sqlite3"
+
 end

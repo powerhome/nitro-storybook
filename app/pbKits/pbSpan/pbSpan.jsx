@@ -1,10 +1,8 @@
-import React from 'react';
+import React from "react";
 
 class pbCalendar extends React.Component {
   render() {
-    return <div>
-             YYYYYYY Hello, I am {this.props.name}!
-           </div>
+    return <span>YYYYYYY Hello, I am {this.props.name}!</span>;
   }
 }
 
