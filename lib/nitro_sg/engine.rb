@@ -1,5 +1,6 @@
 require 'action_mailer/railtie'
 require 'sass-rails'
+require 'slim-rails'
 
 module NitroSg
   class Engine < ::Rails::Engine

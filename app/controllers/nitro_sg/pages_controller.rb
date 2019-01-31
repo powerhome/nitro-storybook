@@ -1,8 +1,10 @@
 require_dependency "nitro_sg/application_controller"
 
 module NitroSg
-  class GreetingsController < ApplicationController
-    def hello
+  class PagesController < ApplicationController
+    def home
+    end
+    def kits
     end
   end
 end
