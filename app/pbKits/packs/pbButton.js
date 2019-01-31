@@ -1,4 +1,3 @@
-import "./main.scss";
 import pbButton from "pbButton/pbButton";
 import WebpackerReact from "webpacker-react";
 
