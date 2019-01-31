@@ -8,3 +8,4 @@
 
 
 <%= render 'pbCalendar/pbCalendarStory' %>
+<%= render 'pbCard/pbCardStory' %>
