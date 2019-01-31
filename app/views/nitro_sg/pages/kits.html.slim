@@ -1,5 +1,2 @@
-= render 'pbCalendar/pbCalendarStory'
-= render 'pbCard/pbCardStory'
-= render 'pbDiv/pbDivStory'
-= render 'pbSpan/pbSpanStory'
-= render 'pbButton/pbButtonStory'
+- MENU['kits'].sort.each do |kit|
+  = render "#{kit}/#{kit}Story"
