@@ -8,8 +8,15 @@
   <%= javascript_pack_tag 'application' %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <main>
+      <div class="main"><%= yield %></div>
+      <div class="side-nav">
+        <% Dir["#{NitroSg::Engine.root}/app/pbKits/*"].each do |link| %>
+          <%= File.basename(link) %>
+        <% end %> 
+      </div>
+    </main>
+  </div>
 </body>
 </html>

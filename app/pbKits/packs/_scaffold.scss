@@ -6,13 +6,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  &:before, &:after {
+  &:before,
+  &:after {
     box-sizing: border-box;
   }
 }
 
 html {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   height: 100%;
 }
 
@@ -28,11 +29,60 @@ body {
   text-rendering: optimizeLegibility;
   -moz-font-feature-settings: "liga" on;
   color: $black;
-
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  min-height: 100vh;
   padding: 50px; // REMOVE AFTER STYLED
 }
 
 a {
   text-decoration: none;
   color: $power-royal;
+}
+
+// Main Home Page Layout with Sidebar
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  background-color: $white;
+  width: 100%;
+  justify-content: space-between;
+  padding: 20px;
+  flex-basis: 100px;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  min-height: 800px;
+}
+
+.side-nav {
+  flex: 2 1 10%;
+  background-color: $white;
+  order: -1;
+  padding: 20px;
+}
+
+.main {
+  flex: 6 0 60%;
+  background-color: $white;
+  padding: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .side-nav {
+    order: 0;
+  }
+
+  main {
+    flex-direction: column;
+    flex-grow: 1;
+  }
 }
