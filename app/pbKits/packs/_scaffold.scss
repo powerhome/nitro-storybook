@@ -1,3 +1,36 @@
+@import "../tokens/fonts";
+@import "../tokens/typography";
+@import "../tokens/colors";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  height: 100%;
+}
+
 body {
-  background: pink;
+  font-family: $font-family-base;
+  font-size: $font-base;
+  line-height: 1.5;
+  background-color: $sky-lighter;
+  height: 100%;
+  letter-spacing: $lspace-normal;
+  font-weight: $regular;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: "liga" on;
+  color: $black;
+}
+
+a {
+  text-decoration: none;
+  color: $power-royal;
 }
