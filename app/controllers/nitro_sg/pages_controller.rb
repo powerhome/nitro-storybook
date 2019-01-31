@@ -6,5 +6,7 @@ module NitroSg
     end
     def kits
     end
+    def principals
+    end
   end
 end
