@@ -4,3 +4,5 @@ ERB: <%= pb_rails(:pbDiv, data: { text: "I'm a div div div", :wrapperclass => "d
   
 <%= javascript_pack_tag 'pbDiv' %>
 React: <%= react_component('pbDiv', name: 'a component rendered from a view') %>
+
+<hr>

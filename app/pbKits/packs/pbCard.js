@@ -1,4 +1,5 @@
-import pbCard from 'pbCard/pbCard';
-import WebpackerReact from 'webpacker-react';
+import "./main.scss";
+import pbCard from "pbCard/pbCard";
+import WebpackerReact from "webpacker-react";
 
-WebpackerReact.setup({pbCard})
+WebpackerReact.setup({ pbCard });
