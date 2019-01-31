@@ -1,4 +1,3 @@
-import "./main.scss";
 import pbDiv from "pbDiv/pbDiv";
 import WebpackerReact from "webpacker-react";
 
