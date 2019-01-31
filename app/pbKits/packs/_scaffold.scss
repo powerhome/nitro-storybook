@@ -28,6 +28,8 @@ body {
   text-rendering: optimizeLegibility;
   -moz-font-feature-settings: "liga" on;
   color: $black;
+
+  padding: 50px; // REMOVE AFTER STYLED
 }
 
 a {
