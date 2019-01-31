@@ -1,3 +1,7 @@
+require "webpacker/react/railtie" if defined?(Rails)
+require "webpacker/react/helpers"
+require "webpacker/react/component"
+
 module NitroSg
   module PbKitHelper
     def pb_rails(name, data: {}, &block)
@@ -8,37 +12,55 @@ module NitroSg
       render_props(name, { data: data }, &block)
     end
 
-  private
-
-    def render_props(name, locals, &block)
-      render 'config/ui/propsTable', component_name: name, component_props: locals
+    def pb_react(component_name, props = {}, options = {})
+      render_react_component(component_name, props, options)
     end
 
+    def pb_react_with_props(component_name, props = {}, options = {})
+      render_react_props(component_name, props, options)
+    end
+
+  private
+
+    #------ Render Rails UI Kit
     def render_component(name, locals, &block)
       if block_given?
-        # using `layout` is a trick to allow passing blocks to partials
-        # (cf. http://stackoverflow.com/a/2952056)
         ui = render layout: name, locals: locals, &block
-        if( defined?(locals[:data][:show_props]) && locals[:data][:show_props] == true )
-          props = render 'config/ui/propsTableSimple', component_props: locals
-          ui+props
-        else
-          ui
-        end
+        render_props_table(ui, locals)
       else
         ui = render partial: name, locals: locals
-        if( defined?(locals[:data][:show_props]) && locals[:data][:show_props] == true )
-          props = render 'config/ui/propsTableSimple', component_props: locals
-          ui+props
-        else
-          ui
-        end
+        render_props_table(ui, locals)
       end
     end
 
-    def except!(*keys)
-      keys.each { |key| delete(key) }
-      self
+    def render_props_table(ui, locals)
+      if( defined?(locals[:data][:show_props]) && locals[:data][:show_props] )
+        props = render 'config/ui/propsTableSimple', component_props: locals
+        ui+props
+      else
+        ui
+      end
+    end
+
+    def render_props(name, locals, &block)
+      locals.delete(:show_props)
+      render 'config/ui/propsRailsTable', component_name: name, component_props: locals
+    end
+
+    #------ Render React UI Kit
+    def render_react_component(component_name, props, options)
+      ui = ::Webpacker::React::Component.new(component_name).render(props, options)
+      if( defined?(props[:show_props]) && props[:show_props] )
+        propsTable = render 'config/ui/propsTableSimple', component_props: {data: props}
+        ui+propsTable
+      else
+        ui
+      end
+    end
+
+    def render_react_props(component_name, props, options)
+      props.delete(:show_props)
+      render 'config/ui/propsReactTable', component_name: component_name, component_props: {data: props}
     end
 
   end

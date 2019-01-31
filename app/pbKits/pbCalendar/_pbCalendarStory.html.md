@@ -26,4 +26,27 @@ ERB with Props and Name:
 <br>
 
 <%= javascript_pack_tag 'pbCalendar' %>
-React: <%= react_component('pbCalendar', name: 'Lisa') %>
+React:
+
+```
+= pb_react('pbCalendar', {name: 'Lisa'})
+```
+<%= pb_react('pbCalendar', {name: 'Lisa'}) %>
+
+<br>
+
+React with Props:
+
+```
+= pb_react('pbCalendar', {name: 'Lisa', show_props: true})
+```
+<%= pb_react('pbCalendar', {name: 'Lisa', show_props: true}) %>
+
+<br>
+
+React with Props and Name:
+
+```
+= pb_react_with_props('pbCalendar', {name: 'Lisa'})
+```
+<%= pb_react_with_props('pbCalendar', {name: 'Lisa'}) %>
