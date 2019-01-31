@@ -1,0 +1,9 @@
+<% wrapperclass = data.fetch(:wrapperclass) %>
+<% componentclass = data.fetch(:componentclass) %>
+<% text = data.fetch(:text) %>
+
+<div class="<%= wrapperclass %>">
+    <button class="<%= componentclass %>">
+        <span><%= text %></span>
+    </button>
+</div>
