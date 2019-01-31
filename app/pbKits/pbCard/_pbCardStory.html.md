@@ -8,7 +8,7 @@ ERB:
 ERB Child Component:
 <%= pb_rails(:pbCard, data: { name: "Tim" }) do %>
   <h5>THIS IS A CHILD:</h5>
-  <%= pb_rails(:pbCalendar, data: { foo: "bar" }) %>
+  <%= pb_rails(:pbCalendar, data: { name: "Susan" }) %>
 <% end %>
 
 

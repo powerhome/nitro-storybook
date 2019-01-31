@@ -4,8 +4,5 @@ module NitroSg
   class GreetingsController < ApplicationController
     def hello
     end
-    
-    def pb_card
-    end
   end
 end
