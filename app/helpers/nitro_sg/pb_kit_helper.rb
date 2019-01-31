@@ -1,6 +1,6 @@
 module NitroSg
   module PbKitHelper
-    def pb_kit(name, data: {}, &block)
+    def pb_rails(name, data: {}, &block)
       render_component("#{name}/#{name}", { data: data }, &block)
     end
 

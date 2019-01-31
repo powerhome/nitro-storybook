@@ -1,7 +1,4 @@
-<div class="pb-calendar"></div>
 
-<h1>Test page#hello</h1>
-<p>Find me in app/views/nitro_sg/greetings/hello.html.erb</p>
-
-
-<%= pb_kit(:pbCalendar, data: { name: "Lisa" }) %>
+ERB: <%= pb_rails(:pbCalendar, data: { name: "Lisa" }) %>
+<%= javascript_pack_tag 'pbCalendar' %>
+React: <%= react_component('pbCalendar', name: 'a component rendered from a view') %>
