@@ -7,5 +7,5 @@ NitroSg::Engine.routes.draw do
   get 'examples',   to: "pages#examples"
   get 'utilities',  to: "pages#utilities"
   get 'resources',  to: "pages#resources"
-  get 'kits/:name', to: "pages#kit_show"
+  get 'kits/:name', to: "pages#kit_show", as: 'kit_show'
 end
