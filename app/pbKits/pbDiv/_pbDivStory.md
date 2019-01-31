@@ -1,3 +1,5 @@
+<h1><%= File.basename( __dir__) %></h1>
+
 ERB: <%= pb_rails(:pbDiv, data: { text: "I'm a div div div", :wrapperclass => "div-wrapper", :componentclass => "div"}) %>
 
 <br>
