@@ -8,5 +8,9 @@ module NitroSg
     end
     def principals
     end
+    def kit_show
+      menu =  MENU["kits"]
+      @kit = menu.first
+    end
   end
 end
