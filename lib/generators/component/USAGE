@@ -1,10 +1,12 @@
 Description:
-    Create Vue files corresponding to the Rails views
+    Create components in the pbKits folder
 
 Example:
-    rails generate vue [namespace]/[controller]/action
+    rails g component Button
 
     This will create:
-        app/javascript/packs/[namespace]/[controller]/action.js
-        app/javascript/views/[namespace]/[controller]/action.vue
-        app/views/[namespace]/[controller]/action.html.erb
+        app/pbKits/pbButton/_pbButton.html.erb
+        app/pbKits/pbButton/_pbButton.scss
+        app/pbKits/pbButton/_pbButton.md
+        app/pbKits/pbButton/index.js
+        app/pbKits/pbButton/_pbButton.jsx
