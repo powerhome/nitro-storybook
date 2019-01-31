@@ -1,0 +1,35 @@
+<%
+  component_name ||= nil
+  component_props ||= nil
+%>
+
+<div class="pb--propsTable">
+  <% if (!component_name.nil?) %>
+    <h2 class="pb--propsTable--name"><%= component_name %></h2>
+  <% end %>
+
+  <div class="pb--propsTable--component">
+    <%= pb_react(component_name, component_props[:data]) %>
+  </div>
+
+  <table class="pb--propsTable--table">
+    <thead>
+      <tr class="pb--propsTable--table--tr">
+        <th class="pb--propsTable--table--th">Prop</th>
+        <th class="pb--propsTable--table--th">Value</th>
+      </tr>
+    </thead>
+    <tbody class="pb--propsTable--table--tbody">
+      <% if( !component_props.nil? ) %>
+        <% component_props[:data].each_with_index do |(key,value),index| %>
+          <% if (key != :show_props) %>
+            <tr class="pb--propsTable--table--tr">
+              <td class="pb--propsTable--table--td"><%= key %></td>
+              <td class="pb--propsTable--table--td"><%= value %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

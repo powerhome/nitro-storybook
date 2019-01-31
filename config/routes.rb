@@ -1,4 +1,10 @@
 NitroSg::Engine.routes.draw do
-  get 'greetings/hello'
-  match "/more_nav" => "main#more_nav", via: [:get, :post, :put, :patch, :delete]
+  root              to: "pages#home"
+  get 'home',       to: "pages#home"
+  get 'principals', to: "pages#principals"
+  get 'tokens',     to: "pages#tokens"
+  get 'kits',       to: "pages#kits"
+  get 'examples',   to: "pages#examples"
+  get 'utilities',  to: "pages#utilities"
+  get 'resources',  to: "pages#resources"
 end
