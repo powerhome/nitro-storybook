@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Hello extends React.Component {
+class pbCalendar extends React.Component {
   render() {
     return <div>
              YYYYYYY Hello, I am {this.props.name}!
@@ -8,4 +8,4 @@ class Hello extends React.Component {
   }
 }
 
-export default Hello;
+export default pbCalendar;

@@ -9,9 +9,9 @@
 // import { add } from "../components/math"
 
 //
-// import { pb_calendar } from "pb_calendar"
+// import { pbcalendar } from "pbcalendar"
 //
-// console.log("xxxx", pb_calendar(3, 10))
+// console.log("xxxx", pbcalendar(3, 10))
 
 
 // import Hello from 'hello_react'

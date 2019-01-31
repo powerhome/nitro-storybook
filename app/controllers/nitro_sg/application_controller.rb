@@ -4,6 +4,6 @@ module NitroSg
 
     helper Webpacker::Helper
     helper NitroSg::PbKitHelper
-    append_view_path NitroSg::Engine.root + "app/pb_kits"
+    append_view_path NitroSg::Engine.root + "app/pbKits"
   end
 end
