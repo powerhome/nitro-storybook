@@ -14,31 +14,37 @@ class ComponentGenerator < Rails::Generators::NamedBase
     # it stores the path entered while scaffolding
     # ex: rails g vue reports/index
     # then name = 'reports/index'
-    template "javascript.erb", "app/pb_kits/pb_#{name}/pb_#{name}.js"
+    template "javascript.erb", "app/pbKits/pb#{name}/pb#{name}.js"
   end
 
   # similar create sass file the given location usign the template
   # creates file app/components/[namespace]/[namespace].sass
   def create_scss_file
-    template "scss.erb", "app/pb_kits/pb_#{name}/pb_#{name}.scss"
+    template "scss.erb", "app/pbKits/pb#{name}/pb#{name}.scss"
   end
 
   # similar create sass file the given location usign the template
   # creates file app/components/[namespace]/[namespace].sass
   def create_readme_file
-    template "readme.erb", "app/pb_kits/pb_#{name}/pb_#{name}.md"
+    template "readme.erb", "app/pbKits/pb#{name}/pb#{name}.md"
   end
 
   # similar create jsx file the given location usign the template
   # creates file app/javascript/views/[namespace]/[controller]/action.vue
   def create_jsx_file
-    template "jsx.erb", "app/pb_kits/pb_#{name}/pb_#{name}.jsx"
+    template "jsx.erb", "app/pbKits/pb#{name}/pb#{name}.jsx"
   end
 
   # you got this one right?
   # create or update app/views/[namespace]/[controller]/action.html.erb
   def create_erb_file
-    template "html.erb", "app/pb_kits/pb_#{name}/pb_#{name}.html.erb"
+    template "html.erb", "app/pbKits/pb#{name}/pb#{name}.html.erb"
+  end
+
+  # you got this one right?
+  # create or update app/views/[namespace]/[controller]/action.html.erb
+  def create_story_erb_file
+    template "story.erb", "app/pbKits/pb#{name}/pb#{name}Story.html.erb"
   end
 
   private
