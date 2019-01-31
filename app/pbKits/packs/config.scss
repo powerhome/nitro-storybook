@@ -1,0 +1,22 @@
+.pb--propsTable {
+  background: white;
+  padding: 15px 20px;
+
+  &--table {
+    width: 100%;
+    background: white;
+
+    &--tr {
+      padding: 10px;
+    }
+
+    &--th {
+      text-align: left;
+    }
+
+    &--td {
+      background: #eee;
+      padding: 10px;
+    }
+  }
+}
