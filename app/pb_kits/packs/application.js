@@ -8,7 +8,19 @@
 // layout file, like app/views/layouts/application.html.erb
 // import { add } from "../components/math"
 
+//
+// import { pb_calendar } from "pb_calendar"
+//
+// console.log("xxxx", pb_calendar(3, 10))
 
-import { pb_calendar } from "pb_calendar"
 
-console.log("xxxx", pb_calendar(3, 10))
+// import Hello from 'hello_react'
+// import WebpackerReact from 'webpacker-react'
+//
+// WebpackerReact.setup({Hello}) // ES6 shorthand for {Hello: Hello}
+
+
+// import Hello from 'hello_react'
+// import WebpackerReact from 'webpacker-react'
+//
+// WebpackerReact.setup({Hello}) // ES6 shorthand for {Hello: Hello}

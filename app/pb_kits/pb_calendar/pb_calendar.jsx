@@ -6,21 +6,23 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-const Hello = props => (
+const PbCalendar = props => (
   <div>Hello {props.name}!</div>
 )
 
-Hello.defaultProps = {
+PbCalendar.defaultProps = {
   name: 'David'
 }
 
-Hello.propTypes = {
+PbCalendar.propTypes = {
   name: PropTypes.string
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <PbCalendar name="React" />,
     document.body.appendChild(document.createElement('div')),
   )
 })
+
+export default PbCalendar

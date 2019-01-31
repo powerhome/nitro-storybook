@@ -4,12 +4,11 @@
   <title>Nitro sg</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= javascript_pack_tag "pb_calendar" %>
-  <%= stylesheet_pack_tag "pb_calendar" %>
-  <%= javascript_pack_tag 'hello_erb' %>
   <%= javascript_pack_tag 'hello_react' %>
 </head>
 <body>
+
+<%= react_component('HelloReact', name: 'a component rendered from a view') %>
 
 <%= yield %>
 

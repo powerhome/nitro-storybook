@@ -15,5 +15,6 @@ module NitroSg
         render partial: name, locals: locals
       end
     end
+
   end
 end
