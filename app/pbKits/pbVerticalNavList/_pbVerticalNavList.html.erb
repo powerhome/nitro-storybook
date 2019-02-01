@@ -1,7 +1,19 @@
+
+<%
+  data ||= {}
+  title = data.fetch(:title, '')
+  link = data.fetch(:link, '#')
+%>
+
 <div class="vertical-nav-list">
   <div class="vertical-nav-list-title">
-  Menu
+    <% if link.present? && link != '#' %>
+      <a class="vertical-nav-list-item-link-text" href="<%= link %>"><%= title %></a>
+    <% else %>
+      <%= title %>
+    <% end %>
   </div>
+  
   <ul>
     <%= yield %>
   </ul>
