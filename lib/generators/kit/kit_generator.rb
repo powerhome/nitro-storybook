@@ -58,7 +58,8 @@ class KitGenerator < Rails::Generators::NamedBase
 
         template "javascript.erb", "app/pbKits/packs/pb#{@cName}.js"
         template "scss.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}.scss"
-        template "story.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}Story.md"
+        template "storyrails.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}StoryRails.md"
+        template "storyreact.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}StoryReact.md"
         template "jsx.erb", "app/pbKits/pb#{@cName}/pb#{@cName}.jsx"
         template "html.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}.html.erb"
 
@@ -108,21 +109,6 @@ class KitGenerator < Rails::Generators::NamedBase
     name
   end
 
-  def vue_component_kebab_name
-    name = ""
-    parts.each do |part|
-      name += part + '-'
-    end
-    # remove the trailing '-'
-    name + 'view'
-  end
-
-  def vue_component_snippet
-    """
-    <#{vue_component_kebab_name}>
-    </#{vue_component_kebab_name}>
-    """
-  end
 
   def javascript_pack_tag_snippet
     "<%= javascript_pack_tag '#{name}' %>"
