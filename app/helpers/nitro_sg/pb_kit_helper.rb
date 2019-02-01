@@ -9,10 +9,6 @@ module NitroSg
       render_component(name, { data: data }, &block)
     end
 
-    def pb_rails_no_folder(name, data: {}, &block)
-      render_component(name, { data: data }, &block)
-    end
-
     def pb_rails_with_props(name, data: {}, &block)
       render_props(name, { data: data }, &block)
     end
