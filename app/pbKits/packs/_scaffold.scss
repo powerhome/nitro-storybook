@@ -63,13 +63,19 @@ a {
           font-weight: bold;
 
           &--ul {
-            margin: 0 0 10px 10px;
+            margin: 5px 0 10px 10px;
 
             &--li {
               list-style: none;
-              margin: 0;
+              margin: 2px 0;
               padding: 5px 10px;
               font-weight: normal;
+
+              &.active {
+                background: #e9ecef;
+                font-weight: bold;
+                border-radius: 4px;
+              }
             }
           }
         }

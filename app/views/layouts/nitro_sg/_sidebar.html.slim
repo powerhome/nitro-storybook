@@ -4,7 +4,7 @@
       a href="#{kits_path}" Kits
       ul.pb--page--content--sideNav--ul--li--ul
         - MENU["kits"].sort.each do |link|
-          li.pb--page--content--sideNav--ul--li--ul--li
+          li.pb--page--content--sideNav--ul--li--ul--li class=('active' if @kit == link)
             a href="#{kit_show_path(link)}"
               = link
     li.pb--page--content--sideNav--ul--li
