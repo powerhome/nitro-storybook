@@ -14,18 +14,18 @@
 
   <table class="pb--propsTable--table">
     <thead>
-      <tr class="pb--propsTable--table--tr">
-        <th class="pb--propsTable--table--th">Prop</th>
-        <th class="pb--propsTable--table--th">Value</th>
+      <tr>
+        <th>Prop</th>
+        <th>Value</th>
       </tr>
     </thead>
-    <tbody class="pb--propsTable--table--tbody">
+    <tbody>
       <% if( !component_props.nil? ) %>
         <% component_props[:data].each_with_index do |(key,value),index| %>
           <% if (key != :show_props) %>
-            <tr class="pb--propsTable--table--tr">
-              <td class="pb--propsTable--table--td"><%= key %></td>
-              <td class="pb--propsTable--table--td"><%= value %></td>
+            <tr>
+              <td><%= key %></td>
+              <td><%= value %></td>
             </tr>
           <% end %>
         <% end %>
