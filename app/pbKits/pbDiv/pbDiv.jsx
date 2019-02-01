@@ -2,7 +2,13 @@ import React from "react";
 
 class pbDiv extends React.Component {
   render() {
-    return <div>YYYYYYY Hello, I am {this.props.name}!</div>;
+    return (
+      <div className="{this.props.wrapperclass}">
+          <div className="{this.props.componentclass}">
+              <span>{this.props.text}</span>
+          </div>
+      </div>
+    )
   }
 }
 
