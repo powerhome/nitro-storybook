@@ -6,15 +6,5 @@
 %>
 
 <div class="vertical-nav-list">
-  <div class="vertical-nav-list-title">
-    <% if link.present? && link != '#' %>
-      <a class="vertical-nav-list-item-link-text" href="<%= link %>"><%= title %></a>
-    <% else %>
-      <%= title %>
-    <% end %>
-  </div>
-  
-  <ul>
-    <%= yield %>
-  </ul>
+  <%= yield %>
 </div>

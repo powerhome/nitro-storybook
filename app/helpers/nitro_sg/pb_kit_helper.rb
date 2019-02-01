@@ -64,11 +64,15 @@ module NitroSg
     def pb_kits
       display_kits = []
       MENU["kits"].sort.each do |kit|
-        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_title(kit)}</a></h2>"
         ui = pb_kit_rails(kit)
         display_kits << title+ui
       end
-      raw(display_kits.map { |k| k }.join(" "))
+      raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
+    end
+
+    def pb_title(title)
+      title.remove('pb').split(/(?=[A-Z])/).join(' ')
     end
 
   private
