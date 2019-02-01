@@ -12,10 +12,15 @@ html
       main
         div class="side-nav"
           ul
+            - MENU["kits"].each do |link|
+              li
+                a href="#{kit_show_path(link)}"
+                  = link
             li
               a href="#{kits_path}" Kits
             li
               a href="#{principles_path}" Principles
+       
         div class="main"
           = yield
         
