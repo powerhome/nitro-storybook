@@ -22,8 +22,12 @@ module NitroSg
     end
 
     #------ Render UI Story
-    def pb_kit(kit)
-      render(partial: "#{kit}/#{kit}Story")
+    def pb_kit_rails(kit)
+      render(partial: "#{kit}/#{kit}StoryRails")
+    end
+
+    def pb_kit_react(kit)
+      render(partial: "#{kit}/#{kit}StoryReact")
     end
 
     # Index Kits showing Rails only
@@ -42,7 +46,7 @@ module NitroSg
       display_kits = []
       MENU["kits"].sort.each do |kit|
         title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
-        ui = render(partial: "#{kit}/#{kit}Story")
+        ui = pb_kit_rails(kit)
         display_kits << title+ui
       end
       raw(display_kits.map { |k| k }.join(" "))
