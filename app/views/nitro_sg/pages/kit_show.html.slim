@@ -1,1 +1,7 @@
-= pb_kit(@kit)
+= pb_rails(:pbHeading, data: { text: pb_title(@kit), tag: "h1", size: "1" })
+
+
+- if action_name == "kit_show_rails"
+  = pb_kit_rails(@kit)
+- else
+  = pb_kit_react(@kit)

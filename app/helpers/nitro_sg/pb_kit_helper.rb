@@ -21,9 +21,32 @@ module NitroSg
       render_react_props(component_name, props, options)
     end
 
+    #------ Render Code Snippets
+    def pb_rails_snippet(component_name, component_props)
+      if( !component_props[:data].nil? && !component_props[:data].empty? )
+        data = raw(component_props[:data].to_json)
+      else
+        data = ""
+      end
+      return raw rouge("<%= pb_rails(:#{component_name}, #{data}) %>", "erb")
+    end
+
+    def pb_react_snippet(component_name, component_props)
+      if( !component_props.nil? && !component_props.empty? )
+        data = raw(component_props.to_json)
+      else
+        data = ""
+      end
+      return raw rouge("<%= pb_react('#{component_name}', #{data}) %>", "erb")
+    end
+
     #------ Render UI Story
-    def pb_kit(kit)
-      render(partial: "#{kit}/#{kit}Story")
+    def pb_kit_rails(kit)
+      render(partial: "#{kit}/#{kit}StoryRails")
+    end
+
+    def pb_kit_react(kit)
+      render(partial: "#{kit}/#{kit}StoryReact")
     end
 
     # Index Kits showing Rails only
@@ -41,11 +64,15 @@ module NitroSg
     def pb_kits
       display_kits = []
       MENU["kits"].sort.each do |kit|
-        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
-        ui = render(partial: "#{kit}/#{kit}Story")
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_title(kit)}</a></h2>"
+        ui = pb_kit_rails(kit)
         display_kits << title+ui
       end
-      raw(display_kits.map { |k| k }.join(" "))
+      raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
+    end
+
+    def pb_title(title)
+      title.remove('pb').split(/(?=[A-Z])/).join(' ')
     end
 
   private

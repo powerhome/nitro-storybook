@@ -1,8 +1,10 @@
+
+<%
+  data ||= {}
+  title = data.fetch(:title, '')
+  link = data.fetch(:link, '#')
+%>
+
 <div class="vertical-nav-list">
-  <div class="vertical-nav-list-title">
-  Menu
-  </div>
-  <ul>
-    <%= yield %>
-  </ul>
+  <%= yield %>
 </div>
