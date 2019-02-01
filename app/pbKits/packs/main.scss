@@ -1,15 +1,10 @@
 // SCAFFOLD
-@import "scaffold";
+@import "site_styles/scaffold";
 
 // KITS
-@import "kit_style_index";
-@import "../pbButton/pbButton";
-@import "../pbCalendar/pbCalendar";
-@import "../pbCard/pbCard";
-@import "../pbDiv/pbDiv";
-@import "../pbSpan/pbSpan";
+@import "site_styles/kit_style_index";
 
 // APP STYLES
-@import "propsTable";
-@import "codeCopy";
-@import "docItem";
+@import "site_styles/propsTable";
+@import "site_styles/codeCopy";
+@import "site_styles/docItem";

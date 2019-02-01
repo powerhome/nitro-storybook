@@ -1,6 +1,6 @@
 import React from "react";
 
-class pbSpan extends React.Component {
+class pbHeading extends React.Component {
   render() {
     return(
       <span className={this.props.componentclass}>
@@ -10,4 +10,4 @@ class pbSpan extends React.Component {
   }
 }
 
-export default pbSpan;
+export default pbHeading;

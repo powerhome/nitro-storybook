@@ -1,5 +1,5 @@
 NitroSg::Engine.routes.draw do
-  root              to: "pages#home"
+  root              to: "pages#kits"
   get 'home',       to: "pages#home"
   get 'principles', to: "pages#principles"
   get 'tokens',     to: "pages#tokens"
