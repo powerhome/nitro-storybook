@@ -9,7 +9,7 @@ module NitroSg
     end
     def kits
     end
-    def principals
+    def principles
     end
     def kit_show
     end
