@@ -1,7 +1,7 @@
 # the generator extends from NamedBase base class which makes sure
 # alleast a name must be provided to the generator
 
-class ComponentGenerator < Rails::Generators::NamedBase
+class KitGenerator < Rails::Generators::NamedBase
 
   source_root File.expand_path("../templates/", __FILE__)
 
@@ -30,7 +30,7 @@ class ComponentGenerator < Rails::Generators::NamedBase
     template "jsx.erb", "app/pbKits/pb#{@cName}/pb#{@cName}.jsx"
     template "html.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}.html.erb"
 
-    open('app/pbKits/packs/_kit_style_index.scss', 'a') { |f|
+    open('app/pbKits/packs/site_styles/_kit_style_index.scss', 'a') { |f|
       f.puts "@"+ "import "+ "\'" +"../pb#{@cName}/pb#{@cName}"+"\';"
     }
     open('config/data/menu.yml', 'a') { |f|
