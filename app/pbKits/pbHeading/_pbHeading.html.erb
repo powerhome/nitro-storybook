@@ -1,9 +1,8 @@
 <%
   data ||= {}
-  componentclass = data.fetch(:componentclass, 'pb-span')
+  size = data.fetch(:size, '1')
+  tag = data.fetch(:tag, 'h1')
   text = data.fetch(:text, 'I am pbHeading')
 %>
 
-<span class="<%= componentclass %>">
-    <span><%= text %></span>
-</span>
+<%= content_tag(:"#{tag}", text, class: "heading-#{size}") %>
