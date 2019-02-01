@@ -1,7 +1,5 @@
 kits:
-  - pbCalendar
   - pbCard
-  - pbDiv
   - pbHeading
   - pbButton
   - pbVerticalNavList
