@@ -51,8 +51,10 @@ module NitroSg
 
     def render_props_table(ui, locals)
       if( defined?(locals[:data][:show_props]) && locals[:data][:show_props] )
+        locals[:data].delete(:show_props)
+        code = render 'config/ui/codeCopyRails', component_name: "pbCalendar", component_props: locals
         props = render 'config/ui/propsTableSimple', component_props: locals
-        ui+props
+        ui+code+props
       else
         ui
       end
@@ -67,8 +69,10 @@ module NitroSg
     def render_react_component(component_name, props, options)
       ui = ::Webpacker::React::Component.new(component_name).render(props, options)
       if( defined?(props[:show_props]) && props[:show_props] )
+        props.delete(:show_props)
+        code = render 'config/ui/codeCopyReact', component_name: component_name, component_props: props
         propsTable = render 'config/ui/propsTableSimple', component_props: {data: props}
-        ui+propsTable
+        ui+code+propsTable
       else
         ui
       end
