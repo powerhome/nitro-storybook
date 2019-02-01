@@ -57,13 +57,15 @@ module NitroSg
     #------ Render Rails UI Kit
     def render_component(name, locals, &block)
       if( !name.match(/[\/\\]/) )
-        name = "#{name}/#{name}"
+        ui_name = "#{name}/#{name}"
+      else
+        ui_name = name
       end
       if block_given?
-        ui = render layout: name, locals: locals, &block
+        ui = render layout: ui_name, locals: locals, &block
         render_props_table(name, ui, locals)
       else
-        ui = render partial: name, locals: locals
+        ui = render partial: ui_name, locals: locals
         render_props_table(name, ui, locals)
       end
     end
