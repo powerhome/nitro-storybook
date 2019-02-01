@@ -11,12 +11,10 @@
     <tbody class="pb--propsTable--table--tbody">
       <% if( !component_props.nil? ) %>
         <% component_props[:data].each_with_index do |(key,value),index| %>
-          <% if (key != :show_props) %>
-            <tr class="pb--propsTable--table--tr">
-              <td class="pb--propsTable--table--td"><%= key %></td>
-              <td class="pb--propsTable--table--td"><%= value %></td>
-            </tr>
-          <% end %>
+          <tr class="pb--propsTable--table--tr">
+            <td class="pb--propsTable--table--td"><%= key %></td>
+            <td class="pb--propsTable--table--td"><%= value %></td>
+          </tr>
         <% end %>
       <% end %>
     </tbody>

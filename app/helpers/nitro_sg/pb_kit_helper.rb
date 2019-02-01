@@ -6,7 +6,7 @@ module NitroSg
   module PbKitHelper
     #------ Render UI
     def pb_rails(name, data: {}, &block)
-      render_component("#{name}/#{name}", { data: data }, &block)
+      render_component(name, { data: data }, &block)
     end
 
     def pb_rails_no_folder(name, data: {}, &block)
@@ -45,18 +45,20 @@ module NitroSg
     #------ Render Rails UI Kit
     def render_component(name, locals, &block)
       if block_given?
-        ui = render layout: name, locals: locals, &block
-        render_props_table(ui, locals)
+        ui = render layout: "#{name}/#{name}", locals: locals, &block
+        render_props_table(name, ui, locals)
       else
-        ui = render partial: name, locals: locals
-        render_props_table(ui, locals)
+        ui = render partial: "#{name}/#{name}", locals: locals
+        render_props_table(name, ui, locals)
       end
     end
 
-    def render_props_table(ui, locals)
+    def render_props_table(name, ui, locals)
       if( defined?(locals[:data][:show_props]) && locals[:data][:show_props] )
+        locals[:data].delete(:show_props)
+        code = render 'config/ui/codeCopyRails', component_name: name, component_props: locals
         props = render 'config/ui/propsTableSimple', component_props: locals
-        ui+props
+        ui+code+props
       else
         ui
       end
@@ -71,8 +73,10 @@ module NitroSg
     def render_react_component(component_name, props, options)
       ui = ::Webpacker::React::Component.new(component_name).render(props, options)
       if( defined?(props[:show_props]) && props[:show_props] )
+        props.delete(:show_props)
+        code = render 'config/ui/codeCopyReact', component_name: component_name, component_props: props
         propsTable = render 'config/ui/propsTableSimple', component_props: {data: props}
-        ui+propsTable
+        ui+code+propsTable
       else
         ui
       end
