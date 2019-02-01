@@ -27,26 +27,26 @@ module NitroSg
     end
 
     # Index Kits showing Rails only
-    def pb_kits
-      display_kits = []
-      MENU["kits"].sort.each do |kit|
-        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
-        ui = render(partial: "#{kit}/#{kit}")
-        display_kits << title+ui
-      end
-      raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
-    end
-
-    # Index Kits showing story
     # def pb_kits
     #   display_kits = []
     #   MENU["kits"].sort.each do |kit|
     #     title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
-    #     ui = render(partial: "#{kit}/#{kit}Story")
+    #     ui = render(partial: "#{kit}/#{kit}")
     #     display_kits << title+ui
     #   end
-    #   raw(display_kits.map { |k| k }.join(" "))
+    #   raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
     # end
+
+    # Index Kits showing story
+    def pb_kits
+      display_kits = []
+      MENU["kits"].sort.each do |kit|
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
+        ui = render(partial: "#{kit}/#{kit}Story")
+        display_kits << title+ui
+      end
+      raw(display_kits.map { |k| k }.join(" "))
+    end
 
   private
 
