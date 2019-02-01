@@ -1,0 +1,9 @@
+<%
+  data ||= {}
+  componentclass = data.fetch(:componentclass, "pb-#{name}")
+  text = data.fetch(:text, "I am pb-#{name}")
+%>
+
+<span class="<%= componentclass %>">
+    <span><%= text %></span>
+</span>

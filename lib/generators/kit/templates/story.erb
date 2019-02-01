@@ -1,0 +1,8 @@
+# <%%= @kit %> Rails
+<%%= pb_rails("pb<%=js_file_name%>", data: { :text => "I am pb<%=js_file_name%>-Rails", :wrapperclass => "<%=name%>-wrapper", :componentclass => "pb-<%=name%>", :show_props => defined?(@kit) }) %>
+
+<br/><hr/><br/>
+
+# <%%= @kit %> React
+<%%= javascript_pack_tag "pb<%=js_file_name%>" %>
+<%%= pb_react("pb<%=js_file_name%>", {text: "I am pb<%=js_file_name%>-React", wrapperclass: "<%=name%>-wrapper", componentclass: "pb-<%=name%>", show_props: defined?(@kit)}) %>
