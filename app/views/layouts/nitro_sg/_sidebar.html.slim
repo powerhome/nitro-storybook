@@ -3,7 +3,7 @@
     li.pb--page--content--sideNav--ul--li
       a href="#{kits_path}" Kits
       ul.pb--page--content--sideNav--ul--li--ul
-        - MENU["kits"].each do |link|
+        - MENU["kits"].sort.each do |link|
           li.pb--page--content--sideNav--ul--li--ul--li
             a href="#{kit_show_path(link)}"
               = link
