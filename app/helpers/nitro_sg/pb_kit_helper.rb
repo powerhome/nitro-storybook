@@ -4,6 +4,7 @@ require "webpacker/react/component"
 
 module NitroSg
   module PbKitHelper
+    #------ Render UI
     def pb_rails(name, data: {}, &block)
       render_component("#{name}/#{name}", { data: data }, &block)
     end
@@ -18,6 +19,21 @@ module NitroSg
 
     def pb_react_with_props(component_name, props = {}, options = {})
       render_react_props(component_name, props, options)
+    end
+
+    #------ Render UI Story
+    def pb_kit(kit)
+      render(partial: "#{kit}/#{kit}Story")
+    end
+
+    def pb_kits
+      display_kits = []
+      MENU["kits"].sort.each do |kit|
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
+        ui = render(partial: "#{kit}/#{kit}Story")
+        display_kits << title+ui
+      end
+      raw(display_kits.map { |k| k }.join(" "))
     end
 
   private
