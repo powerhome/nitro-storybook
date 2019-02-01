@@ -21,6 +21,25 @@ module NitroSg
       render_react_props(component_name, props, options)
     end
 
+    #------ Render Code Snippets
+    def pb_rails_snippet(component_name, component_props)
+      if( !component_props[:data].nil? && !component_props[:data].empty? )
+        data = raw(component_props[:data].to_json)
+      else
+        data = ""
+      end
+      return raw rouge("<%= pb_rails(:#{component_name}, #{data}) %>", "erb")
+    end
+
+    def pb_react_snippet(component_name, component_props)
+      if( !component_props.nil? && !component_props.empty? )
+        data = raw(component_props.to_json)
+      else
+        data = ""
+      end
+      return raw rouge("<%= pb_react('#{component_name}', #{data}) %>", "erb")
+    end
+
     #------ Render UI Story
     def pb_kit(kit)
       render(partial: "#{kit}/#{kit}Story")
