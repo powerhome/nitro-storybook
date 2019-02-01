@@ -1,0 +1,11 @@
+<%
+  data ||= {}
+  large = data.fetch(:large, false)
+  large = large ? "-lg" :  ''
+  dark = data.fetch(:dark, false)
+  dark = dark ? "-dark" :  ''
+  tag = data.fetch(:tag, 'div')
+  text = data.fetch(:text, 'I am a pbCaption')
+%>
+
+<%= content_tag(:"#{tag}", text, class: "caption#{large}#{dark}") %>

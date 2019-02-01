@@ -1,11 +1,9 @@
 .pb--page--content--sideNav
-  ul
-    li
-      a href="#{kits_path}" Kits
-      ul
-        - MENU["kits"].sort.each do |link|
-          li class=('active' if @kit == link)
-            a href="#{kit_show_path(link)}"
-              = link
-    li
-      a href="#{principles_path}" Principles
+  
+  = pb_rails(:pbVerticalNavList, data: {title: "Kits", link: "#{kits_path}" }) 
+    - MENU["kits"].sort.each do |link|
+      = pb_rails("pbVerticalNavList/pbVerticalNavListItem", data: { text: "#{link}", link: "#{kit_show_path(link)}"})
+
+  
+  = pb_rails("pbVerticalNavList/pbVerticalNavListItem", data: { text: "Principles", link: "#{principles_path}"})
+    
