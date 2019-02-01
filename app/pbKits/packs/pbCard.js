@@ -1,3 +1,4 @@
+import '../pbCard/_pbCard.scss'
 import pbCard from "pbCard/pbCard";
 import WebpackerReact from "webpacker-react";
 

@@ -1,4 +1,8 @@
-<%= pb_rails(:pbButton, data: { :text => "Click Here!", :wrapperclass => "kit-btn-wrapper", :componentclass => "kit-btn", :show_props => defined?(@kit)}) %>
+# Rails
+<%= pb_rails(:pbButton, data: { :text => "Rails Button", :wrapperclass => "kit-btn-wrapper", :componentclass => "kit-btn", :show_props => defined?(@kit)}) %>
 
+<br/><hr/><br/>
+
+# React
 <%= javascript_pack_tag 'pbButton' %>
-<%= pb_react('pbButton', text: "Click Here!", wrapperclass: "kit-btn-wrapper", componentclass: "kit-btn", show_props: defined?(@kit)) %>
+<%= pb_react('pbButton', text: "React Button", wrapperclass: "kit-btn-wrapper", componentclass: "kit-btn", show_props: defined?(@kit)) %>
