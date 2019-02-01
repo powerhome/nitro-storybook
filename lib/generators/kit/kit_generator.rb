@@ -71,6 +71,12 @@ class KitGenerator < Rails::Generators::NamedBase
         open('config/data/menu.yml', 'a') { |f|
           f.puts "  - pb#{@cName}"
         }
+
+        f = File.open("lib/generators/kit/templates/logo.txt", "r")
+          f.each_line do |line|
+            puts line
+          end
+        f.close
       end
 
   end
