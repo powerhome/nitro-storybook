@@ -38,7 +38,7 @@ module NitroSg
         ui = render(partial: "#{kit}/#{kit}")
         display_kits << title+ui
       end
-      raw(display_kits.map { |k| k }.join(" "))
+      raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
     end
 
     # Index Kits showing story
