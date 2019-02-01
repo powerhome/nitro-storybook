@@ -5,29 +5,38 @@ class ComponentGenerator < Rails::Generators::NamedBase
 
   source_root File.expand_path("../templates/", __FILE__)
 
-  # if you remember all the public methods will be executed in the defined order
 
-  # this method will create a JavaScript file using the javascript.erb template
-  # in the location defined as the next params
-  # we will look into the content of the templates next
-  # creates file app/javascript/packs/[namespace]/[controller]/action.js
-
-  def get_category_name
-    puts "What is your #{name.capitalize}'s category"
-    @category = $stdin.gets.chomp
-    return @category
-  end
+  ## Create a Category Name
+  # def get_category_name
+  #   puts "What is your #{name.capitalize}'s category"
+  #   @category = $stdin.gets.chomp
+  #   return @category
+  # end
 
 
-  def get_templates()
-    cName = name.capitalize
+  def create_templates
+    @cName = name.capitalize
+    ## With Category
+    # template "javascript.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.js"
+    # template "scss.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.scss"
+    # template "readme.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.md"
+    # template "jsx.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.jsx"
+    # template "html.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.html.erb"
+    # template "story.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}Story.html.erb"
 
-    template "javascript.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.js"
-    template "scss.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.scss"
-    template "readme.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.md"
-    template "jsx.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.jsx"
-    template "html.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}.html.erb"
-    template "story.erb", "app/pbKits/#{@category}/pb#{cName}/pb#{cName}Story.html.erb"
+    template "javascript.erb", "app/pbKits/packs/pb#{@cName}.js"
+    template "scss.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}.scss"
+    template "story.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}Story.md"
+    template "jsx.erb", "app/pbKits/pb#{@cName}/pb#{@cName}.jsx"
+    template "html.erb", "app/pbKits/pb#{@cName}/_pb#{@cName}.html.erb"
+
+    open('app/pbKits/packs/_kit_style_index.scss', 'a') { |f|
+      f.puts "@"+ "import "+ "\'" +"../pb#{@cName}/pb#{@cName}"+"\';"
+    }
+    open('config/data/menu.yml', 'a') { |f|
+      f.puts "  - pb#{@cName}"
+    }
+
   end
 
 
@@ -35,7 +44,11 @@ class ComponentGenerator < Rails::Generators::NamedBase
   private
   # Here are some helper methods which are used in the templates
   # they are pretty easy to understand
-
+  # def inject_scss_import
+  #   open('app/pbKits/packs/_kit_style_index.scss', 'a') { |f|
+  #     f.puts "@"+"import"+`" ../pb#{@cName}/pb#{@cName}";`
+  #   }
+  # end
   # splits the name reports/new
   # ['reports', 'new']
   def parts

@@ -1,7 +1,9 @@
-<div id="<%= vue_component_kebab_name %>">
-  <%= vue_component_snippet %>
-</div>
+<%
+  data ||= {}
+  componentclass = data.fetch(:componentclass, "pb-#{name}")
+  text = data.fetch(:text, "I am pb-#{name}")
+%>
 
-
-<%= stylesheet_pack_tag_snippet %>
-<%= javascript_pack_tag_snippet %>
+<span class="<%= componentclass %>">
+    <span><%= text %></span>
+</span>
