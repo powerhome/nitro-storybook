@@ -1,6 +1,9 @@
-<% wrapperclass = data.fetch(:wrapperclass) %>
-<% componentclass = data.fetch(:componentclass) %>
-<% text = data.fetch(:text) %>
+<%
+  data ||= {}
+  wrapperclass = data.fetch(:wrapperclass, 'kit-btn-wrapper')
+  componentclass = data.fetch(:componentclass, 'kit-btn')
+  text = data.fetch(:text, 'Button')
+%>
 
 <div class="<%= wrapperclass %>">
     <button class="<%= componentclass %>">

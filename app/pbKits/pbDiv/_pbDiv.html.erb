@@ -1,6 +1,9 @@
-<% wrapperclass = data.fetch(:wrapperclass) %>
-<% componentclass = data.fetch(:componentclass) %>
-<% text = data.fetch(:text) %>
+<%
+  data ||= {}
+  wrapperclass = data.fetch(:wrapperclass, 'pb-div-wrapper')
+  componentclass = data.fetch(:componentclass, 'pb-div')
+  text = data.fetch(:text, 'I am pbDiv')
+%>
 
 <div class="<%= wrapperclass %>">
     <div class="<%= componentclass %>">

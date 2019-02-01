@@ -1,5 +1,8 @@
-<% componentclass = data.fetch(:componentclass) %>
-<% text = data.fetch(:text) %>
+<%
+  data ||= {}
+  componentclass = data.fetch(:componentclass, 'pb-span')
+  text = data.fetch(:text, 'I am pbSpan')
+%>
 
 <span class="<%= componentclass %>">
     <span><%= text %></span>

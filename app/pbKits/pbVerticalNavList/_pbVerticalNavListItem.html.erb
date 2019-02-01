@@ -1,4 +1,7 @@
-<% text = data.fetch(:text) %>
+<%
+  data ||= {}
+  text = data.fetch(:text, '')
+%>
 
 <li class="vertical-nav-list-border-item">
   <a href="#" class="vertical-nav-list-item-link">

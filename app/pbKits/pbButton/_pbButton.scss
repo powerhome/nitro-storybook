@@ -10,5 +10,9 @@
     border: 0;
     color: white;
     font-size: 14px;
+
+    &.red {
+      background: #f9423a;
+    }
   }
 }

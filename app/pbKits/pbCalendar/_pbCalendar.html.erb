@@ -1,3 +1,6 @@
-<% name = data.fetch(:name) %>
+<%
+  data ||= {}
+  name = data.fetch(:name, 'Tim')
+%>
 
 <h1 class="pb-calendar">I am pbCalendar-Rails, <%= name %></h1>
