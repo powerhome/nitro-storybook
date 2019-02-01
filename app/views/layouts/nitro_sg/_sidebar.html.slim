@@ -1,11 +1,11 @@
 .pb--page--content--sideNav
-  ul.pb--page--content--sideNav--ul
-    li.pb--page--content--sideNav--ul--li
+  ul
+    li
       a href="#{kits_path}" Kits
-      ul.pb--page--content--sideNav--ul--li--ul
+      ul
         - MENU["kits"].sort.each do |link|
-          li.pb--page--content--sideNav--ul--li--ul--li class=('active' if @kit == link)
+          li class=('active' if @kit == link)
             a href="#{kit_show_path(link)}"
               = link
-    li.pb--page--content--sideNav--ul--li
+    li
       a href="#{principles_path}" Principles
