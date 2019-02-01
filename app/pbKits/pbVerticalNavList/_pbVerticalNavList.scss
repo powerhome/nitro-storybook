@@ -1,0 +1,67 @@
+@import "../tokens/typography";
+@import "../tokens/spacing";
+@import "../tokens/colors";
+
+// Another style should be borders like buttons
+
+.vertical-nav-list {
+  $selector: ".vertical-nav-list";
+  &-title {
+    padding: 0 $space-largest $space-base;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  &-border-item {
+    border-bottom: 1px solid $sky;
+    &:last-child {
+      border-bottom: 0
+    }
+  }
+  &-item, &-border-item {
+    &-active, &.active {
+      background-color: $p-royal-opacity-1;
+      #{$selector}-item-link, #{$selector}-border-item-link {
+        border-color: $power-royal;
+        &-icon {
+          color: $power-royal;
+        }
+        &-text {
+          color: $power-royal;
+        }
+      }
+    }
+    &-link {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: $space-base $space-largest;
+      border: 0 solid transparent;
+      border-width: 0 0 0 3px;
+      transition-property: color, border-color, background-color;
+      transition-duration: 0.15s;
+      transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+      &-icon {
+        font-size: $font-large;
+        margin-right: $space-base;
+        color: $ink-lightest;
+      }
+      &-text {
+        font-size: $font-base;
+        font-weight: $bold;
+        color: $ink;
+      }
+      &:hover {
+        background-color: rgba($power-royal, 0.03);
+        #{$selector}-item-link-icon, #{$selector}-border-item-link-icon {
+          color: $power-royal;
+        }
+        #{$selector}-item-link-text, #{$selector}-border-item-link-text {
+          color: $power-royal;
+        }
+      }
+    }
+  }
+}
