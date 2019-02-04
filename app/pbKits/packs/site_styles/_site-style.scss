@@ -1,0 +1,29 @@
+
+// Main Home Page Layout with Sidebar
+.pb--page {
+  height: calc(100% - 89px);
+  &--content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    min-height: 100%;
+
+    &--sideNav {
+      flex: 0 0 250px;
+      padding: 0;
+      background: $white;
+      border-right: 1px solid $sky;
+    }
+
+    &--topNav {
+      border-bottom: 1px solid $sky;
+      padding: 20px 30px;
+      background: $white;
+    }
+
+    &--main {
+      flex: 1 0;
+      padding: 20px;
+    }
+  }
+}
