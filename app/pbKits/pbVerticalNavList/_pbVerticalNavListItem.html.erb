@@ -1,10 +1,12 @@
 <%
   data ||= {}
+  active = data.fetch(:active, false)
+  active = active ? "-active" :  ''
   text = data.fetch(:text, '')
   link = data.fetch(:link, '#')
 %>
 
-<li class="vertical-nav-list-border-item">
+<li class="vertical-nav-list-border-item<%= active %>">
   <a href=<%= link %> class="vertical-nav-list-item-link">
     <!-- <span class="vertical-nav-list-item-link-icon"></span> -->
     <span class="vertical-nav-list-item-link-text"><%= text %></span>

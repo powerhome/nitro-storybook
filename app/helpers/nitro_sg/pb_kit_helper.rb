@@ -64,7 +64,7 @@ module NitroSg
     def pb_kits
       display_kits = []
       MENU["kits"].sort.each do |kit|
-        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_title(kit)}</a></h2>"
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_rails(:pbHeading, data: { text: pb_title(kit), tag: 'h3', size: '2' })}</a></h2>"
         ui = pb_kit_rails(kit)
         display_kits << title+ui
       end
