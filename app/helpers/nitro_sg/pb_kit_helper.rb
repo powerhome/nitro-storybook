@@ -85,9 +85,7 @@ module NitroSg
     def render_props_table(name, ui, locals)
       if( defined?(locals[:props][:show_props]) && locals[:props][:show_props] )
         locals[:props].delete(:show_props)
-        code = render 'config/ui/codeCopy', component_name: name, component_props: locals
-        props = render 'config/ui/propsTableSimple', component_props: locals
-        ui+code+props
+        code = render 'config/ui/codeCopyRails', component_name: name, component_props: locals
       else
         ui
       end
@@ -104,8 +102,6 @@ module NitroSg
       if( defined?(props[:show_props]) && props[:show_props] )
         props.delete(:show_props)
         code = render 'config/ui/codeCopyReact', component_name: component_name, component_props: props
-        propsTable = render 'config/ui/propsTableSimple', component_props: {props: props}
-        ui+code+propsTable
       else
         ui
       end

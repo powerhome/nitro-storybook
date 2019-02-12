@@ -1,22 +1,26 @@
-<% component_props ||= nil %>
+<%
+  component_props.delete(:show_props)
+  component_props ||= nil
+%>
 
-<div class="pb--propsTable">
-  <table class="pb--propsTable--table">
-    <thead>
-      <tr>
-        <th>Prop</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if( !component_props.nil? ) %>
-        <% component_props[:props].each_with_index do |(key,value),index| %>
+<% if( !component_props.nil? && !component_props.empty? ) %>
+  <div class="pb--propsTable">
+    <h2>Props</h2>
+    <table class="pb--propsTable--table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Example Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% component_props.each_with_index do |(key,value),index| %>
           <tr>
             <td><%= key %></td>
             <td><%= value %></td>
           </tr>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+<% end %>

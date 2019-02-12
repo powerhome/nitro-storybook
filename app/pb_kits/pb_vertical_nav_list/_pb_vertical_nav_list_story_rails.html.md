@@ -5,3 +5,6 @@
     <%= pb_rails("pb_vertical_nav_list/pb_vertical_nav_list_item", props: { text: "Inbox" }) %>
   </ul>
 <% end %>
+
+<%= render 'config/ui/propsTableSimple',
+    component_props: { show_props: defined?(@kit) } %>
