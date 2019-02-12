@@ -1,4 +1,5 @@
 kits:
+  - pb_caption
   - pb_card
   - pb_heading
   - pb_button

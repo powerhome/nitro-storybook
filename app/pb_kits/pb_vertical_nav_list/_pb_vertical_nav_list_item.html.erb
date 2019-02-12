@@ -1,9 +1,9 @@
 <%
-  data ||= {}
-  active = data.fetch(:active, false)
+  props ||= {}
+  active = props.fetch(:active, false)
   active = active ? "-active" :  ''
-  text = data.fetch(:text, '')
-  link = data.fetch(:link, '#')
+  text = props.fetch(:text, '')
+  link = props.fetch(:link, '#')
 %>
 
 <li class="vertical-nav-list-border-item<%= active %>">

@@ -9,7 +9,7 @@
   <% end %>
 
   <div class="pb--propsTable--component">
-    <%= pb_react(component_name, component_props[:data]) %>
+    <%= pb_react(component_name, component_props[:props]) %>
   </div>
 
   <table class="pb--propsTable--table">
@@ -21,7 +21,7 @@
     </thead>
     <tbody>
       <% if( !component_props.nil? ) %>
-        <% component_props[:data].each_with_index do |(key,value),index| %>
+        <% component_props[:props].each_with_index do |(key,value),index| %>
           <% if (key != :show_props) %>
             <tr>
               <td><%= key %></td>

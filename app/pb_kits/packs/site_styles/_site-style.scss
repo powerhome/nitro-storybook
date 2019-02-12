@@ -2,29 +2,35 @@
 
 // Main Home Page Layout with Sidebar
 .pb--page {
-  height: calc(100% - 89px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &--topNav {
+    flex: 0 0;
+    border-bottom: 1px solid $sky;
+    padding: 20px 30px;
+    background: $white;
+  }
+
   &--content {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
-    min-height: 100%;
+    flex: 1 1 100%;
 
     &--sideNav {
       flex: 0 0 250px;
       padding: 0;
       background: $white;
       border-right: 1px solid $sky;
-    }
-
-    &--topNav {
-      border-bottom: 1px solid $sky;
-      padding: 20px 30px;
-      background: $white;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     &--main {
-      flex: 1 0;
-      padding: 20px;
+      flex-grow: 1;
+      padding: 40px 60px;
+      overflow-y: auto;
     }
   }
 }

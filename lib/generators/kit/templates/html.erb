@@ -1,7 +1,7 @@
 <%
-  data ||= {}
-  componentclass = data.fetch(:componentclass, "pb-#{name}")
-  text = data.fetch(:text, "I am pb-#{name}")
+  props ||= {}
+  componentclass = props.fetch(:componentclass, "pb-#{name}")
+  text = props.fetch(:text, "I am pb-#{name}")
 %>
 
 <span class="<%= componentclass %>">

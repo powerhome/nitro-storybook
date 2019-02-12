@@ -1,5 +1,8 @@
-= pb_rails(:pb_heading, data: { text: pb_title(@kit), tag: "h1", size: "1" })
+= pb_rails("pb_heading", props: { text: pb_title(@kit), tag: "h1", size: "1" })
 
+.pb--kit-type-nav
+  a class=('active' if action_name == "kit_show_rails") href="#{kit_show_rails_path(@kit)}" Rails
+  a class=('active' if action_name == "kit_show_react") href="#{kit_show_reacts_path(@kit)}" React
 
 - if action_name == "kit_show_rails"
   = pb_kit_rails(@kit)

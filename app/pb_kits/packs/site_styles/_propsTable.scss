@@ -1,12 +1,11 @@
+@import "../../tokens/colors";
+
 .pb--propsTable {
-  background: white;
   padding: 15px 20px;
   margin: 0 0 10px 0;
-  border: 1px solid #DFE3E8;
 
   &--table {
     width: 100%;
-    background: white;
 
     tr {
       padding: 10px;
@@ -14,10 +13,14 @@
 
     th {
       text-align: left;
+      padding: 10px 10px 5px 10px;
+      color: $ink-lighter;
+      font-size: 12px;
+      text-transform: uppercase;
     }
 
     td {
-      background: #F4F6F8;
+      background: $sky-light;
       padding: 10px;
     }
   }
