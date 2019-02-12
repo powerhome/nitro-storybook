@@ -49,17 +49,6 @@ module NitroSg
       render(partial: "#{kit}/#{kit}_story_react")
     end
 
-    # Index Kits showing Rails only
-    # def pb_kits
-    #   display_kits = []
-    #   MENU["kits"].sort.each do |kit|
-    #     title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{kit}</a></h2>"
-    #     ui = render(partial: "#{kit}/#{kit}")
-    #     display_kits << title+ui
-    #   end
-    #   raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
-    # end
-
     # Index Kits showing story
     def pb_kits
       display_kits = []
@@ -96,7 +85,7 @@ module NitroSg
     def render_props_table(name, ui, locals)
       if( defined?(locals[:props][:show_props]) && locals[:props][:show_props] )
         locals[:props].delete(:show_props)
-        code = render 'config/ui/codeCopyRails', component_name: name, component_props: locals
+        code = render 'config/ui/codeCopy', component_name: name, component_props: locals
         props = render 'config/ui/propsTableSimple', component_props: locals
         ui+code+props
       else
