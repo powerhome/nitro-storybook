@@ -1,9 +1,12 @@
 <%= javascript_pack_tag 'pb_heading' %>
 <%= pb_react('pb_heading', props: {text: 'Heading 1', show_props: defined?(@kit)}) %>
 
-<%= render 'config/ui/propsTableSimple',
+<%=
+if(defined?(@kit))
+  render 'config/ui/propsTableSimple',
     component_props: {
         text: "Heading 4",
         tag: "div",
         size: "4",
-        show_props: defined?(@kit) } %>
+        show_props: defined?(@kit) }
+end %>
