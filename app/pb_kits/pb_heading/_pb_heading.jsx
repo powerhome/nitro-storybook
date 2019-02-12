@@ -19,9 +19,10 @@ const defaultProps = {
 
 class pb_heading extends Component {
   render() {
+    const Tag = `${this.props.tag}`;
     const {size, dark, text } = this.props;
     return (
-      <div className={`heading-${size}` + (dark === true ? '-dark' : '')}>{text}</div>
+      <Tag className={`heading-${size}` + (dark === true ? '-dark' : '')}>{text}</Tag>
     )
   }
 }
