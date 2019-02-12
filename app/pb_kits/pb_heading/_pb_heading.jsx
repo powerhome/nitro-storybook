@@ -21,7 +21,7 @@ class pb_heading extends Component {
   render() {
     const {size, dark, text } = this.props;
     return (
-      <div className={`heading-${size}-${dark}`}>{text}</div>
+      <div className={`heading-${size}` + (dark === true ? '-dark' : '')}>{text}</div>
     )
   }
 }
