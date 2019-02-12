@@ -5,26 +5,28 @@ import PropTypes from 'prop-types'
 const propTypes = {
   text: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
-  size: PropTypes.oneOf([1, 2, 3, 4]),
+  size: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
   className: PropTypes.string,
-  theme: PropTypes.string
+  dark: PropTypes.bool
 };
 
 const defaultProps = {
   text: 'Hello World',
+  tag: 'h1',
   size: 1,
-  theme: "dark"
+  dark: false 
 };
 
-class Heading extends Component {
+class pb_heading extends Component {
   render() {
+    const {size, dark, text } = this.props;
     return (
-      <div className={`heading-${size}-${theme}`}>{this.props.text}</div>
+      <div className={`heading-${size}-${dark}`}>{text}</div>
     )
   }
 }
 
-Heading.propTypes = propTypes;
-Heading.defaultProps = defaultProps;
+pb_heading.propTypes = propTypes;
+pb_heading.defaultProps = defaultProps;
 
-export default Heading;
+export default pb_heading;
