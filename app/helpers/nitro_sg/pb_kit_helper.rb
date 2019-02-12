@@ -72,7 +72,6 @@ module NitroSg
     end
 
     def pb_title(title)
-      # title.remove('pb').split(/(?=[A-Z])/).join(' ')
       title.remove('pb_').titleize.tr("_", " ")
     end
 
