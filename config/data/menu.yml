@@ -1,7 +1,6 @@
 kits:
-  - pbCard
-  - pbHeading
-  - pbButton
-  - pbVerticalNavList
-  - pbBody
-  - pbCaption
+  - pb_card
+  - pb_heading
+  - pb_button
+  - pb_vertical_nav_list
+  - pb_body

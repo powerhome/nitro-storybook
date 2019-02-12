@@ -42,11 +42,11 @@ module NitroSg
 
     #------ Render UI Story
     def pb_kit_rails(kit)
-      render(partial: "#{kit}/#{kit}StoryRails")
+      render(partial: "#{kit}/#{kit}_story_rails")
     end
 
     def pb_kit_react(kit)
-      render(partial: "#{kit}/#{kit}StoryReact")
+      render(partial: "#{kit}/#{kit}_story_react")
     end
 
     # Index Kits showing Rails only
@@ -64,7 +64,7 @@ module NitroSg
     def pb_kits
       display_kits = []
       MENU["kits"].sort.each do |kit|
-        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_rails(:pbHeading, data: { text: pb_title(kit), tag: 'h3', size: '2' })}</a></h2>"
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_rails(:pb_heading, data: { text: pb_title(kit), tag: 'h3', size: '2' })}</a></h2>"
         ui = pb_kit_rails(kit)
         display_kits << title+ui
       end
@@ -72,7 +72,8 @@ module NitroSg
     end
 
     def pb_title(title)
-      title.remove('pb').split(/(?=[A-Z])/).join(' ')
+      # title.remove('pb').split(/(?=[A-Z])/).join(' ')
+      title.remove('pb_').titleize.tr("_", " ")
     end
 
   private

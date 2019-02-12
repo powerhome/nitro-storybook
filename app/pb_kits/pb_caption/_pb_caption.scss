@@ -1,0 +1,5 @@
+@import "pb_caption_mixin";
+
+.caption {
+  @include caption;
+}
