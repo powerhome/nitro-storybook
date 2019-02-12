@@ -28,7 +28,7 @@ module NitroSg
       else
         props = ""
       end
-      return raw rouge("<%= pb_rails(\"#{component_name}\", props: #{props}) %>", "erb")
+      return raw rouge("<%= pb_rails(\"#{component_name}\", props: #{props}) %>", "erb");
     end
 
     def pb_react_snippet(component_name, component_props)
