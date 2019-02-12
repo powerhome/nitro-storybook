@@ -1,3 +1,5 @@
+@import "../../tokens/colors";
+
 .pb--propsTable {
   padding: 15px 20px;
   margin: 0 0 10px 0;
@@ -12,13 +14,13 @@
     th {
       text-align: left;
       padding: 10px 10px 5px 10px;
-      color: #454F5B;
+      color: $ink-lighter;
       font-size: 12px;
       text-transform: uppercase;
     }
 
     td {
-      background: #F4F6F8;
+      background: $sky-light;
       padding: 10px;
     }
   }
