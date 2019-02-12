@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <% if( !component_props.nil? ) %>
-        <% component_props[:data].each_with_index do |(key,value),index| %>
+        <% component_props[:props].each_with_index do |(key,value),index| %>
           <tr>
             <td><%= key %></td>
             <td><%= value %></td>

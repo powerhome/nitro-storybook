@@ -1,8 +1,8 @@
 <%
-  data ||= {}
-  wrapperclass = data.fetch(:wrapperclass, 'kit-btn-wrapper')
-  componentclass = data.fetch(:componentclass, 'kit-btn')
-  text = data.fetch(:text, 'Button')
+  props ||= {}
+  wrapperclass = props.fetch(:wrapperclass, 'kit-btn-wrapper')
+  componentclass = props.fetch(:componentclass, 'kit-btn')
+  text = props.fetch(:text, 'Button')
 %>
 
 <div class="<%= wrapperclass %>">

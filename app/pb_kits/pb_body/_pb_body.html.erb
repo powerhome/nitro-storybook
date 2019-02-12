@@ -1,11 +1,11 @@
 <%
-  data ||= {}
-  color = data.fetch(:color, '')
+  props ||= {}
+  color = props.fetch(:color, '')
   color = color.length > 0 ? "-#{color}" : ''
-  dark = data.fetch(:dark, false)
+  dark = props.fetch(:dark, false)
   dark = dark ? "-dark" :  ''
-  tag = data.fetch(:tag, 'p')
-  text = data.fetch(:text, 'I am a pb_body paragraph')
+  tag = props.fetch(:tag, 'p')
+  text = props.fetch(:text, 'I am a pb_body paragraph')
 %>
 
 <%= content_tag(:"#{tag}", text, class: "body#{color}#{dark}") %>
