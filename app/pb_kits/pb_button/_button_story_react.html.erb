@@ -1,13 +1,22 @@
 <%= javascript_pack_tag 'pb_button' %>
-<%= pb_react('button', props: {text: "Primary React Button", wrapperclass: "kit-btn-wrapper", componentclass: "kit-btn", show_props: defined?(@kit)}) %>
-<%= pb_react("button", props: {text: "Secondary React Button", wrapperclass: "kit-btn-wrapper", componentclass: "kit-btn red", show_props: defined?(@kit)}) %>
+
+<h1>Types</h1>
+<%= pb_react("button", props: {text:"Default", show_props: defined?(@kit)}) %>
+<%= pb_react("button", props: {text:"Primary", type: "primary", show_props: defined?(@kit)}) %>
+<%= pb_react("button", props: {text:"Danger", type: "danger", show_props: defined?(@kit)}) %>
+<%= pb_react("button", props: {text:"Dashed", type: "dashed", show_props: defined?(@kit)}) %>
+
+<h1>Sizes</h1>
+<%= pb_react("button", props: {text:"Small", size: "small", show_props: defined?(@kit)}) %>
+<%= pb_react("button", props: {text:"Large", size: "large", show_props: defined?(@kit)}) %>
+
 
 <%=
 if(defined?(@kit))
   render 'config/ui/propsTableSimple',
       component_props: {
           text: "Rails Button",
-          wrapperclass: "kit-btn-wrapper",
-          componentclass: "kit-btn",
+          wrapperclass: "kit_btn_wrapper",
+          componentclass: "kit_btn",
           show_props: defined?(@kit) }
 end %>

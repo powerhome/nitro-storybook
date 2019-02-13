@@ -1,5 +1,9 @@
 <%= javascript_pack_tag 'pb_heading' %>
-<%= pb_react('Heading', props: {text: 'Heading 1', show_props: defined?(@kit)}) %>
+
+<%= pb_react("heading", props: { text: "Heading 1", size: "1", :show_props => defined?(@kit) }) %>
+<%= pb_react("heading", props: { text: "Heading 2", size: "2", :show_props => defined?(@kit) }) %>
+<%= pb_react("heading", props: { text: "Heading 3", size: "3", :show_props => defined?(@kit) }) %>
+<%= pb_react("heading", props: { text: "Heading 4", size: "4", :show_props => defined?(@kit) }) %>
 
 <%=
 if(defined?(@kit))
