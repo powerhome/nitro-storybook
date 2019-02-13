@@ -1,5 +1,5 @@
 <%= javascript_pack_tag 'pb_heading' %>
-<%= pb_react('pb_heading', props: {show_props: defined?(@kit)}) %>
+<%= pb_react('Heading', props: {show_props: defined?(@kit)}) %>
 
 <%=
 if(defined?(@kit))
