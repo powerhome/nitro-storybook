@@ -1,4 +1,4 @@
-import pb_vertical_nav_list from "pb_vertical_nav_list/_pb_vertical_nav_list.jsx";
+import VerticalNavList from "pb_vertical_nav_list/_vertical_nav_list.jsx";
 import WebpackerReact from "webpacker-react";
 
-WebpackerReact.setup({ pb_vertical_nav_list });
+WebpackerReact.setup({ VerticalNavList });

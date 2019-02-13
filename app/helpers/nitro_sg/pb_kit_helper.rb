@@ -42,18 +42,19 @@ module NitroSg
 
     #------ Render UI Story
     def pb_kit_rails(kit)
-      render(partial: "#{kit}/#{kit}_story_rails")
+      pp kit
+      render(partial: "pb_#{kit}/#{kit}_story_rails")
     end
 
     def pb_kit_react(kit)
-      render(partial: "#{kit}/#{kit}_story_react")
+      render(partial: "pb_#{kit}/#{kit}_story_react")
     end
 
     # Index Kits showing story
     def pb_kits
       display_kits = []
       MENU["kits"].sort.each do |kit|
-        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_rails(:pb_heading, props: { text: pb_title(kit), tag: 'h3', size: '2' })}</a></h2>"
+        title = render :inline => "<h2><a href='#{kit_show_path(kit)}'>#{pb_rails(:heading, props: { text: pb_title(kit), tag: 'h3', size: '2' })}</a></h2>"
         ui = pb_kit_rails(kit)
         display_kits << title+ui
       end
@@ -69,7 +70,7 @@ module NitroSg
     #------ Render Rails UI Kit
     def render_component(name, locals, &block)
       if( !name.match(/[\/\\]/) )
-        ui_name = "#{name}/#{name}"
+        ui_name = "pb_#{name}/#{name}"
       else
         ui_name = name
       end
@@ -98,7 +99,7 @@ module NitroSg
 
     #------ Render React UI Kit
     def render_react_component(component_name, props, options)
-      ui = ::Webpacker::React::Component.new(component_name).render(props, options)
+      ui = ::Webpacker::React::Component.new(component_name.camelize).render(props, options)
       if( defined?(props[:show_props]) && props[:show_props] )
         props.delete(:show_props)
         code = render 'config/ui/codeCopyReact', component_name: component_name, component_props: props

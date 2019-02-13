@@ -1,5 +1,5 @@
 <%= javascript_pack_tag 'pb_body' %>
-<%= pb_react('Body', props: {show_props: defined?(@kit)}) %>
+<%= pb_react('body', props: {text: 'This is my body paragraph', show_props: defined?(@kit)}) %>
 
 <%=
 if(defined?(@kit))

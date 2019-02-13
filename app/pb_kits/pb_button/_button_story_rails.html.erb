@@ -1,0 +1,13 @@
+<%= pb_rails("button", props: { text: "Primary Rails Button", wrapperclass: "kit-btn-wrapper", componentclass: "kit-btn", show_props: defined?(@kit)}) %>
+<br/>
+<%= pb_rails("button", props: { text: "Secondary Rails Button", wrapperclass: "kit-btn-wrapper", componentclass: "kit-btn red", show_props: defined?(@kit)}) %>
+
+<%=
+if(defined?(@kit))
+  render 'config/ui/propsTableSimple',
+      component_props: {
+          text: "Rails Button",
+          wrapperclass: "kit-btn-wrapper",
+          componentclass: "kit-btn",
+          show_props: defined?(@kit) }
+end %>

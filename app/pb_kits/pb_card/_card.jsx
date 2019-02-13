@@ -1,11 +1,11 @@
 import React from 'react';
 
-class pb_card extends React.Component {
+class Card extends React.Component {
   render() {
     return (
       <div className="pb-card">
         <h1>
-           I am pb_card-React, {this.props.name}
+           I am card-React, {this.props.name}
         </h1>
         <div className="pb-card-body">
           { this.props.children }
@@ -15,4 +15,4 @@ class pb_card extends React.Component {
   }
 }
 
-export default pb_card;
+export default Card;

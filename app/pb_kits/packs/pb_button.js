@@ -1,4 +1,4 @@
-import pb_button from "pb_button/_pb_button.jsx";
+import Button from "pb_button/_button.jsx";
 import WebpackerReact from "webpacker-react";
 
-WebpackerReact.setup({ pb_button });
+WebpackerReact.setup({ Button });

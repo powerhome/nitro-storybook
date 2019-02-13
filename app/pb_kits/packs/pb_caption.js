@@ -1,4 +1,4 @@
-import pb_caption from "pb_caption/_pb_caption.jsx";
+import Caption from "pb_caption/_caption.jsx";
 import WebpackerReact from "webpacker-react";
 
-WebpackerReact.setup({ pb_caption });
+WebpackerReact.setup({ Caption });

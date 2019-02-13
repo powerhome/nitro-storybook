@@ -1,4 +1,4 @@
-import pb_card from "pb_card/_pb_card.jsx";
+import Card from "pb_card/_card.jsx";
 import WebpackerReact from "webpacker-react";
 
-WebpackerReact.setup({ pb_card });
+WebpackerReact.setup({ Card });

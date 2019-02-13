@@ -1,6 +1,6 @@
 import React from "react";
 
-class pb_caption extends React.Component {
+class Caption extends React.Component {
   render() {
     return (
       <p className="caption">{this.props.text}</p>
@@ -8,4 +8,4 @@ class pb_caption extends React.Component {
   }
 }
 
-export default pb_caption;
+export default Caption;
