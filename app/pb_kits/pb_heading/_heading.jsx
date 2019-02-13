@@ -5,21 +5,24 @@ import PropTypes from 'prop-types'
 const propTypes = {
   text: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
-  size: PropTypes.number.isRequired,
-  className: PropTypes.string.isRequired
+  size: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
+  className: PropTypes.string,
+  dark: PropTypes.bool
 };
 
 const defaultProps = {
   text: 'Hello World',
   tag: 'h1',
-  size: 1
+  size: 1,
+  dark: false
 };
-
 
 class Heading extends Component {
   render() {
+    const Tag = `${this.props.tag}`;
+    const {size, dark, text } = this.props;
     return (
-      <div className={this.props.className}>{this.props.text}</div>
+      <Tag className={`heading-${size}` + (dark === true ? '-dark' : '')}>{text}</Tag>
     )
   }
 }
