@@ -1,6 +1,6 @@
 import React from "react";
 
-class pb_body extends React.Component {
+class Body extends React.Component {
   render() {
     return (
       <p className="body">{this.props.text}</p>
@@ -8,4 +8,4 @@ class pb_body extends React.Component {
   }
 }
 
-export default pb_body;
+export default Body;

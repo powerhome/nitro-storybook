@@ -1,4 +1,5 @@
-<%= pb_rails(:pb_card, props: { name: "Tim", show_props: defined?(@kit) }) %>
+<%= javascript_pack_tag 'pb_card' %>
+<%= pb_react('card', props: {name: 'Tim', show_props: defined?(@kit)}) %>
 
 <%=
 if(defined?(@kit))

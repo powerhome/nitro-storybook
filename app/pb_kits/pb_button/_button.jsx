@@ -1,6 +1,6 @@
 import React from "react";
 
-class pb_button extends React.Component {
+class Button extends React.Component {
   render() {
     return (
       <div className={this.props.wrapperclass}>
@@ -12,4 +12,4 @@ class pb_button extends React.Component {
   }
 }
 
-export default pb_button;
+export default Button;
