@@ -1,0 +1,129 @@
+@import "../tokens/colors";
+@import "../tokens/spacing";
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// Only White and Dark.
+// We could make this into a mixin for custom color sidebars.
+// Just pass background and border color
+
+// Another Style. Floating Sidebars
+// They need card applied
+
+
+// sidebar-lg-left
+// sidebar-lg-left-dark
+// sidebar-lg-left-transparant
+// sidebar-lg-left-collapse-sm
+// sidebar-lg-left-dark-collapse-sm
+
+
+// sidebar-xl-collapse-sm
+// sidebar-full-xl-collapse-sm // Are they 100% by default?
+// sidebar-dark-xl-collapse-sm
+// sidebar-dark-full-xl-collapse-sm
+// sidebar-transparant-xl-collapse-sm // Floating
+
+
+.sidebar {
+
+  $name: ".sidebar";
+
+  &_section {
+    padding: $space-base $space-largest;
+    &_border {
+      padding: $space-base $space-largest;
+      border-bottom: 1px solid $sky;
+      &_margin {
+        margin: $space-base $space-largest;
+        border-bottom: 1px solid $sky;
+      }
+    }
+  }
+
+  $sidebar-sizes: (
+    "xs":   64px,
+    "sm":   200px,
+    "md":   250px,
+    "base": 250px,
+    "lg":   300px,
+    "xl":   365px,
+  );
+
+  @mixin sidebar-settings($size, $side, $color, $selector) {
+    $parent_name: str-replace($selector, '.', '');
+    display: grid;
+    @if $side == 'left' {
+      grid-template-areas: "#{$parent_name}_aside #{$parent_name}_body";
+      grid-template-columns: $size auto;
+    } @else {
+      grid-template-areas: "#{$parent_name}_body #{$parent_name}_aside";
+      grid-template-columns: auto $size;
+    }
+    #{$name}_body {
+      grid-area: #{$parent_name}_body;
+    }
+    #{$name}_aside {
+      grid-area: #{$parent_name}_aside;
+      @if $side == 'left' {
+        border-right-width: 1px;
+        border-right-style: solid;
+        @if $color == 'dark' {
+          background: $white-opacity-1;
+          border-right-color: $white-opacity-1;
+        } @else if $color == 'transparant' {
+          border-right-color: transparant;
+        } @else {
+          background: $white;
+          border-right-color: $sky;
+        }
+      }
+      @if $side == 'right' {
+        border-left-width: 1px;
+        border-left-style: solid;
+        @if $color == 'dark' {
+          background: $white-opacity-1;
+          border-left-color: $white-opacity-1;
+        } @else if $color == 'transparant' {
+          border-left-color: transparant;
+        } @else {
+          background: $white;
+          border-left-color: $sky;
+        }
+      }
+    }
+  }
+
+
+  @each $name, $size in $sidebar-sizes {
+    &_#{$name} {
+      &_left {
+        @include sidebar-settings($size, 'left', 'light', "#{&}");
+        &_dark {
+          @include sidebar-settings($size, 'left', 'dark', "#{&}");
+        }
+        &_transparant {
+          @include sidebar-settings($size, 'left', 'transparant', "#{&}");
+        }
+      }
+      &_right {
+        @include sidebar-settings($size, 'right', 'light', "#{&}");
+        &_dark {
+          @include sidebar-settings($size, 'right', 'dark', "#{&}");
+        }
+        &_transparant {
+          @include sidebar-settings($size, 'right', 'transparant', "#{&}");
+        }
+      }
+    }
+  }
+
+}
