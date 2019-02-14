@@ -1,11 +1,1 @@
-<%
-  props ||= {}
-  large = props.fetch(:large, false)
-  large = large ? "-lg" :  ''
-  dark = props.fetch(:dark, false)
-  dark = dark ? "-dark" :  ''
-  tag = props.fetch(:tag, 'div')
-  text = props.fetch(:text, 'I am a pbCaption')
-%>
-
-<%= content_tag(:"#{tag}", text, class: "caption#{large}#{dark}") %>
+<%= content_tag(:"#{object.tag}", object.text, class: "caption#{object.large}#{object.dark}") %>

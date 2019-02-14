@@ -1,15 +1,5 @@
-<%
-  props ||= {}
-  wrapperclass = props.fetch(:wrapperclass, 'kit-btn-wrapper')
-  text = props.fetch(:text, 'Default')
-  type = props.fetch(:type, '')
-  size = props.fetch(:size, '')
-%>
-
-
-<div class="<%= wrapperclass %>">
-  <button class="kit_btn<%= type.blank? ? '_' + type : '' %>">
-    <span><%= text %></span>
+<div class="<%= object.wrapperclass %>">
+  <button class="kit_btn<%= object.type %><%= object.size %><%= object.dark %>">
+    <span><%= object.text %></span>
   </button>
 </div>
-

@@ -5,6 +5,6 @@
   a class=('active' if action_name == "kit_show_react") href="#{kit_show_reacts_path(@kit)}" React
 
 - if action_name == "kit_show_rails"
-  = pb_kit_rails(@kit)
+  = pb_kit(@kit)
 - else
-  = pb_kit_react(@kit)
+  = pb_kit(@kit, "react")

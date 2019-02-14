@@ -56,7 +56,10 @@ module NitroSg
       def default_configuration
         DEFAULT
       end
-      attr_accessor :configured_text, :configured_color, :configured_dark, :configured_tag
+      attr_accessor :configured_text,
+          :configured_color,
+          :configured_dark,
+          :configured_tag
     end
   end
 end
