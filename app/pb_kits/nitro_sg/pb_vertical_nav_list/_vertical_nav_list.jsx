@@ -1,9 +1,17 @@
 import React from "react";
+import List from "./List.jsx"
 
-class Heading extends React.Component {
+class VerticalNavList extends React.Component {
   render() {
-    return <span>YYYYYYY Hello, I am {this.props.name}!</span>;
+    return  (
+      <List>
+        <List.Item text={"hello world"} />
+        <List.Item text={"hello wow"} />
+        <List.Item text={"hello cool"} />
+        <List.Item text={"hello sweet"} />
+      </List>
+    ) 
   }
 }
 
-export default Heading;
+export default VerticalNavList;
