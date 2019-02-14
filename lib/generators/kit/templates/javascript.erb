@@ -1,7 +1,4 @@
-// This is javscript code, which uses ERB tags for templating
-// All the methods will be invoked and their values will be interpolated
-
-import pb<%= js_file_name %> from "pb<%= js_file_name %>/pb<%= js_file_name %>";
+import <%= js_titleize_file_name %> from "pb_<%= name %>/_<%= name %>.jsx";
 import WebpackerReact from "webpacker-react";
 
-WebpackerReact.setup({ pb<%= js_file_name %> });
+WebpackerReact.setup({ <%= js_titleize_file_name %> });
