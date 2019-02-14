@@ -1,14 +1,5 @@
-<%
-  props ||= {}
-  active = props.fetch(:active, false)
-  active = active ? "-active" :  ''
-  text = props.fetch(:text, '')
-  link = props.fetch(:link, '#')
-%>
-
-<li class="vertical-nav-list-border-item<%= active %>">
-  <a href=<%= link %> class="vertical-nav-list-item-link">
-    <!-- <span class="vertical-nav-list-item-link-icon"></span> -->
-    <span class="vertical-nav-list-item-link-text"><%= text %></span>
+<li class="vertical-nav-list-border-item<%= object.active %>">
+  <a href=<%= object.link %> class="vertical-nav-list-item-link">
+    <span class="vertical-nav-list-item-link-text"><%= object.text %></span>
   </a>
 </li>

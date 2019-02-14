@@ -6,7 +6,7 @@ module NitroSg
                    &block)
         self.configured_title = title
         self.configured_link = link
-        self.configured_content = block_given? ? block : nil
+        self.block = block_given? ? block : nil
       end
 
       def title
@@ -25,28 +25,8 @@ module NitroSg
         end
       end
 
-      def content
-        if configured_content == default_configuration
-          ""
-        else
-          ""
-          # configured_content
-          # configured_content.call if configured_content.is_a?(Proc)
-          # configured_content.call if configured_content.is_a?(Proc)
-        end
-
-        # configured_content = capture(&block)
-        # configured_content.call if configured_content.is_a?(Proc)
-        # yield if block_given?
-        # if configured_content == default_configuration
-        #   "xxxssss"
-        # else
-        #   # pp configured_content
-        #   # pp &block
-        #   # pp &block
-        #   # yield
-        #   yield if block_given?
-        # end
+      def yield(context:)
+        context.instance_eval(&block)
       end
 
       def to_partial_path
@@ -62,7 +42,7 @@ module NitroSg
       end
       attr_accessor :configured_title,
           :configured_link,
-          :configured_content
+          :block
     end
   end
 end

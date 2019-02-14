@@ -1,8 +1,10 @@
 module NitroSg
   module PbCard
     class Card
-      def initialize(name: default_configuration)
+      def initialize(name: default_configuration,
+                     &block)
         self.configured_name = name
+        self.block = block_given? ? block : nil
       end
 
       def name
@@ -11,6 +13,10 @@ module NitroSg
         else
           configured_name
         end
+      end
+
+      def yield(context:)
+        context.instance_eval(&block)
       end
 
       def to_partial_path
@@ -24,7 +30,8 @@ module NitroSg
       def default_configuration
         DEFAULT
       end
-      attr_accessor :configured_name
+      attr_accessor :configured_name,
+          :block
     end
   end
 end
