@@ -1,0 +1,10 @@
+<% component_props ||= nil %>
+
+<% if( !component_props.nil? ) %>
+  <div id="pb--codeRails" class="pb--codeCopy">
+    <%= pb_rails_snippet(component_name, component_props) %>
+  </div>
+  <div class="pb--propsTable">
+    <%= render(partial: "nitro_sg/config/ui/propsTableSimple", locals: {component_props: component_props}) %>
+  </div>
+<% end %>

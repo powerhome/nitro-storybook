@@ -1,8 +1,0 @@
-<%
-  props ||= {}
-  size = props.fetch(:size, '1')
-  tag = props.fetch(:tag, 'h1')
-  text = props.fetch(:text, 'I am heading')
-%>
-
-<%= content_tag(:"#{tag}", text, class: "heading-#{size}") %>

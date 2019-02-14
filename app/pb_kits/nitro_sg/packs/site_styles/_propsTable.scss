@@ -1,0 +1,29 @@
+@import "../../tokens/colors";
+
+.pb--propsTable {
+  padding: 10px;
+  margin: 0 0 20px 0;
+
+  &--table {
+    width: 100%;
+
+    tr {
+      padding: 10px;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 10px 5px 10px;
+      color: $ink-lighter;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    td {
+      background: $sky-light;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: $ink-light;
+    }
+  }
+}

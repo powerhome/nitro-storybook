@@ -1,0 +1,36 @@
+@import "../../tokens/colors";
+
+// Main Home Page Layout with Sidebar
+.pb--page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &--topNav {
+    flex: 0 0;
+    border-bottom: 1px solid $sky;
+    padding: 20px 30px;
+    background: $white;
+  }
+
+  &--content {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 100%;
+
+    &--sideNav {
+      flex: 0 0 250px;
+      padding: 0;
+      background: $white;
+      border-right: 1px solid $sky;
+      max-width: 250px;
+      min-height: calc(100vh - 89px);
+    }
+
+    &--main {
+      flex-grow: 1;
+      padding: 40px 60px;
+      max-width: calc(100vw - 250px);
+    }
+  }
+}
