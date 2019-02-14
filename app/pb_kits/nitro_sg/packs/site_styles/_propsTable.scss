@@ -1,8 +1,8 @@
 @import "../../tokens/colors";
 
 .pb--propsTable {
-  padding: 15px 20px;
-  margin: 0 0 10px 0;
+  padding: 10px;
+  margin: 0 0 20px 0;
 
   &--table {
     width: 100%;
@@ -21,7 +21,9 @@
 
     td {
       background: $sky-light;
-      padding: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: $ink-light;
     }
   }
 }

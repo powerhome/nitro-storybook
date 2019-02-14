@@ -1,11 +1,8 @@
-<%
-  component_props.delete(:show_props)
-  component_props ||= nil
-%>
+<% component_props ||= nil %>
 
-<% if( !component_props.nil? && !component_props.empty? ) %>
+<% if( !component_props.nil? && !component_props.empty? )
+  component_props.delete(:show_props) %>
   <div class="pb--propsTable">
-    <h2>Props</h2>
     <table class="pb--propsTable--table">
       <thead>
         <tr>

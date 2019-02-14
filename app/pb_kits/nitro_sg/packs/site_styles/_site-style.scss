@@ -22,11 +22,13 @@
       padding: 0;
       background: $white;
       border-right: 1px solid $sky;
+      min-height: calc(100vh - 89px);
     }
 
     &--main {
       flex-grow: 1;
       padding: 40px 60px;
+      max-width: calc(100vw - 250px);
     }
   }
 }
