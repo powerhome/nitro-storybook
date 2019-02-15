@@ -60,11 +60,13 @@ module NitroSg
     end
 
     # Generate all vartiations of all kits without docs
-    def pb_kits
+    def pb_kits(type: "rails")
       display_kits = []
       MENU["kits"].sort.each do |kit|
         title = render_clickable_title(kit)
-        ui = pb_kit(kit: kit, type: "rails", show_docs: false)
+        pp type
+        pp "{{{{{{{}}}}}}}"
+        ui = pb_kit(kit: kit, type: type, show_docs: false)
         display_kits << title+ui
       end
       raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
