@@ -27,10 +27,10 @@ module NitroSg
                   children << pb_rails("#{child[:value][:name]}", props: child[:value][:props])
                 end
               end
-              display_variations << render_variation(kit, variation[:props], children, helper_children, show_docs)
+              display_variations << render_variation(kit, variation, children, helper_children, show_docs)
             else
               if show_docs == true
-                kit_render = pb_rails_with_docs("#{kit}", props: variation[:props])
+                kit_render = pb_rails_with_docs("#{kit}", props: variation[:props], doc_variation: variation)
               else
                 kit_render= pb_rails("#{kit}", props: variation[:props])
               end
@@ -71,13 +71,15 @@ module NitroSg
     end
 
     # Display rails kit ui with docs
-    def pb_rails_with_docs(kit, props:{}, doc_children: doc_children, &block)
+    def pb_rails_with_docs(kit, props:{}, doc_variation: variation, doc_children: doc_children, &block)
       ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
       ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_rails(kit, props, &block)+"</div>")
       docs = render(partial: NitroSg::Config::PbDoc.new(
         {name: "#{kit}", props: props, nested: block, type: "rails", doc_children: doc_children}
       ), as: :object)
-      ui+docs
+      variation_title = defined?(doc_variation[:name]) && (doc_variation[:name] != nil) ? raw("<h4>#{pb_title(doc_variation[:name])}</h4>") : ""
+      usage = defined?(doc_variation[:usage]) && (doc_variation[:usage] != nil) ? raw("<div class='pb--doc-usage'>Usage: <span>"+doc_variation[:usage]+"</span></div>") : ""
+      variation_title+usage+ui+docs
     end
 
     # Display react kit ui with docs
@@ -126,13 +128,13 @@ module NitroSg
       react_pack.join(" ");
     end
 
-    def render_variation(kit, props, children, helper_children, show_docs)
+    def render_variation(kit, variation, children, helper_children, show_docs)
       if show_docs == true
-        pb_rails_with_docs("#{kit}", props: props, doc_children: helper_children) do
+        pb_rails_with_docs("#{kit}", props: variation[:props], doc_variation: variation, doc_children: helper_children) do
           children.map { |k| k }.join(" ").html_safe
         end
       else
-        pb_rails("#{kit}", props: props) do
+        pb_rails("#{kit}", props: variation[:props]) do
           children.map { |k| k }.join(" ").html_safe
         end
       end
