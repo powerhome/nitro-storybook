@@ -1,0 +1,21 @@
+{
+  "variations": [
+    {
+      "name": "primary",
+      "props": {
+        "type": "primary",
+        "dark": false,
+        "text": "Default Button"
+      }
+    },
+    {
+      "name": "secondary",
+      "props": {
+        "type": "secondary",
+        "size": "lg",
+        "dark": false,
+        "text": "Secondary Button"
+      }
+    }
+  ]
+}

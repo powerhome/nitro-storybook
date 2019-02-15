@@ -1,3 +1,9 @@
 <div class="vertical-nav-list">
-  <% object.yield(context: self) %>
+  <div class="vertical-nav-list-title">
+    <a class="vertical-nav-list-item-link-text" href="<%= object.link %>">
+      <%= pb_rails("caption", props: { text: object.title, tag: "p" }) %>
+    </a>
+  </div>
+
+  <%= object.yield(context: self) %>
 </div>

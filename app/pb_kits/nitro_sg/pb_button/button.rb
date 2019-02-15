@@ -33,7 +33,7 @@ module NitroSg
         if configured_type == default_configuration
           ""
         else
-          "_#{configured_type}"
+          "-#{configured_type}"
         end
       end
 
@@ -41,7 +41,7 @@ module NitroSg
         if configured_size == default_configuration
           ""
         else
-          "_#{configured_size}"
+          "-#{configured_size}"
         end
       end
 
@@ -50,7 +50,7 @@ module NitroSg
           ""
         else
           if (configured_dark == true)
-            "_dark"
+            "-dark"
           end
         end
       end

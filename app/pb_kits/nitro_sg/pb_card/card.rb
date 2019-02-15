@@ -16,7 +16,7 @@ module NitroSg
       end
 
       def yield(context:)
-        context.instance_eval(&block)
+        context.capture(&block)
       end
 
       def to_partial_path
