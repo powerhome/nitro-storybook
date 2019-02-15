@@ -8,11 +8,13 @@ module NitroSg
       def initialize(props: default_configuration,
                    name: default_configuration,
                    nested: default_configuration,
-                   type: default_configuration)
+                   type: default_configuration,
+                   doc_children: default_configuration)
         self.configured_props = props
         self.configured_name = name
         self.configured_nested = nested
         self.configured_type = type
+        self.configured_doc_children = doc_children
       end
 
       def props
@@ -60,7 +62,7 @@ module NitroSg
     private
 
       def rails_nested_snippet(name, props, nested)
-        raw rouge("<%= pb_rails(\"#{name}\", props: #{props.to_json}) do %>\n#{nested.call.strip}\n<% end %>", "erb")
+        raw rouge("<%= pb_rails(\"#{name}\", props: #{props.to_json}) do %>\n  #{configured_doc_children.join("\n  ")}\n<% end %>", "erb")
       end
 
       def rails_snippet(name, props)
@@ -93,7 +95,8 @@ module NitroSg
       attr_accessor :configured_props,
           :configured_name,
           :configured_nested,
-          :configured_type
+          :configured_type,
+          :configured_doc_children
     end
   end
 end

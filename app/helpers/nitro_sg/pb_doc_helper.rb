@@ -17,10 +17,17 @@ module NitroSg
           if type == "rails"
             if has_children?(variation)
               children = []
+              helper_children = []
               variation[:children].each do |child|
-                children << render_child(child)
+                if child[:type] == "string" || child[:type] == "html"
+                  helper_children << child[:value].html_safe
+                  children << child[:value].html_safe
+                elsif child[:type] == "kit"
+                  helper_children << "<%= pb_rails(\"#{child[:value][:name]}\", props: #{child[:value][:props].to_json})%>"
+                  children << pb_rails("#{child[:value][:name]}", props: child[:value][:props])
+                end
               end
-              display_variations << render_variation(kit, variation[:props], children, show_docs)
+              display_variations << render_variation(kit, variation[:props], children, helper_children, show_docs)
             else
               if show_docs == true
                 kit_render = pb_rails_with_docs("#{kit}", props: variation[:props])
@@ -33,7 +40,20 @@ module NitroSg
             display_variations << render_react_pack(kit, variation[:props], show_docs)
           end
         end
-        raw display_variations.map { |k| k }.join(" ")
+        start_doc = render_doc("nitro_sg/pb_#{kit}/start") if lookup_context.find_all("nitro_sg/pb_#{kit}/start",[],true).any?
+        variations = raw display_variations.map { |k| k }.join(" ")
+        end_doc = render_doc("nitro_sg/pb_#{kit}/end") if lookup_context.find_all("nitro_sg/pb_#{kit}/end",[],true).any?
+        kit_display_obj = [
+          start_doc,
+          variations,
+          end_doc
+        ]
+
+        if show_docs == true
+          raw kit_display_obj.join(" ")
+        else
+          raw variations
+        end 
       else
         return
       end
@@ -51,11 +71,11 @@ module NitroSg
     end
 
     # Display rails kit ui with docs
-    def pb_rails_with_docs(kit, props:{}, &block)
+    def pb_rails_with_docs(kit, props:{}, doc_children: doc_children, &block)
       ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
       ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_rails(kit, props, &block)+"</div>")
       docs = render(partial: NitroSg::Config::PbDoc.new(
-        {name: "#{kit}", props: props, nested: block, type: "rails"}
+        {name: "#{kit}", props: props, nested: block, type: "rails", doc_children: doc_children}
       ), as: :object)
       ui+docs
     end
@@ -106,9 +126,9 @@ module NitroSg
       react_pack.join(" ");
     end
 
-    def render_variation(kit, props, children, show_docs)
+    def render_variation(kit, props, children, helper_children, show_docs)
       if show_docs == true
-        pb_rails_with_docs("#{kit}", props: props) do
+        pb_rails_with_docs("#{kit}", props: props, doc_children: helper_children) do
           children.map { |k| k }.join(" ").html_safe
         end
       else
@@ -120,6 +140,14 @@ module NitroSg
 
     def render_clickable_title(kit)
       render :inline => "<a href='#{kit_show_path(kit)}'>#{pb_rails(:heading, props: { text: pb_title(kit), tag: 'h3', size: '2' })}</a>"
+    end
+
+    def render_doc(path)
+      render partial: path
+    end
+
+    def partial_exists?(path)
+      lookup_context.find_all(path).any?
     end
   end
 end

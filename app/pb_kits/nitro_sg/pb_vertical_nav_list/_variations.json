@@ -15,6 +15,15 @@
               "text": "I am a kit child"
             }
           }
+        },
+        {
+          "type": "kit",
+          "value": {
+            "name": "vertical_nav_list/vertical_nav_list_item",
+            "props": {
+              "text": "fdfdsa"
+            }
+          }
         }
       ]
     }
