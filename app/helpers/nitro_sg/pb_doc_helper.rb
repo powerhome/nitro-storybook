@@ -52,7 +52,8 @@ module NitroSg
 
     # Display rails kit ui with docs
     def pb_rails_with_docs(kit, props:{}, &block)
-      ui = render_rails(kit, props, &block)
+      ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
+      ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_rails(kit, props, &block)+"</div>")
       docs = render(partial: NitroSg::Config::PbDoc.new(
         {name: "#{kit}", props: props, nested: block, type: "rails"}
       ), as: :object)
@@ -61,7 +62,8 @@ module NitroSg
 
     # Display react kit ui with docs
     def pb_react_with_docs(kit, props:{}, options:{})
-      ui = render_react(kit, props, options)
+      ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
+      ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_react(kit, props, options)+"</div>")
       docs = render(partial: NitroSg::Config::PbDoc.new(
         {name: "#{kit}", props: props, type: "react"}
       ), as: :object)
