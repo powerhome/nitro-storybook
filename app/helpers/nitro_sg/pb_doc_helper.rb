@@ -53,7 +53,7 @@ module NitroSg
           raw kit_display_obj.join(" ")
         else
           raw variations
-        end 
+        end
       else
         return
       end

@@ -7,8 +7,8 @@
       },
       "children": [
         {
-          "type": "string",
-          "value": "I am a string child"
+          "type": "html",
+          "value": "<h1>I am an html child</h1>"
         }
       ]
     },
