@@ -87,7 +87,12 @@ module NitroSg
             end
 
           else
-            display_variations << pb_react_with_docs("#{kit}", props: variation[:props])
+            react_pack = [
+              javascript_pack_tag("pb_#{kit}"),
+              pb_react_with_docs("#{kit}", props: variation[:props])
+            ]
+            react_pack.join(" ");
+            display_variations << react_pack
           end
         end
         raw display_variations.map { |k| k }.join(" ")
