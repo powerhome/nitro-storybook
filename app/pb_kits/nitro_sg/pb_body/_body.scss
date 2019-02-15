@@ -11,6 +11,8 @@
     "&-dark",
     "&-light-dark",
     "&-lighter-dark",
+
+   
   );
 
   @each $selector in $selectors {
@@ -35,3 +37,18 @@
   }
 
 }
+
+//button 
+$selectors: (
+  "kit-btn",
+  "kit-btn-primary",
+  "kit-btn-danger",
+  "kit-btn-dashed",
+  "kit-btn-primary-small",
+  "kit-btn-danger-small",
+  "kit-btn-dashed-small",
+  "kit-btn-primary-large",
+  "kit-btn-danger-large",
+  "kit-btn-dashed-large",
+);
+
