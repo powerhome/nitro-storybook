@@ -9,6 +9,10 @@ module NitroSg
       render_rails(kit, props, &block)
     end
 
+    def pb_rails_nested(kit, props:{}, &block)
+      render_rails(kit, props, &block)
+    end
+
     def pb_rails_with_docs(kit, props:{}, &block)
       ui = render_rails(kit, props, &block)
       docs = render_rails_docs(kit, props, &block)
@@ -26,13 +30,18 @@ module NitroSg
     end
 
     #------ Render Code Snippets
-    def pb_rails_snippet(component_name, component_props)
-      props = !component_props.nil? && !component_props.empty? ? raw(component_props.to_json) : ""
-      return raw rouge("<%= pb_rails(\"#{component_name}\", props: #{props}) %>", "erb");
+    def pb_rails_snippet(component_name, component_props, nested)
+      props = !component_props.nil? && !component_props.empty? ? raw(component_props.to_json) : "{}"
+      if(nested == true)
+        output = raw rouge("<%= pb_rails(\"#{component_name}\", props: #{props}) do %>\n...\n<% end %>", "erb");
+      else
+        output = raw rouge("<%= pb_rails(\"#{component_name}\", props: #{props}) %>", "erb");
+      end
+      return output;
     end
 
     def pb_react_snippet(component_name, component_props)
-      props = !component_props.nil? && !component_props.empty? ? raw(component_props.to_json) : ""
+      props = !component_props.nil? && !component_props.empty? ? raw(component_props.to_json) : "{}"
       return raw rouge("<%= pb_react(\"#{component_name}\", props: #{props}) %>", "erb")
     end
 
@@ -71,14 +80,21 @@ module NitroSg
   private
 
     def render_rails(kit, props, &block)
-      kit_class_name = kit.to_s.tr(" ", "_").camelize
-      kit_class_obj = "NitroSg::Pb#{kit_class_name}::#{kit_class_name}".safe_constantize
+      if( !kit.match(/[\/\\]/) )
+        kit_class_name = kit.to_s.tr(" ", "_").camelize
+        kit_class_obj = "NitroSg::Pb#{kit_class_name}::#{kit_class_name}"
+      else
+        kit_folder_name = kit.split('/')[0].to_s.tr(" ", "_").camelize
+        kit_class_name = kit.split('/')[-1].to_s.tr(" ", "_").camelize
+        kit_class_obj = "NitroSg::Pb#{kit_folder_name}::#{kit_class_name}"
+      end
+      kit_class_obj = kit_class_obj.safe_constantize
       render(partial: kit_class_obj.new(**props, &block), as: :object)
     end
 
     def render_rails_docs(kit, props, &block)
-      if(defined?(@kit) && @kit == kit)
-        render(partial: "nitro_sg/config/ui/codeCopyRails", locals: {component_name: kit, component_props: props})
+      if(defined?(@kit))
+        render(partial: "nitro_sg/config/ui/codeCopyRails", locals: {component_name: kit, component_props: props, nested: block_given?})
       end
     end
 

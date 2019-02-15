@@ -1,4 +1,4 @@
 <div class="pb-card">
   <h1>I am card-Rails, <%= object.name %></h1>
-  <div><%= yield %></div>
+  <div><% object.yield(context: self) %></div>
 </div>
