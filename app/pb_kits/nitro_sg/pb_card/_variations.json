@@ -1,7 +1,7 @@
 {
   "variations": [
     {
-      "name": "default",
+      "name": "Card with HTML",
       "props": {
         "name": "div"
       },
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "name": "default",
+      "name": "Card with Kit",
       "props": {
         "name": "div"
       },
@@ -30,14 +30,14 @@
       ]
     },
     {
-      "name": "default",
+      "name": "Card with String",
       "props": {
         "name": "div"
       },
       "children": [
         {
-          "type": "html",
-          "value": "<h2>I am an html child</h2>"
+          "type": "string",
+          "value": "I am an string child"
         }
       ]
     }

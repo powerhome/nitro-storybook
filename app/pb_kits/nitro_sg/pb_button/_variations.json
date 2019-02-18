@@ -9,9 +9,9 @@
       }
     },
     {
-      "name": "secondary",
+      "name": "danger",
       "props": {
-        "type": "secondary",
+        "type": "danger",
         "size": "lg",
         "dark": false,
         "text": "Secondary Button"

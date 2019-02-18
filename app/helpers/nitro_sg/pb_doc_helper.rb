@@ -27,17 +27,17 @@ module NitroSg
                   children << pb_rails("#{child[:value][:name]}", props: child[:value][:props])
                 end
               end
-              display_variations << render_variation(kit, variation[:props], children, helper_children, show_docs)
+              display_variations << render_variation(kit, variation, children, helper_children, show_docs)
             else
               if show_docs == true
-                kit_render = pb_rails_with_docs("#{kit}", props: variation[:props])
+                kit_render = pb_rails_with_docs("#{kit}", props: variation[:props], doc_variation: variation)
               else
                 kit_render= pb_rails("#{kit}", props: variation[:props])
               end
               display_variations << kit_render
             end
           elsif type == "react"
-            display_variations << render_react_pack(kit, variation[:props], show_docs)
+            display_variations << render_react_pack(kit, variation[:props], show_docs, variation)
           end
         end
         start_doc = render_doc("nitro_sg/pb_#{kit}/start") if lookup_context.find_all("nitro_sg/pb_#{kit}/start",[],true).any?
@@ -60,34 +60,38 @@ module NitroSg
     end
 
     # Generate all vartiations of all kits without docs
-    def pb_kits
+    def pb_kits(type: "rails")
       display_kits = []
       MENU["kits"].sort.each do |kit|
         title = render_clickable_title(kit)
-        ui = pb_kit(kit: kit, type: "rails", show_docs: false)
+        ui = pb_kit(kit: kit, type: type, show_docs: false)
         display_kits << title+ui
       end
       raw("<div class='pb--docItem'>"+display_kits.map { |k| k }.join("</div><div class='pb--docItem'>")+"</div>")
     end
 
     # Display rails kit ui with docs
-    def pb_rails_with_docs(kit, props:{}, doc_children: doc_children, &block)
+    def pb_rails_with_docs(kit, props:{}, doc_variation: variation, doc_children: doc_children, &block)
       ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
       ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_rails(kit, props, &block)+"</div>")
       docs = render(partial: NitroSg::Config::PbDoc.new(
         {name: "#{kit}", props: props, nested: block, type: "rails", doc_children: doc_children}
       ), as: :object)
-      ui+docs
+      variation_title = defined?(doc_variation[:name]) && (doc_variation[:name] != nil) ? raw("<h4>#{pb_title(doc_variation[:name])}</h4>") : ""
+      usage = defined?(doc_variation[:usage]) && (doc_variation[:usage] != nil) ? raw("<div class='pb--doc-usage'>Usage: <span>"+doc_variation[:usage]+"</span></div>") : ""
+      variation_title+usage+ui+docs
     end
 
     # Display react kit ui with docs
-    def pb_react_with_docs(kit, props:{}, options:{})
+    def pb_react_with_docs(kit, props:{}, options:{}, doc_variation: variation)
       ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
       ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_react(kit, props, options)+"</div>")
       docs = render(partial: NitroSg::Config::PbDoc.new(
         {name: "#{kit}", props: props, type: "react"}
       ), as: :object)
-      ui+docs
+      variation_title = defined?(doc_variation[:name]) && (doc_variation[:name] != nil) ? raw("<h4>#{pb_title(doc_variation[:name])}</h4>") : ""
+      usage = defined?(doc_variation[:usage]) && (doc_variation[:usage] != nil) ? raw("<div class='pb--doc-usage'>Usage: <span>"+doc_variation[:usage]+"</span></div>") : ""
+      variation_title+usage+ui+docs
     end
 
   private
@@ -113,9 +117,9 @@ module NitroSg
       end
     end
 
-    def render_react_pack(kit, props, show_docs)
+    def render_react_pack(kit, props, show_docs, variation)
       if show_docs == true
-        kit_render = pb_react_with_docs("#{kit}", props: props)
+        kit_render = pb_react_with_docs("#{kit}", props: props, options: {}, doc_variation: variation)
       else
         kit_render = pb_react("#{kit}", props: props)
       end
@@ -126,13 +130,13 @@ module NitroSg
       react_pack.join(" ");
     end
 
-    def render_variation(kit, props, children, helper_children, show_docs)
+    def render_variation(kit, variation, children, helper_children, show_docs)
       if show_docs == true
-        pb_rails_with_docs("#{kit}", props: props, doc_children: helper_children) do
+        pb_rails_with_docs("#{kit}", props: variation[:props], doc_variation: variation, doc_children: helper_children) do
           children.map { |k| k }.join(" ").html_safe
         end
       else
-        pb_rails("#{kit}", props: props) do
+        pb_rails("#{kit}", props: variation[:props]) do
           children.map { |k| k }.join(" ").html_safe
         end
       end

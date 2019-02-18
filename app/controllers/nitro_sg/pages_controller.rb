@@ -8,6 +8,8 @@ module NitroSg
     def home
     end
     def kits
+      params[:type] ||= "rails"
+      @type = params[:type]
     end
     def principles
     end

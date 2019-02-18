@@ -5,7 +5,7 @@
       "props": {
         "tag": "h1",
         "text": "Hello World",
-        "size": "1",
+        "size": 1,
         "dark": false
       }
     },
@@ -14,7 +14,7 @@
       "props": {
         "tag": "h2",
         "text": "Hello World",
-        "size": "2",
+        "size": 2,
         "dark": false
       }
     },
@@ -23,7 +23,7 @@
       "props": {
         "tag": "h3",
         "text": "Hello World",
-        "size": "3",
+        "size": 3,
         "dark": false
       }
     },
@@ -32,25 +32,7 @@
       "props": {
         "tag": "h4",
         "text": "Hello World",
-        "size": "4",
-        "dark": false
-      }
-    },
-    {
-      "name": "h5",
-      "props": {
-        "tag": "h5",
-        "text": "Hello World",
-        "size": "5",
-        "dark": false
-      }
-    },
-    {
-      "name": "h6",
-      "props": {
-        "tag": "h6",
-        "text": "Hello World",
-        "size": "6",
+        "size": 4,
         "dark": false
       }
     }
