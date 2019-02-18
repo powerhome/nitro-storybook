@@ -4,6 +4,7 @@
       <%= pb_rails("caption", props: { text: object.title, tag: "p" }) %>
     </a>
   </div>
-
-  <%= object.yield(context: self) %>
+  <ul>  
+    <%= object.yield(context: self) %>
+  </ul>
 </div>
