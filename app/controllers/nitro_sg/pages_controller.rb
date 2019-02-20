@@ -13,6 +13,11 @@ module NitroSg
     end
     def principles
     end
+
+    def fullscreen
+      render layout: "layouts/nitro_sg/fullscreen"
+    end
+
     def kit_show_rails
       render template: 'nitro_sg/pages/kit_show'
     end

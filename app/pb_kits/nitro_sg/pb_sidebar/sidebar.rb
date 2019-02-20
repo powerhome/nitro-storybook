@@ -11,7 +11,7 @@ module NitroSg
         self.configured_transparent = transparent
         self.configured_size = size
         self.configured_dark = dark
-        self.configured_content = block_given? ? block : nil
+        self.block = block_given? ? block : nil
       end
 
       def position
@@ -50,13 +50,8 @@ module NitroSg
         end
       end
 
-      def content
-        if configured_content == default_configuration
-          ""
-        else
-          ""
-          # configured_content
-        end
+      def yield(context:)
+        context.capture(&block)
       end
 
       def to_partial_path
@@ -74,7 +69,7 @@ module NitroSg
           :configured_transparent,
           :configured_size,
           :configured_dark,
-          :configured_content
+          :block
     end
   end
 end

@@ -1,0 +1,19 @@
+{
+  "variations": [
+    {
+      "name": "First",
+      "props": {
+        "position": "left",
+        "transparent": false,
+        "size": "xl",
+        "dark": false
+      },
+      "children": [
+        {
+          "type": "html",
+          "value": "<h1>I am an html child</h1>"
+        }
+      ]
+    }
+  ]
+}

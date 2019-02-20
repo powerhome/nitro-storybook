@@ -4,68 +4,68 @@
 
 // Another style should be borders like buttons
 
-.vertical-nav-list {
-  $selector: ".vertical-nav-list";
-  &-title {
-    padding: 0 $space-largest $space-base;
+.vertical_nav_list {
+  $selector: ".vertical_nav_list";
+  &_title {
+    padding: 0 $space_largest $space_base;
   }
   ul {
     padding: 0;
     margin: 0;
     list-style: none;
   }
-  &-border-item {
+  &_border_item {
     list-style: none;
     border-bottom: 1px solid $sky;
     &:last-child {
       border-bottom: 0;
     }
   }
-  &-item,
-  &-border-item {
-    &-active,
+  &_item,
+  &_border_item {
+    &_active,
     &.active {
-      background-color: $p-royal-opacity-1;
-      #{$selector}-item-link,
-      #{$selector}-border-item-link {
-        border-color: $power-royal;
-        &-icon {
-          color: $power-royal;
+      background-color: $p_royal_opacity_1;
+      #{$selector}_item_link,
+      #{$selector}_border_item_link {
+        border-color: $power_royal;
+        &_icon {
+          color: $power_royal;
         }
-        &-text {
-          color: $power-royal;
+        &_text {
+          color: $power_royal;
         }
       }
     }
-    &-link {
+    &_link {
       text-decoration: none;
       display: flex;
       align-items: center;
-      padding: $space-base $space-largest;
+      padding: $space_base $space_largest;
       border: 0 solid transparent;
       border-width: 0 0 0 3px;
       transition-property: color, border-color, background-color;
       transition-duration: 0.15s;
       transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-      &-icon {
-        font-size: $font-large;
-        margin-right: $space-base;
-        color: $ink-lightest;
+      &_icon {
+        font-size: $font_large;
+        margin-right: $space_base;
+        color: $ink_lightest;
       }
-      &-text {
-        font-size: $font-base;
+      &_text {
+        font-size: $font_base;
         font-weight: $bold;
         color: $ink;
       }
       &:hover {
-        background-color: rgba($power-royal, 0.03);
-        #{$selector}-item-link-icon,
-        #{$selector}-border-item-link-icon {
-          color: $power-royal;
+        background-color: rgba($power_royal, 0.03);
+        #{$selector}_item_link_icon,
+        #{$selector}_border_item_link_icon {
+          color: $power_royal;
         }
-        #{$selector}-item-link-text,
-        #{$selector}-border-item-link-text {
-          color: $power-royal;
+        #{$selector}_item_link_text,
+        #{$selector}_border_item_link_text {
+          color: $power_royal;
         }
       }
     }

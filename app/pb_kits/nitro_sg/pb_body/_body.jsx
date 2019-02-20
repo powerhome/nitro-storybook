@@ -19,10 +19,10 @@ class Body extends Component {
   render() {
     const { tag, text, color, dark } = this.props;
     // If color prop is not an empty string then render the given class
-    const colorstyle = color !== "" ? `-${color}` : "";
+    const colorstyle = color !== "" ? `_${color}` : "";
 
     // If dark prop is true add the '-dark' class
-    const themestyle = dark === true ? "-dark" : "";
+    const themestyle = dark === true ? "_dark" : "";
 
     const Tag = `${tag}`;
 

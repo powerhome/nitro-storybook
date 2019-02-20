@@ -11,8 +11,8 @@ class List extends Component {
   static Item = Item;
   render() {
     return (
-      <div className="vertical-nav-list">
-        <div className="vertical-nav-list-title">
+      <div className="vertical_nav_list">
+        <div className="vertical_nav_list_title">
           <a>
             <Caption>{"Refactor this to show caption component later"}</Caption>
           </a>

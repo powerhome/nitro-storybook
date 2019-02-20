@@ -1,11 +1,11 @@
 @import "../tokens/colors";
 @import "../tokens/spacing";
 
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
+@function str_replace($string, $search, $replace: '') {
+  $index: str_index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str_slice($string, 1, $index - 1) + $replace + str_replace(str_slice($string, $index + str_length($search)), $search, $replace);
   }
 
   @return $string;
@@ -19,18 +19,18 @@
 // They need card applied
 
 
-// sidebar-lg-left
-// sidebar-lg-left-dark
-// sidebar-lg-left-transparent
-// sidebar-lg-left-collapse-sm
-// sidebar-lg-left-dark-collapse-sm
+// sidebar_lg_left
+// sidebar_lg_left_dark
+// sidebar_lg_left_transparent
+// sidebar_lg_left_collapse_sm
+// sidebar_lg_left_dark_collapse_sm
 
 
-// sidebar-xl-collapse-sm
-// sidebar-full-xl-collapse-sm // Are they 100% by default?
-// sidebar-dark-xl-collapse-sm
-// sidebar-dark-full-xl-collapse-sm
-// sidebar-transparent-xl-collapse-sm // Floating
+// sidebar_xl_collapse_sm
+// sidebar_full_xl_collapse_sm // Are they 100% by default?
+// sidebar_dark_xl_collapse_sm
+// sidebar_dark_full_xl_collapse_sm
+// sidebar_transparent_xl_collapse_sm // Floating
 
 
 .sidebar {
@@ -38,18 +38,18 @@
   $name: ".sidebar";
 
   &_section {
-    padding: $space-base $space-largest;
+    padding: $space_base $space_largest;
     &_border {
-      padding: $space-base $space-largest;
+      padding: $space_base $space_largest;
       border-bottom: 1px solid $sky;
       &_margin {
-        margin: $space-base $space-largest;
+        margin: $space_base $space_largest;
         border-bottom: 1px solid $sky;
       }
     }
   }
 
-  $sidebar-sizes: (
+  $sidebar_sizes: (
     "xs":   64px,
     "sm":   200px,
     "md":   250px,
@@ -58,8 +58,8 @@
     "xl":   365px,
   );
 
-  @mixin sidebar-settings($size, $side, $color, $selector) {
-    $parent_name: str-replace($selector, '.', '');
+  @mixin sidebar_settings($size, $side, $color, $selector) {
+    $parent_name: str_replace($selector, '.', '');
     display: grid;
     @if $side == 'left' {
       grid-template-areas: "#{$parent_name}_aside #{$parent_name}_body";
@@ -77,8 +77,8 @@
         border-right-width: 1px;
         border-right-style: solid;
         @if $color == 'dark' {
-          background: $white-opacity-1;
-          border-right-color: $white-opacity-1;
+          background: $white_opacity_1;
+          border-right-color: $white_opacity_1;
         } @else if $color == 'transparent' {
           border-right-color: transparent;
         } @else {
@@ -90,8 +90,8 @@
         border-left-width: 1px;
         border-left-style: solid;
         @if $color == 'dark' {
-          background: $white-opacity-1;
-          border-left-color: $white-opacity-1;
+          background: $white_opacity_1;
+          border-left-color: $white_opacity_1;
         } @else if $color == 'transparent' {
           border-left-color: transparent;
         } @else {
@@ -103,24 +103,24 @@
   }
 
 
-  @each $name, $size in $sidebar-sizes {
+  @each $name, $size in $sidebar_sizes {
     &_#{$name} {
       &_left {
-        @include sidebar-settings($size, 'left', 'light', "#{&}");
+        @include sidebar_settings($size, 'left', 'light', "#{&}");
         &_dark {
-          @include sidebar-settings($size, 'left', 'dark', "#{&}");
+          @include sidebar_settings($size, 'left', 'dark', "#{&}");
         }
         &_transparent {
-          @include sidebar-settings($size, 'left', 'transparent', "#{&}");
+          @include sidebar_settings($size, 'left', 'transparent', "#{&}");
         }
       }
       &_right {
-        @include sidebar-settings($size, 'right', 'light', "#{&}");
+        @include sidebar_settings($size, 'right', 'light', "#{&}");
         &_dark {
-          @include sidebar-settings($size, 'right', 'dark', "#{&}");
+          @include sidebar_settings($size, 'right', 'dark', "#{&}");
         }
         &_transparent {
-          @include sidebar-settings($size, 'right', 'transparent', "#{&}");
+          @include sidebar_settings($size, 'right', 'transparent', "#{&}");
         }
       }
     }

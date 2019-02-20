@@ -18,12 +18,12 @@ html {
 }
 
 body {
-  font-family: $font-family-base;
-  font-size: $font-base;
+  font-family: $font_family_base;
+  font-size: $font_base;
   line-height: 1.5;
-  background-color: $sky-lighter;
+  background-color: $sky_lighter;
   height: 100%;
-  letter-spacing: $lspace-normal;
+  letter-spacing: $lspace_normal;
   font-weight: $regular;
   font-style: normal;
   text-rendering: optimizeLegibility;
@@ -38,5 +38,5 @@ body {
 
 a {
   text-decoration: none;
-  color: $power-royal;
+  color: $power_royal;
 }

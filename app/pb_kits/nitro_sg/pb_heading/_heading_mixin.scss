@@ -1,57 +1,57 @@
 @import "../tokens/colors";
 @import "../tokens/typography";
-@import "../tokens/line-height";
+@import "../tokens/line_height";
 
-@mixin heading-1 {
-  font-size: $heading-1;
-  letter-spacing: $lspace-tight;
+@mixin heading_1 {
+  font-size: $heading_1;
+  letter-spacing: $lspace_tight;
   font-weight: $lighter;
   color: $ink;
   margin: 0;
-  line-height: $lh-tighter;
+  line-height: $lh_tighter;
 }
 
-@mixin heading-1-dark {
-  @include heading-1;
+@mixin heading_1_dark {
+  @include heading_1;
   color: $white;
 }
 
-@mixin heading-2 {
-  font-size: $heading-2;
+@mixin heading_2 {
+  font-size: $heading_2;
   font-weight: $lighter;
   color: $ink;
   margin: 0;
   line-height: 0.96;
 }
 
-@mixin heading-2-dark {
-  @include heading-2;
+@mixin heading_2_dark {
+  @include heading_2;
   color: $white;
 }
 
-@mixin heading-3 {
-  font-size: $heading-3;
+@mixin heading_3 {
+  font-size: $heading_3;
   font-weight: $lighter;
   color: $ink;
   margin: 0;
-  line-height: $lh-tighter;
+  line-height: $lh_tighter;
 }
 
-@mixin heading-3-dark {
-  @include heading-3;
+@mixin heading_3_dark {
+  @include heading_3;
   color: $white;
 }
 
 
-@mixin heading-4 {
-  font-size: $heading-4;
+@mixin heading_4 {
+  font-size: $heading_4;
   font-weight: $bolder;
   color: $ink;
   margin: 0;
-  line-height: $lh-tighter;
+  line-height: $lh_tighter;
 }
 
-@mixin heading-4-dark {
-  @include heading-4;
+@mixin heading_4_dark {
+  @include heading_4;
   color: $white;
 }

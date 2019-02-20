@@ -2,6 +2,7 @@ NitroSg::Engine.routes.draw do
   root              to: "pages#kits"
   get 'home',       to: "pages#home"
   get 'principles', to: "pages#principles"
+  get 'fullscreen', to: "pages#fullscreen"
   get 'tokens',     to: "pages#tokens"
   get 'kits',       to: "pages#kits"
   get 'examples',   to: "pages#examples"
