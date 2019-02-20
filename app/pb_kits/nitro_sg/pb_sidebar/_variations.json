@@ -5,7 +5,7 @@
       "props": {
         "position": "left",
         "transparent": false,
-        "size": "sm",
+        "size": "xs",
         "dark": false
       },
       "children": [
