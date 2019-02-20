@@ -5,13 +5,13 @@
       "props": {
         "position": "left",
         "transparent": false,
-        "size": "xl",
+        "size": "sm",
         "dark": false
       },
       "children": [
         {
           "type": "html",
-          "value": "<h1>I am an html child</h1>"
+          "value": "<div class='sidebar_aside'><h1>Sidebar</h1></div><div class='sidebar_body'><h1>Body</h1></div>"
         }
       ]
     }

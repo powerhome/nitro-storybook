@@ -7,11 +7,10 @@ html
     = stylesheet_pack_tag 'main'
     = javascript_pack_tag 'application'
   body
-    .pb--page
-      = render 'layouts/nitro_sg/nav'
-
-      .pb--page--content
+    = render 'layouts/nitro_sg/nav'
+    = pb_rails("sidebar", props: {full: true})
+      = pb_rails("sidebar/sidebar_aside")
         = render 'layouts/nitro_sg/sidebar'
-
+      = pb_rails("sidebar/sidebar_body")
         .pb--page--content--main
           = yield

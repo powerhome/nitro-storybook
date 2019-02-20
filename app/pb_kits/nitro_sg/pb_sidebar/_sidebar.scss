@@ -1,27 +1,9 @@
 @import "../tokens/colors";
 @import "../tokens/spacing";
-
-@function str_replace($string, $search, $replace: '') {
-  $index: str_index($string, $search);
-
-  @if $index {
-    @return str_slice($string, 1, $index - 1) + $replace + str_replace(str_slice($string, $index + str_length($search)), $search, $replace);
-  }
-
-  @return $string;
-}
-
-// Only White and Dark.
-// We could make this into a mixin for custom color sidebars.
-// Just pass background and border color
-
-// Another Style. Floating Sidebars
-// They need card applied
+@import "../tokens/screen_sizes";
+@import "./sidebar_mixin";
 
 
-// sidebar_lg_left
-// sidebar_lg_left_dark
-// sidebar_lg_left_transparent
 // sidebar_lg_left_collapse_sm
 // sidebar_lg_left_dark_collapse_sm
 
@@ -33,10 +15,28 @@
 // sidebar_transparent_xl_collapse_sm // Floating
 
 
+
 .sidebar {
 
-  $name: ".sidebar";
+  $sidebar_sizes: (
+    "xs":   64px,
+    "sm":   200px,
+    "md":   250px,
+    "base": 250px,
+    "lg":   300px,
+    "xl":   365px,
+  );
+  $positions: (
+    "left",
+    "right",
+  );
+  $colors: (
+    "light",
+    "dark",
+    "transparent",
+  );
 
+  // Sections
   &_section {
     padding: $space_base $space_largest;
     &_border {
@@ -49,78 +49,45 @@
     }
   }
 
-  $sidebar_sizes: (
-    "xs":   64px,
-    "sm":   200px,
-    "md":   250px,
-    "base": 250px,
-    "lg":   300px,
-    "xl":   365px,
-  );
-
-  @mixin sidebar_settings($size, $side, $color, $selector) {
-    $parent_name: str_replace($selector, '.', '');
-    display: grid;
-    @if $side == 'left' {
-      grid-template-areas: "#{$parent_name}_aside #{$parent_name}_body";
-      grid-template-columns: $size auto;
-    } @else {
-      grid-template-areas: "#{$parent_name}_body #{$parent_name}_aside";
-      grid-template-columns: auto $size;
-    }
-    #{$name}_body {
-      grid-area: #{$parent_name}_body;
-    }
-    #{$name}_aside {
-      grid-area: #{$parent_name}_aside;
-      @if $side == 'left' {
-        border-right-width: 1px;
-        border-right-style: solid;
-        @if $color == 'dark' {
-          background: $white_opacity_1;
-          border-right-color: $white_opacity_1;
-        } @else if $color == 'transparent' {
-          border-right-color: transparent;
-        } @else {
-          background: $white;
-          border-right-color: $sky;
-        }
-      }
-      @if $side == 'right' {
-        border-left-width: 1px;
-        border-left-style: solid;
-        @if $color == 'dark' {
-          background: $white_opacity_1;
-          border-left-color: $white_opacity_1;
-        } @else if $color == 'transparent' {
-          border-left-color: transparent;
-        } @else {
-          background: $white;
-          border-left-color: $sky;
+  // Aside and Body
+  @each $name, $size in $sidebar_sizes {
+    &_#{$name} {
+      @each $position in $positions {
+        &_#{$position} {
+          @each $color in $colors {
+            @if $color == "light" {
+              @include sidebar_settings($size, $position, $color, "#{&}");
+            } @else {
+              &_#{$color} {
+                @include sidebar_settings($size, $position, $color, "#{&}");
+              }
+            }
+          }
         }
       }
     }
   }
 
-
-  @each $name, $size in $sidebar_sizes {
-    &_#{$name} {
-      &_left {
-        @include sidebar_settings($size, 'left', 'light', "#{&}");
-        &_dark {
-          @include sidebar_settings($size, 'left', 'dark', "#{&}");
-        }
-        &_transparent {
-          @include sidebar_settings($size, 'left', 'transparent', "#{&}");
-        }
-      }
-      &_right {
-        @include sidebar_settings($size, 'right', 'light', "#{&}");
-        &_dark {
-          @include sidebar_settings($size, 'right', 'dark', "#{&}");
-        }
-        &_transparent {
-          @include sidebar_settings($size, 'right', 'transparent', "#{&}");
+  // Collapse Settings
+  @each $position in $positions {
+    @each $breakpoint_name, $breakpoint in $breakpoints {
+      &_#{$position}_collapse_#{$breakpoint_name} {
+        @include break_at($breakpoint) {
+          @if $position == 'left' {
+            grid-template-areas: "sidebar_collapsed_#{$breakpoint_name}_aside" "sidebar_collapsed_#{$breakpoint_name}_body";
+            grid-template-rows: auto 1fr;
+          } @else {
+            grid-template-areas: "sidebar_collapsed_#{$breakpoint_name}_body" "sidebar_collapsed_#{$breakpoint_name}_aside";
+            grid-template-rows: 1fr auto;
+          }
+          grid-template-columns: 1fr;
+          .sidebar_aside {
+            grid-area: sidebar_collapsed_#{$breakpoint_name}_aside;
+            border-width: 0 0 1px 0;
+          }
+          .sidebar_body {
+            grid-area: sidebar_collapsed_#{$breakpoint_name}_body;
+          }
         }
       }
     }
