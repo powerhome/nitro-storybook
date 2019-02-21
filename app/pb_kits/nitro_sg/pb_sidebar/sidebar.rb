@@ -4,14 +4,17 @@ module NitroSg
       def initialize(position: default_configuration,
                    transparent: default_configuration,
                    size: default_configuration,
+                   collapse: default_configuration,
                    dark: default_configuration,
-                   content: default_configuration,
+                   full: default_configuration,
                    &block)
         self.configured_position = position
         self.configured_transparent = transparent
         self.configured_size = size
+        self.configured_collapse = collapse
         self.configured_dark = dark
-        self.configured_content = block_given? ? block : nil
+        self.configured_full = full
+        self.block = block_given? ? block : nil
       end
 
       def position
@@ -40,6 +43,25 @@ module NitroSg
         end
       end
 
+      def collapse
+        if configured_collapse == default_configuration
+          " sidebar#{self.position}_collapse_xs"
+        else
+          stop
+          " sidebar#{self.position}_collapse_#{configured_collapse}"
+        end
+      end
+
+      def full
+        if configured_full == default_configuration
+          ""
+        else
+          if (configured_full == true)
+            " full"
+          end
+        end
+      end
+
       def dark
         if configured_dark == default_configuration
           ""
@@ -50,13 +72,8 @@ module NitroSg
         end
       end
 
-      def content
-        if configured_content == default_configuration
-          ""
-        else
-          ""
-          # configured_content
-        end
+      def yield(context:)
+        context.capture(&block)
       end
 
       def to_partial_path
@@ -73,8 +90,10 @@ module NitroSg
       attr_accessor :configured_position,
           :configured_transparent,
           :configured_size,
+          :configured_collapse,
           :configured_dark,
-          :configured_content
+          :configured_full,
+          :block
     end
   end
 end

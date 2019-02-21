@@ -23,8 +23,8 @@ class Caption extends React.Component {
       <Tag
           className={
           `caption` +
-          (large === true ? "-lg" : "") +
-          (dark === true ? "-dark" : "")
+          (large === true ? "_lg" : "") +
+          (dark === true ? "_dark" : "")
         }
       >
         {text}

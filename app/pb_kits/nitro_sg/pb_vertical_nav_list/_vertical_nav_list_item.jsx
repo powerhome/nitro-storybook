@@ -21,7 +21,7 @@ class Item extends Component {
         <a className="vertical_nav_list_item_link"
             href={link}
         >
-          <span className="vertical_nav_list_item_link_text">{text}</span>
+          <span className="vertical_nav_list_item_link-text">{text}</span>
         </a>
       </li>
     );

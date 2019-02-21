@@ -14,7 +14,7 @@ module NitroSg
           ""
         else
           if (configured_active == true)
-            "-active"
+            "_active"
           end
         end
       end
