@@ -3,19 +3,6 @@
 @import "../tokens/screen_sizes";
 @import "./sidebar_mixin";
 
-
-// sidebar_lg_left_collapse_sm
-// sidebar_lg_left_dark_collapse_sm
-
-
-// sidebar_xl_collapse_sm
-// sidebar_full_xl_collapse_sm // Are they 100% by default?
-// sidebar_dark_xl_collapse_sm
-// sidebar_dark_full_xl_collapse_sm
-// sidebar_transparent_xl_collapse_sm // Floating
-
-
-
 .sidebar {
 
   $sidebar_sizes: (
@@ -67,6 +54,7 @@
       }
     }
   }
+
 
   // Collapse Settings
   @each $position in $positions {
