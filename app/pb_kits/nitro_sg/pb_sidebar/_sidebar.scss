@@ -64,11 +64,15 @@
           @if $position == 'left' {
             grid-template-areas: "sidebar_collapsed_#{$breakpoint_name}_aside" "sidebar_collapsed_#{$breakpoint_name}_body";
             grid-template-rows: auto 1fr;
+
           } @else {
             grid-template-areas: "sidebar_collapsed_#{$breakpoint_name}_body" "sidebar_collapsed_#{$breakpoint_name}_aside";
             grid-template-rows: 1fr auto;
           }
           grid-template-columns: 1fr;
+          &.full {
+            min-height: auto !important;
+          }
           .sidebar_aside {
             grid-area: sidebar_collapsed_#{$breakpoint_name}_aside;
             border-width: 0 0 1px 0;

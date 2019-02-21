@@ -3,14 +3,8 @@
     h1 Sidebar
   = pb_rails("sidebar/sidebar_body")
 
-    = pb_rails("sidebar", props: {position: "right", size: "xs", collapse: "xl"})
+    = pb_rails("sidebar", props: {position: "right", size: "xl", collapse: "xl", full: true})
       = pb_rails("sidebar/sidebar_aside")
         h1 Sidebar
       = pb_rails("sidebar/sidebar_body")
         h1 Body
-
-
-.checkbox
-  label
-    input type="checkbox" id="checkboxSuccess" value="option1"
-    Checkbox with success
