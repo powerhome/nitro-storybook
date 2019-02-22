@@ -13,7 +13,6 @@
   $name: ".sidebar";
   display: grid;
 
-
   &.full {
     min-height: 100vh;
   }
@@ -25,10 +24,10 @@
     grid-template-columns: auto $size;
   }
 
-  #{$name}_body {
+  > #{$name}_body {
     grid-area: #{$parent_name}_body;
   }
-  #{$name}_aside {
+  > #{$name}_aside {
     grid-area: #{$parent_name}_aside;
     @if $side == 'left' {
       border-width: 0 1px 0 0;

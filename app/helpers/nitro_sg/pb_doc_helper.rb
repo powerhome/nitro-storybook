@@ -16,18 +16,8 @@ module NitroSg
         kit_variations[:variations].each do |variation|
           if type == "rails"
             if has_children?(variation)
-              children = []
-              helper_children = []
-              variation[:children].each do |child|
-                if child[:type] == "string" || child[:type] == "html"
-                  helper_children << child[:value].html_safe
-                  children << child[:value].html_safe
-                elsif child[:type] == "kit"
-                  helper_children << "<%= pb_rails(\"#{child[:value][:name]}\", props: #{child[:value][:props].to_json})%>"
-                  children << pb_rails("#{child[:value][:name]}", props: child[:value][:props])
-                end
-              end
-              display_variations << render_variation(kit, variation, children, helper_children, show_docs)
+              render_children_obj = render_children(variation)
+              display_variations << render_variation(kit, variation, render_children_obj[:children], render_children_obj[:helper_children], show_docs)
             else
               if show_docs == true
                 kit_render = pb_rails_with_docs("#{kit}", props: variation[:props], doc_variation: variation)
@@ -72,62 +62,28 @@ module NitroSg
 
     # Display rails kit ui with docs
     def pb_rails_with_docs(kit, props:{}, doc_variation: variation, doc_children: doc_children, &block)
-      ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
+      ui_color = get_variation_theme(props)
       ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_rails(kit, props, &block)+"</div>")
-      docs = render(partial: NitroSg::Config::PbDoc.new(
-        {name: "#{kit}", props: props, nested: block, type: "rails", doc_children: doc_children}
-      ), as: :object)
-      variation_title = defined?(doc_variation[:name]) && (doc_variation[:name] != nil) ? raw("<h4>#{pb_title(doc_variation[:name])}</h4>") : ""
-      usage = defined?(doc_variation[:usage]) && (doc_variation[:usage] != nil) ? raw("<div class='pb--doc-usage'>Usage: <span>"+doc_variation[:usage]+"</span></div>") : ""
+      docs = render_variation_docs(kit, props, "rails", children:doc_children, block:block)
+      variation_title = render_variation_title(doc_variation)
+      usage = render_variation_usage(doc_variation)
       variation_title+usage+ui+docs
     end
 
     # Display react kit ui with docs
-    def pb_react_with_docs(kit, props:{}, options:{}, doc_variation: variation)
-      ui_color = defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
+    def pb_react_with_docs(kit, props:{}, options:{}, doc_variation: variation, doc_children: doc_children)
+      ui_color = get_variation_theme(props)
       ui = raw("<div class='pb--kit-example #{ui_color}-ui'>"+render_react(kit, props, options)+"</div>")
-      docs = render(partial: NitroSg::Config::PbDoc.new(
-        {name: "#{kit}", props: props, type: "react"}
-      ), as: :object)
-      variation_title = defined?(doc_variation[:name]) && (doc_variation[:name] != nil) ? raw("<h4>#{pb_title(doc_variation[:name])}</h4>") : ""
-      usage = defined?(doc_variation[:usage]) && (doc_variation[:usage] != nil) ? raw("<div class='pb--doc-usage'>Usage: <span>"+doc_variation[:usage]+"</span></div>") : ""
+      docs = render_variation_docs(kit, props, "react")
+      variation_title = render_variation_title(doc_variation)
+      usage = render_variation_usage(doc_variation)
       variation_title+usage+ui+docs
     end
 
   private
-
-    def get_variations(name)
-      json_from_file = File.read("#{NitroSg::Engine.root}/app/pb_kits/nitro_sg/pb_#{name}/_variations.json")
-      data = JSON.parse(json_from_file, :symbolize_names => true)
-    end
-
+    # Variations
     def has_variations?(name)
       File.file?("#{NitroSg::Engine.root}/app/pb_kits/nitro_sg/pb_#{name}/_variations.json")
-    end
-
-    def has_children?(variation)
-      !variation[:children].nil?
-    end
-
-    def render_child(child)
-      if child[:type] == "string" || child[:type] == "html"
-        child[:value].html_safe
-      elsif child[:type] == "kit"
-        pb_rails("#{child[:value][:name]}", props: child[:value][:props])
-      end
-    end
-
-    def render_react_pack(kit, props, show_docs, variation)
-      if show_docs == true
-        kit_render = pb_react_with_docs("#{kit}", props: props, options: {}, doc_variation: variation)
-      else
-        kit_render = pb_react("#{kit}", props: props)
-      end
-      react_pack = [
-        javascript_pack_tag("pb_#{kit}"),
-        kit_render
-      ]
-      react_pack.join(" ");
     end
 
     def render_variation(kit, variation, children, helper_children, show_docs)
@@ -142,16 +98,79 @@ module NitroSg
       end
     end
 
+    def render_variation_docs(kit, props, type, children:{}, block:nil)
+      render(partial: NitroSg::Config::PbDoc.new(
+        {name: "#{kit}", props: props, nested: block, type: type, doc_children: children}
+      ), as: :object)
+    end
+
+    def render_variation_title(doc_variation)
+      defined?(doc_variation[:name]) && (doc_variation[:name] != nil) ? raw("<h4>#{pb_title(doc_variation[:name])}</h4>") : ""
+    end
+
+    def render_variation_usage(doc_variation)
+      defined?(doc_variation[:usage]) && (doc_variation[:usage] != nil) ? raw("<div class='pb--doc-usage'>Usage: <span>"+doc_variation[:usage]+"</span></div>") : ""
+    end
+
+    def get_variation_theme(props)
+      defined?(props[:dark]) && props[:dark] == true ? "dark" : "light"
+    end
+
+    def get_variations(name)
+      json_from_file = File.read("#{NitroSg::Engine.root}/app/pb_kits/nitro_sg/pb_#{name}/_variations.json")
+      data = JSON.parse(json_from_file, :symbolize_names => true)
+    end
+
+    # Children
+    def has_children?(variation)
+      !variation[:children].nil?
+    end
+
+    def render_children(variation)
+      children = []
+      helper_children = []
+      variation[:children].each do |child|
+        if child[:type] == "string" || child[:type] == "html"
+          helper_children << child[:value].html_safe
+          children << child[:value].html_safe
+        elsif child[:type] == "kit"
+          helper_children << "<%= pb_rails(\"#{child[:value][:name]}\", props: #{child[:value][:props].to_json})%>"
+          children << pb_rails("#{child[:value][:name]}", props: child[:value][:props])
+        end
+      end
+      obj = {
+        children: children,
+        helper_children: helper_children
+      }
+    end
+
+    def render_child(child)
+      if child[:type] == "string" || child[:type] == "html"
+        child[:value].html_safe
+      elsif child[:type] == "kit"
+        pb_rails("#{child[:value][:name]}", props: child[:value][:props])
+      end
+    end
+
+    # Other
+    def render_react_pack(kit, props, show_docs, variation)
+      if show_docs == true
+        kit_render = pb_react_with_docs("#{kit.camelize}", props: props, options: {}, doc_variation: variation)
+      else
+        kit_render = pb_react("#{kit.camelize}", props: props)
+      end
+      react_pack = [
+        kit_render
+      ]
+      react_pack.join(" ");
+    end
+
     def render_clickable_title(kit)
       render :inline => "<a href='#{kit_show_path(kit)}'>#{pb_rails(:heading, props: { text: pb_title(kit), tag: 'h3', size: '2' })}</a>"
     end
 
     def render_doc(path)
       render partial: path
-    end
-
-    def partial_exists?(path)
-      lookup_context.find_all(path).any?
     end
   end
 end

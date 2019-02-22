@@ -26,15 +26,15 @@ class KitGenerator < Rails::Generators::NamedBase
       if @exists == false
         puts "Creating Kit.../"
 
-        template "javascript.erb",  "app/pb_kits/packs/pb_#{@name}.js"
-        template "scss.erb",        "app/pb_kits/pb_#{@name}/_#{@name}.scss"
-        template "storyrails.erb",  "app/pb_kits/pb_#{@name}/_#{@name}_story_rails.md"
-        template "storyreact.erb",  "app/pb_kits/pb_#{@name}/_#{@name}_story_react.md"
-        template "jsx.erb",         "app/pb_kits/pb_#{@name}/_#{@name}.jsx"
-        template "html.erb",        "app/pb_kits/pb_#{@name}/_#{@name}.html.erb"
-
+        template "javascript.erb",  "app/pb_kits/nitro_sg/packs/pb_#{@name}.js"
+        template "scss.erb",        "app/pb_kits/nitro_sg/pb_#{@name}/_#{@name}.scss"
+        template "jsx.erb",         "app/pb_kits/nitro_sg/pb_#{@name}/_#{@name}.jsx"
+        template "html.erb",        "app/pb_kits/nitro_sg/pb_#{@name}/_#{@name}.html.erb"
+        template "variations.erb",  "app/pb_kits/nitro_sg/pb_#{@name}/_variations.json"
+        template "ruby.erb",        "app/pb_kits/nitro_sg/pb_#{@name}/#{@name}.rb"
+        
         #Add kit to styles scss
-        open('app/pb_kits/packs/site_styles/_kit_style_index.scss', 'a') { |f|
+        open('app/pb_kits/nitro_sg/packs/site_styles/_kit_style_index.scss', 'a') { |f|
           f.puts "@"+ "import "+ "\'" +"../../pb_#{@name}/#{@name}"+"\';"
         }
 

@@ -9,13 +9,7 @@
       }
     },
     {
-      "name": "danger",
-      "props": {
-        "type": "danger",
-        "size": "lg",
-        "dark": false,
-        "text": "Secondary Button"
-      }
+      "name": "danger"
     }
   ]
 }

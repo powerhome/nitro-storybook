@@ -47,7 +47,6 @@ module NitroSg
         if configured_collapse == default_configuration
           " sidebar#{self.position}_collapse_xs"
         else
-          stop
           " sidebar#{self.position}_collapse_#{configured_collapse}"
         end
       end

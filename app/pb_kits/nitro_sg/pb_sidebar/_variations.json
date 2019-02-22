@@ -11,9 +11,25 @@
       "children": [
         {
           "type": "html",
-          "value": "<div class='sidebar_aside'><h1>Sidebar</h1></div><div class='sidebar_body'><h1>Body</h1></div>"
+          "value": "<div class='sidebar_aside'><h1>Side</h1></div><div class='sidebar_body'><h1>Body</h1></div>"
         }
       ]
     }
   ]
 }
+
+
+/* "children": [
+  {
+    "type": "kit",
+    "value": {
+      "name": "sidebar/sidebar_aside",
+      "children": [
+        {
+          "type": "html",
+          "value": "<h1>Sidebar</h1>"
+        }
+      ]
+    }
+  }
+] */
