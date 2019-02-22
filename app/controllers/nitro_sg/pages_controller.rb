@@ -18,6 +18,10 @@ module NitroSg
       render layout: "layouts/nitro_sg/fullscreen"
     end
 
+    def grid
+      render layout: "layouts/nitro_sg/grid"
+    end
+
     def kit_show_rails
       render template: 'nitro_sg/pages/kit_show'
     end

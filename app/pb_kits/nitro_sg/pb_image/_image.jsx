@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { lazyload } from 'react-lazyload';
 
 
 const propTypes = {
@@ -11,7 +12,7 @@ const defaultProps = {
 };
 
 @lazyload({
-  height: 200,
+  height: '100%',
   once: true,
   offset: 100
 })
@@ -19,9 +20,7 @@ class Image extends Component {
   render() {
     const { url } = this.props;
     return (  
-        <div>
-          <img src={url} alt="test"/>
-        </div>
+      <img src={url} alt="test"/>
     );
   }
 }
