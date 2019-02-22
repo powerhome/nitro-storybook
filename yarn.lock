@@ -6641,6 +6641,14 @@ loud-rejection@^1.0.0:
     currently-unhandled "^0.4.1"
     signal-exit "^3.0.0"
 
+lqip-loader@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/lqip-loader/-/lqip-loader-2.2.0.tgz#4fa2610b9bc267602f219828199c3311a6413ccd"
+  integrity sha512-8Oc14+PVPlN8OWTw+AI1dSYK2AY/Q4DqGzWoPbVlFn+/OTrrK/HBLhSEufwArEX1LJycmnuiu7cM9rLHmNwZBg==
+  dependencies:
+    loader-utils "^1.1.0"
+    lqip "^2.1.0"
+
 lqip.macro@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/lqip.macro/-/lqip.macro-0.1.5.tgz#4d2eac4078cfee604ac4f0044283b1db02adc6d1"
@@ -6649,7 +6657,7 @@ lqip.macro@^0.1.5:
     babel-plugin-macros "^2.2.1"
     lqip "^2.0.2"
 
-lqip@^2.0.2:
+lqip@^2.0.2, lqip@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lqip/-/lqip-2.1.0.tgz#e1a9f677bd3d2ccdf904116600ec4c9acfbc397c"
   integrity sha512-cnQw+89wUk+GSyeaaUuqeJl0XwpCQDcgXZPDBNnExdnCeVdFIrIVI29tae9GmC09LYgPY0IJZjixG6sdn7IYsQ==
@@ -9105,6 +9113,11 @@ react-popper@^0.7.2:
   dependencies:
     popper.js "^1.12.5"
     prop-types "^15.5.10"
+
+react-progressive-image@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-progressive-image/-/react-progressive-image-0.6.0.tgz#56b1c7153a6e1ebbe2a3bbf8f98c37410fbc67c2"
+  integrity sha512-/yc8N3lHskPQkubm+QH5RIQHA89Sigv7p9UkvbHzKVE2OBb6njhmquk7GW/f2Y//mzk5DesFHN/hV5RWhd6IXA==
 
 react-prop-types@^0.4.0:
   version "0.4.0"

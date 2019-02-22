@@ -1,14 +1,11 @@
+
 {
   "variations": [
     {
       "name": "image",
       "props": {
-        "url": "images/giant.jpg",
-        "alt": "alt-reference",
-        "width": 3500,
-        "height": 2000
+        "url": "./../"
       }
-      
     }
   ]
-}
+} 

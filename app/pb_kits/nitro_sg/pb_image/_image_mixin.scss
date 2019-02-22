@@ -1,6 +1,6 @@
 @import "../tokens/colors";
 @import "../tokens/typography";
-@import "../tokens/line-height";
+@import "../tokens/line_height";
 
 @mixin heading-1 {
   font-size: $heading-1;

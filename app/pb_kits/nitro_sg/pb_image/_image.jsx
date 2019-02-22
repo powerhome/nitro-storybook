@@ -1,37 +1,65 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import lqip from "lqip.macro";
-import IdealImage from "react-ideal-image";
-import image from 'images/giant.jpg'
-const filler = lqip('images/giant.jpg');
+import ProgressiveImage from 'react-progressive-image';
+import image from 'images/giant.jpg';
+import cool from  'images/clark.jpg';
+// import { imagePath } from '../packs/pb_image.js'
+
+
+const img = new Image(500, 300);
+const img.onload = function() {
+  // Here, you can reliably use `width` and `height`
+  console.log("Loaded, size is " + this.width + "x" + this.height);
+};
+const img.src = 'images/giant.jpg';
+
+
+// Custom Features of React-Progressive-Image
+const compressedImage = cool.preSrc;
+const palette = cool.palette;
+const fullImage = cool.src;
+const dominantImageColor = cool.palette[0];
+
+const placeholder = (
+  <div
+      style={{ backgroundColor: dominantImageColor, height: fullImage.height, width: fullImage.width }}
+  />
+);
+
+// Show me what I got!
+console.log("fullImage:" + fullImage);
+console.log("image:" + cool);
+console.log("compressedImage:" + compressedImage);
+console.log(placeholder);
 
 const propTypes = {
   url: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  placeholder: PropTypes.string.isRequired
+  compressedImage: PropTypes.string,
+  palette: PropTypes.arrayOf(PropTypes.string),
+  fullImage: PropTypes.string,
+  dominantImageColor: PropTypes.string,
 };
 
 const defaultProps = {
-  url: "",
-  alt: "alt-reference",
-  width: 3500,
-  height: 2000,
-  placeholder: filler
+  url: image,
+  compressedImage: compressedImage,
+  palette: palette,
+  fullImage: fullImage,
+  dominantImageColor: ''
 };
 
 class Image extends Component {
   render() {
-    const {  alt, width, height, placeholder } = this.props;
-    return (
-      <IdealImage
-          alt={alt}
-          height={height}
-          placeholder={placeholder}
-          srcSet={[{ src: image, width: width }]}
-          width={width}
-      />
+    const { fullImage, compressedImage, palette } = this.props;
+    return (  
+        <div>
+          <h4>{"Palette of colors:" + palette}</h4>
+          <ProgressiveImage placeholder="" src={fullImage}>
+              {(src, loading) => {
+                return loading ? compressedImage : <img src={src} alt="an image" />;
+              }}
+          </ProgressiveImage>
+        </div>
     );
   }
 }
