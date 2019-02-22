@@ -66,12 +66,13 @@ module NitroSg
       end
 
       def rails_snippet(name, props)
-        raw rouge("<%= pb_rails(\"#{name}\", props: #{props.to_json}) %>", "erb")
+        props_display = props === nil ? "" : ", props: #{props.to_json}"
+        raw rouge("<%= pb_rails(\"#{name}\"#{props_display}) %>", "erb")
       end
 
       def react_erb_snippet(name, props)
-        component_props = !props.nil? && !props.empty? ? props.to_json : "{}"
-        raw rouge("<%= pb_react(\"#{name}\", props: #{component_props}) %>", "erb")
+        props_display = props === nil ? "" : ", props: #{props.to_json}"
+        raw rouge("<%= pb_react(\"#{name}\"#{props_display}) %>", "erb")
       end
 
       def react_jsx_snippet(name, props)

@@ -1,27 +1,23 @@
-import React, { Component } from "react";
+import React from 'react'
 
 
 type Props = {
   //<!-- List props and their type here -->
 }
 
-class <%= js_titleize_file_name %> extends Component<Props> {
-
+class List extends React.Component<Props> {
   static defaultProps = {
     //<!-- List prop default values here -->
   }
   props: Props
-
   render() {
 
     const {
       //<!-- List props here -->
     } = this.props
 
-    return (
-    <!-- Build component here -->
-    )
+    return (<!-- Build component here -->)
   }
 }
 
-export default <%= js_titleize_file_name %>;
+export default List;
