@@ -32,7 +32,7 @@ module NitroSg
           ""
         else
           if (configured_large == true)
-            "-lg"
+            "_lg"
           end
         end
       end
@@ -42,7 +42,7 @@ module NitroSg
           ""
         else
           if (configured_dark == true)
-            "-dark"
+            "_dark"
           end
         end
       end

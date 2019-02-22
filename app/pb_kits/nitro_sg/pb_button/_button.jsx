@@ -15,7 +15,7 @@ const defaultProps = {
   type: "",
   size: "",
   dark: false,
-  wrapperclass: 'kit-btn-wrapper',
+  wrapperclass: 'kit_btn_wrapper',
   componentclass: ''
 
 };
@@ -23,10 +23,10 @@ const defaultProps = {
 class Button extends Component {
   render() {
     const { text, type, size, dark, wrapperclass, componentclass} = this.props;
-    
+
     return (
       <div className={wrapperclass}>
-        <button className={'kit-btn' + (type !== "" ? `-${type}` : "" ) + (size !== "" ? `-${size}` : "" ) + (dark === true ? "-dark" : "") + (componentclass !== "" ? `${componentclass}` : ""  )}>
+        <button className={'kit_btn' + (type !== "" ? `_${type}` : "" ) + (size !== "" ? `_${size}` : "" ) + (dark === true ? "_dark" : "") + (componentclass !== "" ? `${componentclass}` : ""  )}>
             <span>{text}</span>
         </button>
       </div>

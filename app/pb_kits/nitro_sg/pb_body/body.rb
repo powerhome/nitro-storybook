@@ -23,7 +23,7 @@ module NitroSg
         if configured_color == default_configuration
           "lighter"
         else
-          "-#{configured_color}"
+          "_#{configured_color}"
         end
       end
 
@@ -32,7 +32,7 @@ module NitroSg
           ""
         else
           if (configured_dark == true)
-            "-dark"
+            "_dark"
           end
         end
       end

@@ -29,7 +29,7 @@ module NitroSg
 
       def size
         if configured_size == default_configuration
-          "1"
+          "_1"
         else
           "_#{configured_size}"
         end
