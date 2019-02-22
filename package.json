@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/powerhome/nitro-storybook#readme",
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.3.0",
     "@storybook/react": "3.2.8",
     "@storybook/storybook-deployer": "2.0.0",
     "babel-eslint": "8.0.0",
@@ -82,6 +83,7 @@
     "react-dom": "^16.7.0",
     "react-fontawesome": "1.6.1",
     "react-ideal-image": "0.0.5",
+    "react-lazyload": "^2.5.0",
     "react-progressive-image": "^0.6.0",
     "react-select": "1.0.0-rc.10",
     "react-waypoint": "^9.0.0",
