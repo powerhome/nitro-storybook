@@ -100,7 +100,7 @@ module NitroSg
 
     def render_variation_docs(kit, props, type, children:{}, block:nil)
       render(partial: NitroSg::Config::PbDoc.new(
-        {name: "#{kit}", props: props, nested: block, type: "rails", doc_children: children}
+        {name: "#{kit}", props: props, nested: block, type: type, doc_children: children}
       ), as: :object)
     end
 
@@ -155,12 +155,11 @@ module NitroSg
     # Other
     def render_react_pack(kit, props, show_docs, variation)
       if show_docs == true
-        kit_render = pb_react_with_docs("#{kit}", props: props, options: {}, doc_variation: variation)
+        kit_render = pb_react_with_docs("#{kit.camelize}", props: props, options: {}, doc_variation: variation)
       else
-        kit_render = pb_react("#{kit}", props: props)
+        kit_render = pb_react("#{kit.camelize}", props: props)
       end
       react_pack = [
-        javascript_pack_tag("pb_#{kit}"),
         kit_render
       ]
       react_pack.join(" ");

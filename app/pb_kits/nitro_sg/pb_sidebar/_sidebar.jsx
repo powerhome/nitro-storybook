@@ -2,32 +2,50 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 const propTypes = {
-  text: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  size: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
-  dark: PropTypes.bool
+  position: PropTypes.oneOf(["left", "right"]),
+  transparent: PropTypes.bool,
+  size: PropTypes.oneOf(["xs", "sm", "md", "base", "lg", "xl"]),
+  collapse: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+  full: PropTypes.bool,
+  dark: PropTypes.bool,
+  children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ])
 };
 
 const defaultProps = {
-  text: "Hello World",
-  tag: "h1",
-  size: 1,
+  position: "left",
+  transparent: false,
+  size: "base",
+  collapse: "md",
+  full: false,
   dark: false
 };
 
 class Sidebar extends Component {
   render() {
-    const Tag = `${this.props.tag}`;
-    const { size, dark, text } = this.props;
+    const {
+      position,
+      transparent,
+      size,
+      collapse,
+      full,
+      dark,
+      children
+    } = this.props;
+    const dark_class = dark === true ? "_dark" : ""
+    const transparent_class = transparent === true ? "_transparent" : ""
+    const full_class = full === true ? "_full" : ""
     return (
-      <Tag className={`heading-${size}` + (dark === true ? "-dark" : "")}>
-        {text}
-      </Tag>
+      <div className={`sidebar_${size}${position}${dark_class}${transparent_class}${full_class}${collapse}`}>
+        {children}
+      </div>
     );
   }
 }
 
-Heading.propTypes = propTypes;
-Heading.defaultProps = defaultProps;
+Sidebar.propTypes = propTypes;
+Sidebar.defaultProps = defaultProps;
 
 export default Sidebar;

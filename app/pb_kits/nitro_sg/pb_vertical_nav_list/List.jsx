@@ -4,7 +4,10 @@ import Item from "./Item";
 import Caption from "../pb_caption/_caption.jsx";
 
 const propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ])
 };
 
 class List extends Component {
