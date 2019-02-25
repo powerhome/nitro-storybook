@@ -40,7 +40,14 @@ module.exports = function(api) {
           development: isDevelopmentEnv || isTestEnv,
           useBuiltIns: true
         }
-      ]
+      ],
+      [
+        require('@babel/preset-flow').default,
+        {
+          development: isDevelopmentEnv || isTestEnv,
+          useBuiltIns: true
+        }
+      ],
     ].filter(Boolean),
     plugins: [
       require('babel-plugin-macros'),
@@ -48,7 +55,8 @@ module.exports = function(api) {
       require('@babel/plugin-syntax-dynamic-import').default,
       isTestEnv && require('babel-plugin-dynamic-import-node'),
       require('@babel/plugin-transform-destructuring').default,
-      [require('@babel/plugin-proposal-decorators').default,
+      [
+        require('@babel/plugin-proposal-decorators').default,
         { 
           legacy: true 
         }
