@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = "Nitro's visual theme"
   s.description = "Nitro's visual theme, including page layout, styling and navigation"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.md"]
+  s.files = Dir["{app,fonts,lib,sass-mixins}/**/*"] + ["Rakefile", "README.md"]
 
   s.add_dependency "rails", ">= 5.1.6", "< 6.0"
   s.add_dependency "sassc-rails", "1.3.0"
