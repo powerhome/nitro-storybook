@@ -1,5 +1,5 @@
 {
-  "name": "nitro-storybook",
+  "name": "nitro-sg",
   "version": "3.0.2",
   "description": "Nitro UI Styleguide + React component dev env",
   "main": "components/index.js",
@@ -11,11 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/powerhome/nitro-storybook.git"
+    "url": "https://github.com/powerhome/nitro-storybook.git"
   },
   "author": "powerhome",
   "license": "ISC",
-  "private": true,
   "engines": {
     "node": "8.7.0 || 8.9.4",
     "npm": "5.4.2",
