@@ -1,69 +1,60 @@
-# Nitro Storybook
+# Nitro Storybook (DEPRECATED)
+
+This repo is deprecated. New scss and js should be added to [`playbook`](https://github.com/powerhome/playbook) or directly into `nitro-web`. Eventually, all `storybook` styles and functionality will also be moved into `playbook` or `nitro-web`. If you are touching this repository, it should be in an effort to move out logic, and not add.
 
 This repo provides the tools to implement view components which make up the visual appearance of Nitro.
 
 * Stylesheets for the app navigation and general appearance
 * Self-contained React components for use in building views
 
-The intent of this repo is to provide a base on which other UIs can be built such that they maintain visual consistency and the Nitro brand.
-
+The intent of this repo was to provide a base on which other UIs can be built such that they maintain visual consistency and the Nitro brand. That will now be the intent of `playbook`.
 
 - [Quick Start](#quick-start)
 - [Local Storybook Development in Nitro-Web](#local-storybook-development-in-nitro-web)
-- [Other options for storybook in Nitro-Web](#other-options-for-storybook-in-nitro-web)
-- [Getting Your Changes Into Nitro-Web](#getting-your-changes-into-nitro-web)
-- [Creating Components](#creating-components)
+- [Publishing a new version](#publishing-a-new-version)
+- [Updating in `nitro-web`](#updating-in-nitro-web)
 - [Converting Existing Components](#converting-existing-components)
 
-
 ## Quick Start
+
 From the current project directory, run:
 
 1. ensure you are running proper node version (see `package.json` => `engines`)
-2. `yarn install`
-3. `yarn run storybook`
-4. navigate to [localhost:9001](http://localhost:9001)
+1. `yarn install`
+1. `yarn run storybook`
+1. navigate to [localhost:9001](http://localhost:9001)
 
 ---
 
 ## Local Storybook Development in Nitro-Web
+
 Its easy to create and test out a component on nitro in real time, even with hot reload. You can point your local storybook folder as you develop it.
 
-##### Update the storybook in the Gemfile to a local path
-`gem "nitro_sg", :path => "/path/to/storybook/locally"`
+#### Update the storybook in the Gemfile to a local path
 
-##### Update the storybook in package.json to a local path
-`”nitro-storybook": "/path/to/storybook/locally"`
+```ruby
+gem "nitro_sg", :path => "/path/to/storybook/locally"
+```
 
-> if you have any problems with assets not showing try running:
-`bundle exec rake assets:clobber`
+#### Update the storybook in package.json to a local path
 
+```js
+"nitro-sg": "/path/to/storybook/locally",
+```
 
----
+If you have any problems with assets not showing try running:
 
-## Other options for storybook in Nitro-Web
-You’ll need to point to a something published on GitHub when your ready to deploy it. Here are some options for you:
-
-##### Gemfile - Tag
-`gem "nitro_sg", git: "git@github.com:powerhome/nitro-styleguide.git", tag: "v1.2.1"`
-
-##### Gemfile - SHA
-`gem "nitro_sg", git: "git@github.com:powerhome/nitro-styleguide.git", ref: "4aded"`
-
-##### Gemfile - Branch
-`gem "nitro_sg", git: "git@github.com:powerhome/nitro-styleguide.git", branch: "branchname"`
-
-##### package.json - Branch
-`"nitro-storybook": "git+ssh://git@github.com/powerhome/nitro-storybook.git#branchname",`
-
+```
+bundle exec rake assets:clobber
+```
 
 ---
 
-## Getting Your Changes Into Nitro-Web
+## Publishing a new version
 
 ### 1. Increase your version
 
-Check the [releases](https://github.com/powerhome/nitro-storybook/releases) and increase your version by 1 in the following files:
+Increase your version in the following files:
 
 ```
 lib/nitro_sg/version.rb
@@ -74,129 +65,66 @@ Be sure and run the following anytime you version up:
 
 `yarn install && bundle install`
 
-
 ### 2. Prep a Storybook PR
 
 Get your `nitro-storybook` PR approved and merged into the `nitro-storybook`'s `master` branch.
 
-### 3. Create a Tag & Release
+### 3. Publish as a Ruby gem
 
-Once your merged you need to create a tag so we can reference this version. Here are some easy ways to create and delete tags:
+If you are not an owner of the [`nitro-sg` gem](https://rubygems.org/gems/nitro_sg), then first ask a member of the UX/UI to add you. You must have/create a free rubygems.org account first.
 
-##### Add A Tag
-```
-git tag v1.0.1
-git push origin v1.0.1
-```
+Once you are an owner, and your PR is merged, checkout the `master` branch and pull in your changes. Next, run `gem build nitro_sg.gemspec`. This will create the gem artifact, called something like `nitro_sg-3.4.5.gem`, where `3.4.5` is your new version.
 
-##### Remove A Tag
-```
-git tag -d v1.0.1
-git push --delete origin v1.0.1
-```
+You can then push your gem up to `rubygems.org` with `nitro_sg-3.4.5.gem`.
 
-### 4. Update references in Nitro Web
+### 4. Publish as a NPM package
 
-##### Package.json
-`"nitro-storybook": "git+ssh://git@github.com/powerhome/nitro-storybook.git#v1.9.2",`
+If you are not an owner of the [`nitro-sg` package](https://www.npmjs.com/package/nitro-sg), then first ask a member of the UX/UI to add you. You must have/create a free npmjs.com account first.
 
-##### Gemfile (Usually 4 Spots)
-```
-gem "nitro_sg", git: "git@github.com:powerhome/nitro-storybook.git", tag: "v1.9.2"
-```
-
-If your updated styling doesn’t show up, you may have old assets you need to remove.
-`bundle exec rake assets:clobber`
+Once you are an owner, and your PR is merged, checkout the `master` branch and pull in your changes. Then, run `npm publish`.
 
 ---
 
-## Creating Components
+## Updating in `nitro-web`
 
-Creation of new components requires a bit of forethought. Ask yourself these questions first:
+You’ll need to point to a something published when your ready to deploy it.
 
-1. Does the component already exist in `nitro_react` ?
-    1. Yes - see [Converting Existing Components](#converting-existing-components)
-    1. No - continue
-1. Ensure you are familiar with these concepts:
-    - using Flow.js (install tooling in your editor/IDE)
-    - creating "dumb components" in React - your new component **will not** need to be concerned with XHR requests, servers, ect.
-    - ESLint (install tooling in your editor/IDE)
-    - CSSModules
-    - Composing complex React components/organisms (so that you don't create them here!)
-    - [Storybook]()
+#### Rails side
 
-### New React Component
+Currently, `nitro_sg` is listed as a dependency in Umbrella's `Gemfile`:
 
-Here are the steps to creating a new `Foo` component (in order):
+```ruby
+gem "nitro_sg", "3.4.5"
+```
 
-1. Create a new directory under `/components` named `Foo`
-1. Create `Foo.jsx` inside the directory with the contents:
-    ```javascript
-    /* @flow */
+And in two component's `gemspec` files, `nitro_theme` and `apm`:
 
-    import React from 'react'
+```ruby
+  s.add_dependency "nitro_sg", "3.4.5"
+```
 
-    type Props = {}
+After updating to a new version in these places, run `bundle install` in `apm` and `nitro_theme`. Then follow up by running `components/do.sh bundle --quiet` from root to iterate through every component and refresh their `Gemfile.lock`s. **Be sure to specify a version in you Ruby gem files! (`3.4.5`) Otherwise, fuzzy matching will not force an update across Nitro.**
 
-    export default class Foo extends React.Component<Props> {
-      static defaultProps = {}
-      props: Props
-      render() {
-        return <span>{`I'm a Foo`}</span>
-      }
-    }
+#### React side
 
-    ```
-1. Create `styles.scss` inside the directory with the contents:
-    ```scss
-    .foo {}
-    ```
-1. Add the stylesheet as an import by adding this line:
-    ```javascript
-    import styles from './styles.scss'
-    ```
-1. Then make use of the import by adding `styles.foo` as the `className`:
-    ```javascript
-    render() {
-      return <span className={styles.foo}>{`I'm a Foo`}</span>
-    }
-    ```
-1. Add `Foo.jsx` to the component index in `components/index.js`
-    ```javascript
-    export Foo from './Foo/Foo.jsx'
-    ```
+Update the `package.json` in the `nitro_react` component with a version like so:
 
-#### Create the Story
+```js
+"nitro-sg": "3.4.5",
+```
 
-1. Within the same directory, create a `FooStory.jsx` with the contents:
-    ```javascript
-    import React from "react"
-    import Foo from "./Foo"
+Then be sure to run `yarn install` in both `nitro_react` and on Umbrella.
 
-    import { text, select, boolean } from "@storybook/addon-knobs"
+#### Debugging
 
-    export default function FooStory(stories) {
-      stories.add("Foo",
-        () => {
-          let props = {}
-          return (
-            <Foo {...props}/>
-          )
-        }
-      )
-    }
-    ```
-1. Add the story to the appropriate story index. This will depend on the intent of your component. `Foo` is pretty simply 😁, hence we will add it to `/stories/basic.js` like so:
-    ```javascript
-    export FooStory from '../components/Foo/FooStory'
-    ```
-    This will add your `Foo` story to the categoy "Basic Components" in Storybook
+If your updated styling does not show up, you may have old assets you need to remove. Try
+`bundle exec rake assets:clobber`
 
 ---
 
 ## Converting Existing Components
 
-Conversion of existing components in `nitro_react` is a little different since we already have a decent class structure in the jsx component. There are, however, a few considerations:
+Conversion of existing components to `nitro_react` is a little different since we already have a decent class structure in the jsx component. There are, however, a few considerations:
 
 - Use Flow.js types instead of `PropTypes`
 - use `class` instead of `function` (see the examples below)
