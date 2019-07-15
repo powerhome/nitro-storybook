@@ -2,6 +2,7 @@
 
 import React from 'react'
 import classnames from 'classnames/bind'
+import { uniqueId } from 'lodash'
 
 import {OverlayTrigger, Popover} from 'react-bootstrap'
 
@@ -53,7 +54,7 @@ export default class Avatar extends React.Component<Props> {
       styles[`avatar-${size}`],
     ]
     const popover = (
-      <Popover>
+      <Popover id={uniqueId()}>
         <img
             className={classnames(imgCSS)}
             src={url}
