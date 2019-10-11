@@ -1,0 +1,74 @@
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+@mixin at-landscape {
+  @media screen and (orientation:landscape) {
+    @content;
+  }
+}
+@mixin at-retina($asset, $width, $height) {
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    background-image: url($asset);
+    background-size: $width, $height;
+  }
+}
+@mixin mobile-only($include_portrait_tablet: false) {
+  @if $include_portrait_tablet == true {
+    @media screen and (max-width: $mobile), (orientation: portrait) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+}
+@mixin tablet-only {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    @content;
+  }
+}
+@mixin tablet-and-above {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+@mixin tablet-and-below {
+  @media screen and (max-width: $desktop) {
+    @content;
+  }
+}
+@mixin desktop-only {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+@mixin desktop-large {
+  @media screen and (min-width: $large-desktop) {
+    @content;
+  }
+}
+// Custom Min Query
+@mixin media-min-width($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+@mixin media_min_width($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+// Custom Max Query
+@mixin media-max-width($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+@mixin media_max_width($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
